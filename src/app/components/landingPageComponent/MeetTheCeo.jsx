@@ -41,7 +41,7 @@ const MeetTheCeo = () => {
                   transparency, and truthfulness. With a steadfast commitment to
                   delivering exceptional service and honest communication, he
                   has established Hamstrong Limited as a reliable and
-                  customer-focused real estate platform. Sulaiman's vision is to
+                  customer-focused real estate platform. Sulaiman vision is to
                   create lasting relationships with clients, ensuring they have
                   a seamless and trustworthy experience when searching for their
                   dream property.

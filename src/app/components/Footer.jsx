@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="col-span-6">
           <div className="flex items-start gap-3">
             <div>
-              <Image src={logo} height={70} width={70} />
+              <Image alt="logo" src={logo} height={70} width={70}/>
             </div>
             <div>
               <p>

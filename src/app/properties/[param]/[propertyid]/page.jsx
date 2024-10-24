@@ -27,7 +27,7 @@ import ChurchIcon from "@mui/icons-material/Church";
 import EmergencyIcon from "@mui/icons-material/Emergency";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
-const page = () => {
+const Page = () => {
   const { param, propertyid } = useParams();
   const [open, setOpen] = useState(false);
   console.log(param);

@@ -34,7 +34,7 @@ const HowItWorks = () => {
             </h1>
             <p className="text-justify">
               Discover your dream property in our extensive catalog! Whether
-              you're looking for affordable homes, luxury estates, shortlets, or
+              you are looking for affordable homes, luxury estates, shortlets, or
               lease options, we have something tailored to your needs. Explore a
               wide range of properties and find the perfect match, from cozy
               retreats to expansive residences. Dive into an endless selection
