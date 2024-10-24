@@ -66,11 +66,11 @@ const PropertyCard = ({ props }) => {
             {/* Content Section */}
             <div className="p-4 flex flex-col gap-2">
               <Link href={`/properties/${props}/${item.title}`}>
-                <h1 className="text-xl font-bold hover:cursor-pointer">
+                <h1 className="text-xl font-bold hover:cursor-pointer line-clamp-1">
                   {item.title}
                 </h1>
               </Link>
-              <h1 className="text-xl font-bold text-[#008080] flex items-center">
+              <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
                 <svg
                   className="icon icon-tabler icon-tabler-currency-naira"
                   fill="none"
@@ -91,7 +91,7 @@ const PropertyCard = ({ props }) => {
                 {item.price}
               </h1>
 
-              <p className="text-gray-700">{item.description}</p>
+              <p className="text-gray-700 line-clamp-2">{item.description}</p>
 
               {/* Location and Other Info */}
               <div className="flex items-center gap-2">

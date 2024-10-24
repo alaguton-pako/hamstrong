@@ -1,8 +1,8 @@
 import Image from "next/image";
 import logo from "@/app/images/logo/hamstrongLogo2.jpeg";
 import NavBarMenu from "./NavBarMenu";
-import FavouriteComponent from "./FavouriteComponent";
 import Link from "next/link";
+import DrawerComponent from "./DrawerComponent";
 const NavBar = () => {
   return (
     <>
@@ -17,7 +17,7 @@ const NavBar = () => {
           <NavBarMenu />
         </div>
         <div className="mr-3">
-          <FavouriteComponent />
+          <DrawerComponent />
         </div>
       </div>
     </>

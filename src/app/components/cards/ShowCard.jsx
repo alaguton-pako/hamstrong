@@ -42,8 +42,8 @@ const ShowCard = ({
         />
       </div>
       <div className="p-4 flex flex-col gap-2">
-        <h1 className="text-xl font-bold">{title}</h1>
-        <h1 className="text-xl font-bold text-[#008080] flex items-center">
+        <h1 className="text-xl font-bold line-clamp-1">{title}</h1>
+        <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
           <svg
             className="icon icon-tabler icon-tabler-currency-naira"
             fill="none"
@@ -63,8 +63,7 @@ const ShowCard = ({
           </svg>
           {price}
         </h1>
-
-        <p className="text-gray-700">{description}</p>
+        <p className="text-gray-700 line-clamp-2">{description}</p>
         <div className="flex items-center gap-2">
           <p className="text-gray-700 text-sm flex items-center">
             <LocationOnIcon sx={{ color: "#4B4B4B" }} />
