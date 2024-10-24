@@ -17,7 +17,7 @@ const Page = () => {
   const param = params.param;
   const filter = searchParams.get("type");
   const [selectedValue, setSelectedValue] = useState(
-    filter === "buy" ? "sales" : filter
+    filter === "buy" || filter === "all" ? "sales" : filter
   );
   const [selectedBedroomValue, setSelectedBedroomsValue] = useState("Bedrooms");
   const [selectedMinPriceValue, setSelectedMinPriceValue] =
@@ -130,15 +130,27 @@ const Page = () => {
             <KeyboardArrowRightIcon />
             <p>
               {param && param === "flat-apartment"
-                ? `Flats & Apartment for ${filter === "buy" ? "Sale" : filter}`
+                ? `Flats & Apartment for ${
+                    filter === "buy"
+                      ? "Sale"
+                      : filter === "all-properties"
+                      ? "Sale"
+                      : filter
+                  }`
+                : param === "all-properties"
+                ? `All Properties for Sale`
                 : param}
             </p>
           </div>
           <p className="text-2xl font-semibold text-[#3d4578]">
             {param && param === "flat-apartment"
               ? `Flats & Apartment available for ${
-                  filter === "buy" ? "Sale " : filter
-                } `
+                  filter === "buy" || filter === "all-properties"
+                    ? "Sale"
+                    : filter
+                }`
+              : param === "all-properties"
+              ? `All Properties available for Sale`
               : param}
           </p>
           <div className="grid grid-cols-12 gap-3">

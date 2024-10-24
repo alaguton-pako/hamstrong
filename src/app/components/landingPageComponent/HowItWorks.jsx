@@ -33,15 +33,19 @@ const HowItWorks = () => {
               Our Catalogue
             </h1>
             <p className="text-justify">
-              Discover your dream property in our extensive catalog! Whether
-              you are looking for affordable homes, luxury estates, shortlets, or
+              Discover your dream property in our extensive catalog! Whether you
+              are looking for affordable homes, luxury estates, shortlets, or
               lease options, we have something tailored to your needs. Explore a
               wide range of properties and find the perfect match, from cozy
               retreats to expansive residences. Dive into an endless selection
               and start your journey to finding the ideal space today.
             </p>
             <div>
-              <GetStartedButton text={"Explore"} param={"all"} />
+              <GetStartedButton
+                text={"Explore"}
+                param={"all-properties"}
+                filter={"all"}
+              />
             </div>
           </div>
         </div>
@@ -93,7 +97,11 @@ const HowItWorks = () => {
             </p>
 
             <div>
-              <GetStartedButton text={"Get Started"} param={"all"} />
+              <GetStartedButton
+                text={"Get Started"}
+                param={"all-properties"}
+                type={"all"}
+              />
             </div>
           </div>
         </div>

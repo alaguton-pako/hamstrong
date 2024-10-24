@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Button } from "@mui/material";
 
-const GetStartedButton = ({ text, filter, param }) => {
-  const href = filter
+const GetStartedButton = ({ text, type, param }) => {
+  const href = type
     ? {
         pathname: `/properties/${param}`,
-        query: { filter },
+        query: { type },
       }
     : `/properties/${param}`;
   return (

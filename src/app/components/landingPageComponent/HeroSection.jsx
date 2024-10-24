@@ -49,7 +49,11 @@ const HeroSection = () => {
           Discover our extensive range of properties and find your perfect match
           with us!
         </p>
-        <GetStartedButton text={"Explore Properties"} param={"all"} />
+        <GetStartedButton
+          text={"Explore Properties"}
+          param={"all-properties"}
+          type={"all"}
+        />
       </div>
     </div>
   );
