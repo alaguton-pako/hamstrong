@@ -26,6 +26,7 @@ import MosqueIcon from "@mui/icons-material/Mosque";
 import ChurchIcon from "@mui/icons-material/Church";
 import EmergencyIcon from "@mui/icons-material/Emergency";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import PropertyInfoCard from "@/app/components/cards/PropertyInfoCard";
 
 const Page = () => {
   const { param, propertyid } = useParams();
@@ -106,7 +107,6 @@ const Page = () => {
                 render={{ slide: NextJsImage }}
               />
             </div>
-
             <div className="col-span-3">
               <div className="relative w-full h-0 pb-[56.25%] rounded-md">
                 <iframe
@@ -124,6 +124,28 @@ const Page = () => {
                 </h1>
                 <div className="flex justify-center">
                   <div className="flex flex-col gap-3">
+                    <div>
+                      <h1 className="text-lg font-bold text-[#3d4578] flex items-center">
+                        <svg
+                          className="icon icon-tabler icon-tabler-currency-naira"
+                          fill="none"
+                          height="30"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          width="30"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+                          <path d="M7 18v-10.948a1.05 1.05 0 0 1 1.968 -.51l6.064 10.916a1.05 1.05 0 0 0 1.968 -.51v-10.948" />
+                          <path d="M5 10h14" />
+                          <path d="M5 14h14" />
+                        </svg>
+                        200,000,000
+                      </h1>
+                    </div>
                     <div className="flex items-start gap-1">
                       <LocationOnSharp
                         fontSize="small"
@@ -216,14 +238,9 @@ const Page = () => {
               </div>
             </div>
           </div>
-          <div className="my-4">
-            <div className="flex flex-col gap-2">
-              <div>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel
-                aut laudantium porro odio tenetur in vero impedit, sunt
-                excepturi, voluptatum minus doloribus hic maxime neque animi
-                inventore, recusandae reiciendis officia!
-              </div>
+          <div className="my-4 grid grid-cols-12">
+            <div className="col-span-9">
+              <PropertyInfoCard />
             </div>
           </div>
         </div>
@@ -233,4 +250,4 @@ const Page = () => {
   );
 };
 
-export default page;
+export default Page;
