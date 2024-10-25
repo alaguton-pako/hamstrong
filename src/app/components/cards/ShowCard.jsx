@@ -12,6 +12,7 @@ import Favorite from "@mui/icons-material/Favorite";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Link from "next/link";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -42,7 +43,9 @@ const ShowCard = ({
         />
       </div>
       <div className="p-4 flex flex-col gap-2">
-        <h1 className="text-xl font-bold line-clamp-1">{title}</h1>
+        <Link href={`/properties/all-properties/${title}`}>
+          <h1 className="text-xl font-bold line-clamp-1">{title}</h1>
+        </Link>
         <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
           <svg
             className="icon icon-tabler icon-tabler-currency-naira"
@@ -72,11 +75,11 @@ const ShowCard = ({
           {number_of_bathrooms && number_of_bedrooms && (
             <div className="flex items-center gap-2">
               <p className="text-gray-700 text-sm flex items-center gap-2">
-                <BathroomIcon sx={{ color: "#4B4B4B" }} fontSize="small"/>
+                <BathroomIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
                 {number_of_bathrooms}
               </p>
               <p className="text-gray-700 text-sm flex items-center gap-2">
-                <HotelIcon sx={{ color: "#4B4B4B" }} fontSize="small"/>
+                <HotelIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
                 {number_of_bedrooms}
               </p>
             </div>
@@ -84,12 +87,12 @@ const ShowCard = ({
         </div>
         <div className="flex items-center gap-2">
           <div className="text-gray-700 text-sm flex items-center gap-2">
-            <PhotoCameraIcon sx={{ color: "#4B4B4B" }} fontSize="small"/>
+            <PhotoCameraIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
             {image_count}
           </div>
           {video && (
             <div className="text-gray-700 text-sm flex items-center gap-2">
-              <VideocamIcon sx={{ color: "#4B4B4B" }} fontSize="small"/>
+              <VideocamIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
               {video && "video available"}
             </div>
           )}
@@ -109,17 +112,17 @@ const ShowCard = ({
         <div className="flex items-center gap-2">
           <Checkbox
             {...label}
-            icon={<FavoriteBorder sx={{ color: "#ff8433" }} fontSize="small"/>}
-            checkedIcon={<Favorite fontSize="small"/>}
+            icon={<FavoriteBorder sx={{ color: "#ff8433" }} fontSize="small" />}
+            checkedIcon={<Favorite fontSize="small" />}
           />
           <IconButton>
-            <FacebookIcon sx={{ color: "#ff8433" }} fontSize="small"/>
+            <FacebookIcon sx={{ color: "#ff8433" }} fontSize="small" />
           </IconButton>
           <IconButton>
-            <XIcon sx={{ color: "#ff8433" }} fontSize="small"/>
+            <XIcon sx={{ color: "#ff8433" }} fontSize="small" />
           </IconButton>
           <IconButton>
-            <WhatsAppIcon sx={{ color: "#ff8433" }} fontSize="small"/>
+            <WhatsAppIcon sx={{ color: "#ff8433" }} fontSize="small" />
           </IconButton>
         </div>
       </div>

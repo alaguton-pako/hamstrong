@@ -56,10 +56,19 @@ const NavBarMenu = () => {
     return () => clearTimeout(timer);
   }, [isHoveringShortlet]);
 
-  const href = {
-    pathname: `/properties/flat-apartment`,
-    query: { type: "buy" },
-  };
+  const properties = [
+    { name: "Flats & Apartments for sale", path: "flat-apartment" },
+    { name: "Houses for sale", path: "house" },
+    { name: "Lands for sale", path: "land" },
+    { name: "Commercial property for sale", path: "commercial-property" },
+  ];
+
+  const propertiesForRent = [
+    { name: "Flats & Apartments for sale", path: "flat-apartment" },
+    { name: "Houses for sale", path: "house" },
+    { name: "Lands for sale", path: "land" },
+    { name: "Commercial property for sale", path: "commercial-property" },
+  ];
 
   const href2 = {
     pathname: `/properties/flat-apartment`,
@@ -82,24 +91,30 @@ const NavBarMenu = () => {
         {showBuyMenu && (
           <div className="absolute top-full mt-2 w-[20rem]">
             <ul className="p-2 bg-white border border-[#ffccaa] rounded-md">
-              <Link href={href}>
+              {properties.map((property, index) => (
+                <Link
+                  key={index}
+                  href={{
+                    pathname: `/properties/${property.path}`,
+                    query: { type: "buy" },
+                  }}
+                >
+                  <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                    {property.name}
+                  </li>
+                </Link>
+              ))}
+              <Divider />
+              <Link
+                href={{
+                  pathname: "/properties/all-properties",
+                  query: { type: "buy" },
+                }}
+              >
                 <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                  Flats & Apartments for sale
+                  All property for sale
                 </li>
               </Link>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Houses for sale
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Lands for sale
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Commercial property for sale
-              </li>
-              <Divider />
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                All property for sale
-              </li>
             </ul>
           </div>
         )}
@@ -119,24 +134,30 @@ const NavBarMenu = () => {
         {showRentMenu && (
           <div className="absolute top-full mt-2 w-[20rem]">
             <ul className="p-2 bg-white border border-[#ffccaa] rounded-md">
-              <Link href={href2}>
+              {propertiesForRent.map((property, index) => (
+                <Link
+                  key={index}
+                  href={{
+                    pathname: `/properties/${property.path}`,
+                    query: { type: "rent" },
+                  }}
+                >
+                  <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                    {property.name}
+                  </li>
+                </Link>
+              ))}
+              <Divider />
+              <Link
+                href={{
+                  pathname: "/properties/all-properties",
+                  query: { type: "rent" },
+                }}
+              >
                 <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                  Flats & Apartments for rent
+                  All property for rent
                 </li>
               </Link>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Houses for rent
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Lands for rent
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Commercial property for rent
-              </li>
-              <Divider />
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                All property for rent
-              </li>
             </ul>
           </div>
         )}

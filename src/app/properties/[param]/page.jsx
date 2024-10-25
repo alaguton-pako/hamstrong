@@ -108,7 +108,7 @@ const Page = () => {
               textTransform: "initial",
             }}
           >
-            search
+            apply filter
           </Button>
 
           <Button
