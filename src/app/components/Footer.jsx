@@ -10,14 +10,22 @@ import {
 } from "@mui/icons-material";
 import XIcon from "@mui/icons-material/X";
 import { IconButton } from "@mui/material";
+import Link from "next/link";
 const Footer = () => {
+  const menu = [
+    { name: "Lands", path: "land", type: "buy" },
+    { name: "Duplex", path: "house", type: "buy" },
+    { name: "Semi Detached", path: "house", type: "buy" },
+    { name: "Terrace Bungalow", path: "house", type: "buy" },
+    { name: "Terrace Duplex", path: "house", type: "buy" },
+  ];
   return (
     <>
       <div className="grid grid-cols-12 bg-[#33af67] text-[#fff] text-sm p-4">
         <div className="col-span-6">
           <div className="flex items-start gap-3">
             <div>
-              <Image alt="logo" src={logo} height={70} width={70}/>
+              <Image alt="logo" src={logo} height={70} width={70} />
             </div>
             <div>
               <p>
@@ -37,12 +45,29 @@ const Footer = () => {
             <div className="col-span-4">
               <h1 className="font-semibold mb-3">Quick Links</h1>
               <ul className="flex flex-col gap-2">
-                <li className="hover:text-[#ff8433] cursor-pointer">Lands</li>
-                <li className="hover:text-[#ff8433] cursor-pointer">Shortlets</li>
-                <li className="hover:text-[#ff8433] cursor-pointer">Duplex</li>
-                <li className="hover:text-[#ff8433] cursor-pointer">Semi Detached</li>
-                <li className="hover:text-[#ff8433] cursor-pointer">Terrace Bungalow</li>
-                <li className="hover:text-[#ff8433] cursor-pointer">Terrace Duplex</li>
+                {menu.map((property, index) => (
+                  <Link
+                    key={index}
+                    href={{
+                      pathname: `/properties/${property.path}`,
+                      query: { type: "buy" },
+                    }}
+                  >
+                    <li className="hover:text-[#ff8433] cursor-pointer">
+                      {property.name}
+                    </li>
+                  </Link>
+                ))}
+                <Link
+                  href={{
+                    pathname: `/properties/shortlet-all`,
+                    query: { type: "shortlet" },
+                  }}
+                >
+                  <li className="hover:text-[#ff8433] cursor-pointer">
+                    Shortlet
+                  </li>
+                </Link>
               </ul>
             </div>
             <div className="col-span-4">

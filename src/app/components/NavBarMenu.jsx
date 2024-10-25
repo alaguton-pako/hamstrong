@@ -57,23 +57,18 @@ const NavBarMenu = () => {
   }, [isHoveringShortlet]);
 
   const properties = [
-    { name: "Flats & Apartments for sale", path: "flat-apartment" },
+    // { name: "Flats & Apartments for sale", path: "flat-apartment" },
     { name: "Houses for sale", path: "house" },
     { name: "Lands for sale", path: "land" },
     { name: "Commercial property for sale", path: "commercial-property" },
   ];
 
   const propertiesForRent = [
-    { name: "Flats & Apartments for sale", path: "flat-apartment" },
-    { name: "Houses for sale", path: "house" },
-    { name: "Lands for sale", path: "land" },
-    { name: "Commercial property for sale", path: "commercial-property" },
+    // { name: "Flats & Apartments for rent", path: "flat-apartment" },
+    { name: "Houses for rent", path: "house" },
+    { name: "Lands for rent", path: "land" },
+    { name: "Commercial property for rent", path: "commercial-property" },
   ];
-
-  const href2 = {
-    pathname: `/properties/flat-apartment`,
-    query: { type: "rent" },
-  };
 
   return (
     <div className="flex items-center space-x-8">
@@ -177,19 +172,47 @@ const NavBarMenu = () => {
         {showShortletMenu && (
           <div className="absolute top-full mt-2 w-[20rem]">
             <ul className="p-2 bg-white border border-[#ffccaa] rounded-md">
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Shortlet in Abuja
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Shortlet in Lagos
-              </li>
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                Shortlet in Ibadan
-              </li>
+              <Link
+                href={{
+                  pathname: `/properties/shortlet-abuja`,
+                  query: { type: "shortlet" },
+                }}
+              >
+                <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                  Shortlet in Abuja
+                </li>
+              </Link>
+              <Link
+                href={{
+                  pathname: `/properties/shortlet-lagos`,
+                  query: { type: "shortlet" },
+                }}
+              >
+                <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                  Shortlet in Lagos
+                </li>
+              </Link>
+              <Link
+                href={{
+                  pathname: `/properties/shortlet-ibadan`,
+                  query: { type: "shortlet" },
+                }}
+              >
+                <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                  Shortlet in Ibadan
+                </li>
+              </Link>
               <Divider />
-              <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
-                All property for Shortlet
-              </li>
+              <Link
+                href={{
+                  pathname: `/properties/shortlet-all`,
+                  query: { type: "shortlet" },
+                }}
+              >
+                <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                  All property for Shortlet
+                </li>
+              </Link>
             </ul>
           </div>
         )}
