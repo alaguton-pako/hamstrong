@@ -44,7 +44,7 @@ const HowItWorks = () => {
               <GetStartedButton
                 text={"Explore"}
                 param={"all-properties"}
-                filter={"all"}
+                type={"all"}
               />
             </div>
           </div>
@@ -73,7 +73,9 @@ const HowItWorks = () => {
             </p>
 
             <div>
-              <GetInTouchButton />
+              <GetInTouchButton
+                message={"Hello, I'm been redirected from hamstrong realty and am interested in your services!"}
+              />
             </div>
           </div>
         </div>

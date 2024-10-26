@@ -1,7 +1,19 @@
+"use client"
 import { Button } from "@mui/material";
 import { WhatsApp } from "@mui/icons-material";
 
-const GetInTouchButton = () => {
+const GetInTouchButton = ({ message, imageUrl }) => {
+  const phoneNumber = "2347035648652";
+  const handleClick = () => {
+    let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    if (imageUrl) {
+      url += `%0A${encodeURIComponent(imageUrl)}`;
+    }
+    window.open(url, "_blank");
+  };
+
   return (
     <div>
       <Button
@@ -20,6 +32,7 @@ const GetInTouchButton = () => {
             borderColor: "#ff8433",
           },
         }}
+        onClick={handleClick}
       >
         Ready to Close a Deal?
       </Button>

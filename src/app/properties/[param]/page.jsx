@@ -16,6 +16,9 @@ const Page = () => {
   const searchParams = useSearchParams();
   const param = params.param;
   const filter = searchParams.get("type");
+  const initialCategoryValue = param.startsWith("shortlet")
+    ? "shortlet"
+    : param;
   const [selectedValue, setSelectedValue] = useState(
     filter === "buy" || filter === "all" ? "sales" : filter
   );
@@ -24,7 +27,8 @@ const Page = () => {
     useState("Min Price");
   const [selectedMaxPriceValue, setSelectedMaxPriceValue] =
     useState("Max Price");
-  const [selectedCategoryValue, setSelectedCategoryValue] = useState(20);
+  const [selectedCategoryValue, setSelectedCategoryValue] =
+    useState(initialCategoryValue);
 
   const type = [
     { value: "sales", label: "Sale" },
@@ -56,10 +60,11 @@ const Page = () => {
   ];
 
   const categoryOptions = [
-    { value: 20, label: "All Categories" },
-    { value: 1, label: "Home" },
-    { value: 2, label: "Land" },
-    { value: 3, label: "Shop" },
+    { value: "all-properties", label: "All Properties" },
+    { value: "house", label: "House" },
+    { value: "land", label: "Land" },
+    { value: "commercial-property", label: "Commercial" },
+    { value: "shortlet", label: "Shortlet" },
   ];
 
   const handleSearch = (term) => {
