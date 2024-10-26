@@ -22,27 +22,26 @@ const Footer = () => {
   return (
     <>
       <div className="grid grid-cols-12 bg-[#33af67] text-[#fff] text-sm p-4">
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-5">
           <div className="flex items-start gap-3">
             <div>
               <Image alt="logo" src={logo} height={70} width={70} />
             </div>
             <div>
-              <p>
-                Hamstrong Realty Limited is registered under the Nigeria CAC
-              </p>
+              <div className="flex flex-col  gap-1">
+                <p className="hover:text-[#ff8433] ">Privacy & Policy</p>
+                <p className="hover:text-[#ff8433] ">Terms and Conditions</p>
+                <p className="hover:text-[#ff8433] ">Powered by Luxury Build</p>
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 my-3">
-            <p>© 2024 Hamstrong Realty Limited</p>
-            <p>Powered by Lux Build</p>
-            <p>Privacy & Policy</p>
-            <p>Terms and Conditions</p>
+          <div className="mt-6">
+            <p>Hamstrong Realty Limited is registered under the Nigeria CAC</p>
           </div>
         </div>
-        <div className="col-span-6">
+        <div className="col-span-12 md:col-span-7">
           <div className="grid grid-cols-12">
-            <div className="col-span-4">
+            <div className="col-span-12 md:col-span-4">
               <h1 className="font-semibold mb-3">Quick Links</h1>
               <ul className="flex flex-col gap-2">
                 {menu.map((property, index) => (
@@ -70,7 +69,7 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-4">
+            <div className="col-span-12 md:col-span-4">
               <h1 className="font-semibold mb-3">Contacts</h1>
               <div className="flex flex-col gap-2">
                 <div className="flex items-start gap-1">
@@ -87,7 +86,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-span-4">
+            <div className="col-span-12 md:col-span-4">
               <h1 className="font-semibold mb-3">Social Links</h1>
               <div className="flex items-center gap-2">
                 <IconButton>
@@ -133,6 +132,14 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="col-span-12">
+          <p
+            className="text-xs flex items-center justify-center mt-5
+          "
+          >
+            © 2024 All Rights Reserved Hamstrong Realty Limited.
+          </p>
         </div>
       </div>
     </>

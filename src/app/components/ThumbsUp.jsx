@@ -10,7 +10,7 @@ const ThumbsUp = () => {
         animationData={animationData}
         loop
         autoplay
-        style={{ width: 400, height: 400 }}
+        style={{ width: 300, height: 400 }}
       />
     </div>
   );

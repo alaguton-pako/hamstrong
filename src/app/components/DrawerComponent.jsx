@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
-import ListItemButton from "@mui/material/ListItemButton";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
@@ -12,13 +11,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import GetStartedButton from "./buttons/GetStratedButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Button } from "@mui/material";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import Checkbox from "@mui/material/Checkbox";
+import { useState, useEffect } from "react";
+import FavouriteButton from "./buttons/FavouriteButton";
+import Link from "next/link";
+
 export default function DrawerComponent() {
-  const [open, setOpen] = React.useState(false);
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const [open, setOpen] = useState(false);
+  const [favorites, setFavorites] = useState([]);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
@@ -32,20 +32,20 @@ export default function DrawerComponent() {
     },
   }));
 
-  const usersFavourite = [
-    { name: "Lekki Golf House", location: "kado, Abuja", price: "40,000,000" },
-    {
-      name: "Steel mansion Jamaican Cresent",
-      location: "Lagos",
-      price: "10,000,000",
-    },
-  ];
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(storedFavorites);
+  }, []);
 
-  const usersFavourite2 = [];
+  const handleClearFavorites = () => {
+    localStorage.removeItem("favorites");
+    setFavorites([]);
+    setOpen(false);
+  };
 
   const DrawerList = (
     <Box sx={{ width: 300 }} role="presentation">
-      {usersFavourite2.length <= 0 ? (
+      {favorites.length <= 0 ? (
         <>
           <div className="h-screen flex justify-center items-center">
             <div className="w-full h-full my-10 flex justify-center items-center">
@@ -72,16 +72,18 @@ export default function DrawerComponent() {
             </div>
             <div className="p-2">
               <List>
-                {usersFavourite2.map((item, index) => (
+                {favorites.map((item, index) => (
                   <div key={index}>
                     <div className="flex items-center justify-between line-clamp-1">
                       <div className="flex items-center">
                         <span className="text-xs text-[#404b82] pr-1">
                           ({index + 1})
                         </span>{" "}
-                        <span className="text-sm text-[#404b82]">
-                          {item.name}
-                        </span>{" "}
+                        <Link href={`/properties/all-properties/${item.title}`}>
+                          <span className="text-sm text-[#404b82]">
+                            {item.title}
+                          </span>
+                        </Link>{" "}
                         <span className="h-10 w-[0.1rem] bg-slate-400 mx-1"></span>
                         <p className="text-gray-700 text-sm flex items-center">
                           <LocationOnIcon
@@ -91,15 +93,10 @@ export default function DrawerComponent() {
                           {item.location}.
                         </p>
                       </div>
-                      <Checkbox
-                        {...label}
-                        icon={
-                          <FavoriteBorder
-                            sx={{ color: "#ff8433" }}
-                            fontSize="small"
-                          />
-                        }
-                        checkedIcon={<Favorite fontSize="small" />}
+                      <FavouriteButton
+                        uuid={item.title}
+                        location={item.location}
+                        title={item.title}
                       />
                     </div>
                     <Divider />
@@ -112,6 +109,7 @@ export default function DrawerComponent() {
                 size="small"
                 variant="contained"
                 sx={{ textTransform: "initial", bgcolor: "#404b82" }}
+                onClick={handleClearFavorites}
               >
                 clear all
               </Button>
@@ -126,14 +124,14 @@ export default function DrawerComponent() {
     <div>
       <IconButton onClick={toggleDrawer(true)}>
         <StyledBadge
-          badgeContent={0}
+          badgeContent={favorites.length}
           color="success"
           anchorOrigin={{
             vertical: "top",
             horizontal: "right",
           }}
         >
-          <ShoppingCartIcon fontSize="large" sx={{ color: "#ff8433" }} />
+          <ShoppingCartIcon fontSize="medium" sx={{ color: "#ff8433" }} />
         </StyledBadge>
       </IconButton>
       <Drawer open={open} onClose={toggleDrawer(false)}>

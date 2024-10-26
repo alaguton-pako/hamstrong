@@ -5,7 +5,10 @@ import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import { Share } from "@mui/icons-material";
+import WhatsAppShareButton from "@/app/components/buttons/WhatAppShareButton";
+import TwitterShareButton from "@/app/components/buttons/TwitterShareButton";
+import FacebookShareButton from "@/app/components/buttons/FaceBookShareButton";
+import CopyToClipboardButton from "@/app/components/buttons/CopyToClipBoard";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
@@ -27,13 +30,11 @@ import ChurchIcon from "@mui/icons-material/Church";
 import EmergencyIcon from "@mui/icons-material/Emergency";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import PropertyInfoCard from "@/app/components/cards/PropertyInfoCard";
+import FavouriteButton from "@/app/components/buttons/FavouriteButton";
 
 const Page = () => {
   const { param, propertyid } = useParams();
   const [open, setOpen] = useState(false);
-  console.log(param);
-  console.log(propertyid);
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const href = {
     pathname: `/properties/${param}`,
     query: { type: "buy" },
@@ -52,24 +53,34 @@ const Page = () => {
                 <p className="hover:font-semibold">Back to search results</p>
               </Link>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <div className="flex items-center">
-                <Checkbox
-                  {...label}
-                  icon={
-                    <FavoriteBorder
-                      sx={{ color: "#ff8433" }}
-                      fontSize="small"
-                    />
-                  }
-                  checkedIcon={<Favorite fontSize="small" />}
+                <FavouriteButton
+                  uuid={decodeURIComponent(propertyid)}
+                  title={decodeURIComponent(propertyid)}
                 />
                 <span>save to favourite</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Share fontSize="small" sx={{ color: "gray" }} />
-                <span className="hover:cursor-pointer">copy link to share</span>
-              </div>
+              <Divider orientation="vertical" />
+              <span className="text-xs text-gray-400 font-semibold">
+                share :{" "}
+              </span>
+              <FacebookShareButton
+                title={"title"}
+                description={"description"}
+                url={"https://hamstrongrealty.netlify.app/"}
+              />
+              <TwitterShareButton
+                title={"title"}
+                description={"description"}
+                url={"https://hamstrongrealty.netlify.app/"}
+              />
+              <WhatsAppShareButton
+                title={"title"}
+                description={"description"}
+                url={"https://hamstrongrealty.netlify.app/"}
+              />
+              <CopyToClipboardButton uuid={propertyid} />
             </div>
           </div>
           <div>
@@ -177,7 +188,7 @@ const Page = () => {
                         info@hamstrongrealty.com
                       </p>
                     </div>
-                    <GetInTouchButton />
+                    <GetInTouchButton text={"Buy property"} />
                   </div>
                 </div>
               </div>

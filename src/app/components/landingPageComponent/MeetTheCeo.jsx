@@ -17,7 +17,7 @@ const MeetTheCeo = () => {
           </Divider>
         </div>
         <div className="grid grid-cols-12">
-          <div className="col-span-4">
+          <div className="col-span-12 md:col-span-4">
             {" "}
             <Image
               src={ceoImage}
@@ -29,7 +29,7 @@ const MeetTheCeo = () => {
               }}
             />
           </div>
-          <div className="col-span-8">
+          <div className="col-span-12 md:col-span-8">
             <div className="flex flex-col gap-6 p-4">
               <div>
                 <h1 className="text-xl font-semibold">MUHAMMED SULEIMAN</h1>

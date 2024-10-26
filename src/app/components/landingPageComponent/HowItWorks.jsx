@@ -21,10 +21,10 @@ const HowItWorks = () => {
       </div>
       {/* explore component */}
       <div className="grid grid-cols-12">
-        <div className="col-span-4">
+        <div className="col-span-12 md:col-span-4">
           <SurfingCatalogue />
         </div>
-        <div className="col-span-8">
+        <div className="col-span-12 md:col-span-8">
           <div className="flex flex-col gap-2 p-4">
             <h1 className="text-xl">
               <span className="font-semibold text-[#ff8433] text-2xl">
@@ -52,10 +52,10 @@ const HowItWorks = () => {
       </div>
       {/* found a match */}
       <div className="grid grid-cols-12">
-        <div className="col-span-4">
+        <div className="col-span-12 md:col-span-4">
           <MessageUs />
         </div>
-        <div className="col-span-8">
+        <div className="col-span-12 md:col-span-8">
           <div className="flex flex-col gap-2  p-4">
             <h1 className="text-xl">
               Found a
@@ -74,7 +74,10 @@ const HowItWorks = () => {
 
             <div>
               <GetInTouchButton
-                message={"Hello, I'm been redirected from hamstrong realty and am interested in your services!"}
+                message={
+                  "Hello, I'm been redirected from hamstrong realty and am interested in your services!"
+                }
+                text={"Make Inquiry"}
               />
             </div>
           </div>
@@ -82,11 +85,11 @@ const HowItWorks = () => {
       </div>
       {/* Get a feedback */}
       <div className="grid grid-cols-12">
-        <div className="col-span-4">
+        <div className="col-span-12 md:col-span-4">
           <ThumbsUp />
         </div>
-        <div className="col-span-8">
-          <div className="flex flex-col gap-2  p-4">
+        <div className="col-span-12 md:col-span-8">
+          <div className=" flex flex-col gap-2 p-4">
             <h1 className="text-xl">
               Get
               <span className="ml-2 font-semibold text-[#ff8433] text-2xl">
@@ -97,7 +100,6 @@ const HowItWorks = () => {
               It&apos;s easy, isn&apos;t it? Start your journey towards finding
               your dream property with Hamstrong Limited today!
             </p>
-
             <div>
               <GetStartedButton
                 text={"Get Started"}

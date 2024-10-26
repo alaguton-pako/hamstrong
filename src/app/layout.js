@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Hamstrong Realty",
-  description: "Your number one stop for all of your home needs.",
+  description:
+    "Your Number One Destination for All Your Home Essentials, Where Comfort and Quality Meet",
 };
 
 export default function RootLayout({ children }) {

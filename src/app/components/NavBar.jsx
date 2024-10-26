@@ -13,7 +13,7 @@ const NavBar = () => {
             <span>Hamstrong Realty Limited</span>
           </div>
         </Link>
-        <div className="ml-[-10rem]">
+        <div className="hidden sm:block -ml-40">
           <NavBarMenu />
         </div>
         <div className="mr-3">

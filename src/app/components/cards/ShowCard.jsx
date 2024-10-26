@@ -5,16 +5,13 @@ import BathroomIcon from "@mui/icons-material/Bathroom";
 import Chip from "@mui/material/Chip";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { Divider, IconButton } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import XIcon from "@mui/icons-material/X";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Divider } from "@mui/material";
 import Link from "next/link";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import FacebookShareButton from "../buttons/FaceBookShareButton";
+import TwitterShareButton from "../buttons/TwitterShareButton";
+import WhatsAppShareButton from "../buttons/WhatAppShareButton";
+import CopyToClipboardButton from "../buttons/CopyToClipBoard";
+import FavouriteButton from "../buttons/FavouriteButton";
 
 const ShowCard = ({
   image,
@@ -29,7 +26,7 @@ const ShowCard = ({
   video,
 }) => {
   return (
-    <div className="bg-[#FFF1F0] flex flex-col mb-3 rounded-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+    <div className="bg-[#FFF1F0] flex flex-col mb-3 rounded-sm hover:shadow-lg transition-shadow duration-300">
       <div className="relative h-64">
         <Image
           src={image}
@@ -44,7 +41,9 @@ const ShowCard = ({
       </div>
       <div className="p-4 flex flex-col gap-2">
         <Link href={`/properties/all-properties/${title}`}>
-          <h1 className="text-xl font-bold line-clamp-1">{title}</h1>
+          <h1 className="text-xl font-bold line-clamp-1 cursor-pointer">
+            {title}
+          </h1>
         </Link>
         <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
           <svg
@@ -67,7 +66,7 @@ const ShowCard = ({
           {price}
         </h1>
         <p className="text-gray-700 line-clamp-2">{description}</p>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <p className="text-gray-700 text-sm flex items-center">
             <LocationOnIcon sx={{ color: "#4B4B4B" }} />
             {location}
@@ -110,20 +109,25 @@ const ShowCard = ({
         </div>
         <Divider />
         <div className="flex items-center gap-2">
-          <Checkbox
-            {...label}
-            icon={<FavoriteBorder sx={{ color: "#ff8433" }} fontSize="small" />}
-            checkedIcon={<Favorite fontSize="small" />}
+          <FavouriteButton uuid={title} location={location} title={title} />
+          <Divider orientation="vertical" />
+          {/* <span className="text-xs text-gray-400 font-semibold">share : </span> */}
+          <FacebookShareButton
+            title={title}
+            description={description}
+            url={"https://hamstrongrealty.netlify.app/"}
           />
-          <IconButton>
-            <FacebookIcon sx={{ color: "#ff8433" }} fontSize="small" />
-          </IconButton>
-          <IconButton>
-            <XIcon sx={{ color: "#ff8433" }} fontSize="small" />
-          </IconButton>
-          <IconButton>
-            <WhatsAppIcon sx={{ color: "#ff8433" }} fontSize="small" />
-          </IconButton>
+          <TwitterShareButton
+            title={title}
+            description={description}
+            url={"https://hamstrongrealty.netlify.app/"}
+          />
+          <WhatsAppShareButton
+            title={title}
+            description={description}
+            url={"https://hamstrongrealty.netlify.app/"}
+          />
+          <CopyToClipboardButton uuid={title} />
         </div>
       </div>
     </div>

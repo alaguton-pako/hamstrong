@@ -9,14 +9,13 @@ import BathroomIcon from "@mui/icons-material/Bathroom";
 import Chip from "@mui/material/Chip";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { Divider, IconButton } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import XIcon from "@mui/icons-material/X";
+import { Divider } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import WhatsAppShareButton from "../buttons/WhatAppShareButton";
+import FacebookShareButton from "../buttons/FaceBookShareButton";
+import TwitterShareButton from "../buttons/TwitterShareButton";
+import CopyToClipboardButton from "../buttons/CopyToClipBoard";
+import FavouriteButton from "../buttons/FavouriteButton";
 
 const PropertyCard = ({ props }) => {
   const [selectedValue, setSelectedValue] = useState("select");
@@ -26,9 +25,6 @@ const PropertyCard = ({ props }) => {
     { value: "highest", label: "Highest price" },
     { value: "bedspace", label: "Bed" },
   ];
-
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
   return (
     <div className="flex flex-col gap-2">
       <div className="p-2 flex items-center justify-between">
@@ -145,25 +141,31 @@ const PropertyCard = ({ props }) => {
 
               {/* Icons Section */}
               <div className="flex items-center gap-2">
-                <Checkbox
-                  {...label}
-                  icon={
-                    <FavoriteBorder
-                      sx={{ color: "#ff8433" }}
-                      fontSize="small"
-                    />
-                  }
-                  checkedIcon={<Favorite fontSize="small" />}
+                <FavouriteButton
+                  title={item.title}
+                  uuid={item.title}
+                  location={item.location}
                 />
-                <IconButton>
-                  <FacebookIcon sx={{ color: "#ff8433" }} fontSize="small" />
-                </IconButton>
-                <IconButton>
-                  <XIcon sx={{ color: "#ff8433" }} fontSize="small" />
-                </IconButton>
-                <IconButton>
-                  <WhatsAppIcon sx={{ color: "#ff8433" }} fontSize="small" />
-                </IconButton>
+                <Divider orientation="vertical" />
+                <span className="text-xs text-gray-400 font-semibold">
+                  share :{" "}
+                </span>
+                <FacebookShareButton
+                  title={item.title}
+                  description={item.description}
+                  url={"https://hamstrongrealty.netlify.app/"}
+                />
+                <TwitterShareButton
+                  title={item.title}
+                  description={item.description}
+                  url={"https://hamstrongrealty.netlify.app/"}
+                />
+                <WhatsAppShareButton
+                  title={item.title}
+                  description={item.description}
+                  url={"https://hamstrongrealty.netlify.app/"}
+                />
+                <CopyToClipboardButton uuid={item.title} />
               </div>
             </div>
           </div>
