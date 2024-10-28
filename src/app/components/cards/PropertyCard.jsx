@@ -24,7 +24,21 @@ const PropertyCard = ({ props }) => {
     { value: "lowest", label: "Lowest price" },
     { value: "highest", label: "Highest price" },
   ];
-  console.log(propertyData.allProperties.length)
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+  // Calculate the items to show on the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = propertyData.allProperties.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  // Handle page change
+  const handlePageChange = (value) => {
+    setCurrentPage(value);
+    // console.log("Current page:", value);
+  };
+
   return (
     <div className="flex flex-col gap-2">
       <div className="p-2 flex items-center justify-between">
@@ -41,7 +55,7 @@ const PropertyCard = ({ props }) => {
         </div>
       </div>
       <div className="mt-4">
-        {propertyData.allProperties.map((item, index) => (
+        {currentItems.map((item, index) => (
           <div
             key={index}
             className="bg-[#FFF1F0] flex gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
@@ -172,7 +186,12 @@ const PropertyCard = ({ props }) => {
         ))}
       </div>
       <div className="flex justify-center my-3">
-        <Pagination count={10} color="secondary" />
+        <Pagination
+          count={Math.ceil(propertyData.allProperties.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="secondary"
+        />
       </div>
     </div>
   );
