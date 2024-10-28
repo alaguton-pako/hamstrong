@@ -10,6 +10,7 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PropertyCard from "@/app/components/cards/PropertyCard";
 import Footer from "@/app/components/Footer";
+import { propertyData } from "@/app/models/newArrivals";
 
 const Page = () => {
   const params = useParams();
@@ -70,6 +71,63 @@ const Page = () => {
   const handleSearch = (term) => {
     console.log("Searching for:", term);
   };
+
+  // Function to calculate prices based on `param` selection
+  const calculatePrices = (param) => {
+    console.log("Selected Category:", param);
+
+    // Filter `allProperties` based on `param`
+    const filteredProperties = propertyData.allProperties.filter((item) => {
+      if (param === "all-properties") return true;
+      if (param === "house") return item.category === "house";
+      if (param === "land") return item.category === "land";
+      if (param === "commercial-property")
+        return item.category === "commercial property";
+      if (param === "shortlet") return item.type === "shortlet";
+      return false;
+    });
+
+    // If no properties match the filter, return default values
+    if (filteredProperties.length === 0) {
+      return {
+        highestPrice: 0,
+        lowestPrice: 0,
+        averagePrice: 0,
+      };
+    }
+
+    // Extract prices, remove commas, convert to numbers, and filter out any non-numeric values
+    const prices = filteredProperties
+      .map((item) => parseFloat(item.price.replace(/,/g, ""))) // Remove commas before parsing
+      .filter((price) => !isNaN(price)); // Exclude invalid prices
+
+    // Calculate highest, lowest, and average price
+    const highestPrice = Math.max(...prices);
+    const lowestPrice = Math.min(...prices);
+    const averagePrice = Math.round(
+      prices.reduce((acc, price) => acc + price, 0) / prices.length
+    );
+
+    // Format prices with commas
+    const formatPrice = (price) => {
+      return new Intl.NumberFormat("en-NG", { style: "decimal" }).format(price);
+    };
+
+    return {
+      highestPrice: formatPrice(highestPrice),
+      lowestPrice: formatPrice(lowestPrice),
+      averagePrice: formatPrice(averagePrice),
+      totalCount: filteredProperties.length,
+    };
+  };
+
+  // Example usage
+  const { highestPrice, lowestPrice, averagePrice, totalCount } =
+    calculatePrices(param);
+
+  console.log("Highest Price:", highestPrice);
+  console.log("Lowest Price:", lowestPrice);
+  console.log("Average Price:", averagePrice);
 
   return (
     <div>
@@ -160,31 +218,28 @@ const Page = () => {
           </p>
           {/*  */}
           {/*  */}
-          {/*  */}
           <div className="grid grid-cols-12 gap-3">
             <div className="col-span-8">
               <div className="flex flex-col gap-2">
                 <p className="text-[#404b82] text-[0.8rem]">
-                  The average price of houses for sale is{" "}
-                  <span className="font-semibold text-[#1b245d]">
-                    ₦108,096,400
-                  </span>{" "}
+                  The average price of {param} for {filter} is{" "}
+                  <span className="font-semibold text-[#1b245d] mx-1">
+                    {averagePrice}
+                  </span>
                   The most expensive house costs{" "}
                   <span className="font-semibold text-[#1b245d]">
-                    ₦1,000,000,000
+                    {highestPrice}
                   </span>
                   . while the cheapest costs{" "}
                   <span className="font-semibold text-[#1b245d]">
-                    ₦1,550,000
+                    {lowestPrice}
                   </span>
-                  . We have a total of <span>3,391</span> Flat Apartment for
-                  sale in Nigeria updated on 10 Oct 2024. Among these properties
-                  are houses, lands, shops, apartments, flats and commercial
-                  spaces . Every Real Estate in Nigeria posted on this site is
-                  verified by real estate agents . We also have cheap houses for
-                  rent and cheap houses for sale . Refine your property search
-                  by price, number of beds and type of property.
+                  . We have a total of <span>{totalCount}</span> {param} for
+                  sale across the different states in Nigeria. Refine your
+                  property search by price, number of beds, and type of
+                  property.
                 </p>
+
                 <PropertyCard props={param} />
               </div>
             </div>

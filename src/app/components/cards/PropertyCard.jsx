@@ -34,13 +34,20 @@ const PropertyCard = ({ props }) => {
     indexOfLastItem
   );
   // Handle page change
-  const handlePageChange = (value) => {
+  const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    // console.log("Current page:", value);
   };
 
   return (
     <div className="flex flex-col gap-2">
+      <div className="flex justify-center my-3">
+        <Pagination
+          count={Math.ceil(propertyData.allProperties.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="secondary"
+        />
+      </div>
       <div className="p-2 flex items-center justify-between">
         <div>
           <p className="text-sm text-[#1b245d]">Search Results</p>
