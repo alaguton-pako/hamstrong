@@ -23,7 +23,6 @@ const PropertyCard = ({ props }) => {
     { value: "select", label: "select..." },
     { value: "lowest", label: "Lowest price" },
     { value: "highest", label: "Highest price" },
-    { value: "bedspace", label: "Bed" },
   ];
   return (
     <div className="flex flex-col gap-2">

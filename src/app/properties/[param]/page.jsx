@@ -147,17 +147,20 @@ const Page = () => {
                 : param}
             </p>
           </div>
-          <p className="text-2xl font-semibold text-[#3d4578]">
+          <p className="text-2xl font-semibold text-[#3d4578] capitalize">
             {param && param === "flat-apartment"
-              ? `Flats & Apartment available for ${
+              ? `Flats & Apartments available for ${
                   filter === "buy" || filter === "all-properties"
                     ? "Sale"
                     : filter
                 }`
               : param === "all-properties"
-              ? `All Properties available for Sale`
-              : param}
+              ? "All Properties available for Sale"
+              : `${param} for ${filter}`}
           </p>
+          {/*  */}
+          {/*  */}
+          {/*  */}
           <div className="grid grid-cols-12 gap-3">
             <div className="col-span-8">
               <div className="flex flex-col gap-2">
