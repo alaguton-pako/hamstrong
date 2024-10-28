@@ -13,7 +13,7 @@ import { Divider } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import WhatsAppShareButton from "../buttons/WhatAppShareButton";
 import FacebookShareButton from "../buttons/FaceBookShareButton";
-import TwitterShareButton from "../buttons/TwitterShareButton";
+// import TwitterShareButton from "../buttons/TwitterShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
@@ -24,6 +24,7 @@ const PropertyCard = ({ props }) => {
     { value: "lowest", label: "Lowest price" },
     { value: "highest", label: "Highest price" },
   ];
+  console.log(propertyData.allProperties.length)
   return (
     <div className="flex flex-col gap-2">
       <div className="p-2 flex items-center justify-between">
@@ -40,7 +41,7 @@ const PropertyCard = ({ props }) => {
         </div>
       </div>
       <div className="mt-4">
-        {propertyData.newArrivals.map((item, index) => (
+        {propertyData.allProperties.map((item, index) => (
           <div
             key={index}
             className="bg-[#FFF1F0] flex gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
