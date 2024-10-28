@@ -7,13 +7,6 @@ import Favorite from "@mui/icons-material/Favorite";
 const FavouriteButton = ({ uuid, title, location }) => {
   const label = { inputProps: { "aria-label": "Favorite" } };
   const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    // Check if the property is already in favorites when the component mounts
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setIsFavorite(favorites.some((item) => item.uuid === uuid));
-  }, [uuid]);
-
   const handleToggleFavorite = () => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     if (isFavorite) {
@@ -28,6 +21,11 @@ const FavouriteButton = ({ uuid, title, location }) => {
       setIsFavorite(true);
     }
   };
+  useEffect(() => {
+    // Check if the property is already in favorites when the component mounts
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setIsFavorite(favorites.some((item) => item.uuid === uuid));
+  }, [uuid]);
 
   return (
     <Checkbox

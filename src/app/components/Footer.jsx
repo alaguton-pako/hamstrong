@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <div className="col-span-12 md:col-span-7">
           <div className="grid grid-cols-12">
-            <div className="col-span-12 md:col-span-4">
+            <div className="col-span-12 md:col-span-3">
               <h1 className="font-semibold mb-3">Quick Links</h1>
               <ul className="flex flex-col gap-2">
                 {menu.map((property, index) => (
@@ -69,16 +69,16 @@ const Footer = () => {
                 </Link>
               </ul>
             </div>
-            <div className="col-span-12 md:col-span-4">
+            <div className="col-span-12 md:col-span-7">
               <h1 className="font-semibold mb-3">Contacts</h1>
               <div className="flex flex-col gap-2">
                 <div className="flex items-start gap-1">
                   <LocationOnSharp />
-                  <p>12 Bangui Street, Abuja.</p>
+                  <p>VON road lugbe Abuja, Nigeria.</p>
                 </div>
                 <div className="flex items-start gap-1">
                   <PhoneAndroid />
-                  <p>08068699363.</p>
+                  <p>07035648652</p>
                 </div>
                 <div className="flex items-start gap-1">
                   <Email />
@@ -86,40 +86,65 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-4">
+            <div className="col-span-12 md:col-span-2">
               <h1 className="font-semibold mb-3">Social Links</h1>
               <div className="flex items-center gap-2">
-                <IconButton>
-                  <Facebook
-                    sx={{
-                      color: "white",
-                      "&:hover": {
-                        color: "#ff8433",
-                      },
-                    }}
-                  />
-                </IconButton>
-                <IconButton>
-                  <Instagram
-                    sx={{
-                      color: "white",
-                      "&:hover": {
-                        color: "#ff8433",
-                      },
-                    }}
-                  />
-                </IconButton>
-                <IconButton>
-                  <WhatsApp
-                    sx={{
-                      color: "white",
-                      "&:hover": {
-                        color: "#ff8433",
-                      },
-                    }}
-                  />
-                </IconButton>
-                <IconButton>
+                <>
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/share/qZAySCgCAH2vEgEJ/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconButton>
+                      <Facebook
+                        sx={{
+                          color: "white",
+                          "&:hover": {
+                            color: "#ff8433",
+                          },
+                        }}
+                      />
+                    </IconButton>
+                  </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/hamstrong_realty_limited_/profilecard/?igsh=dmpsOHNyYXhvaGFu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconButton>
+                      <Instagram
+                        sx={{
+                          color: "white",
+                          "&:hover": {
+                            color: "#ff8433",
+                          },
+                        }}
+                      />
+                    </IconButton>
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a
+                    href="https://wa.me/2347035648652?text=Hello,%20I'm%20been%20redirected%20from%20hamstrong%20realty%20and%20am%20interested%20in%20your%20services!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconButton>
+                      <WhatsApp
+                        sx={{
+                          color: "white",
+                          "&:hover": {
+                            color: "#ff8433",
+                          },
+                        }}
+                      />
+                    </IconButton>
+                  </a>
+                </>
+                {/* <IconButton>
                   <XIcon
                     sx={{
                       color: "white",
@@ -128,7 +153,7 @@ const Footer = () => {
                       },
                     }}
                   />
-                </IconButton>
+                </IconButton> */}
               </div>
             </div>
           </div>

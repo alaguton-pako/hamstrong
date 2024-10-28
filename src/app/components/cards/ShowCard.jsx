@@ -12,6 +12,8 @@ import TwitterShareButton from "../buttons/TwitterShareButton";
 import WhatsAppShareButton from "../buttons/WhatAppShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
+import { motion } from "framer-motion";
+import { scrollVariants } from "@/app/models/animation";
 
 const ShowCard = ({
   image,
@@ -26,111 +28,119 @@ const ShowCard = ({
   video,
 }) => {
   return (
-    <div className="bg-[#FFF1F0] flex flex-col mb-3 rounded-sm hover:shadow-lg transition-shadow duration-300">
-      <div className="relative h-64">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          style={{
-            objectFit: "cover",
-            borderTopLeftRadius: "1rem",
-            borderTopRightRadius: "1rem",
-          }}
-        />
-      </div>
-      <div className="p-4 flex flex-col gap-2">
-        <Link href={`/properties/all-properties/${title}`}>
-          <h1 className="text-xl font-bold line-clamp-1 cursor-pointer">
-            {title}
-          </h1>
-        </Link>
-        <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
-          <svg
-            className="icon icon-tabler icon-tabler-currency-naira"
-            fill="none"
-            height="18"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="18"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 0h24v24H0z" fill="none" stroke="none" />
-            <path d="M7 18v-10.948a1.05 1.05 0 0 1 1.968 -.51l6.064 10.916a1.05 1.05 0 0 0 1.968 -.51v-10.948" />
-            <path d="M5 10h14" />
-            <path d="M5 14h14" />
-          </svg>
-          {price}
-        </h1>
-        <p className="text-gray-700 line-clamp-2">{description}</p>
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="text-gray-700 text-sm flex items-center">
-            <LocationOnIcon sx={{ color: "#4B4B4B" }} />
-            {location}
-          </p>
-          {number_of_bathrooms && number_of_bedrooms && (
-            <div className="flex items-center gap-2">
-              <p className="text-gray-700 text-sm flex items-center gap-2">
-                <BathroomIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
-                {number_of_bathrooms}
-              </p>
-              <p className="text-gray-700 text-sm flex items-center gap-2">
-                <HotelIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
-                {number_of_bedrooms}
-              </p>
-            </div>
-          )}
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="text-gray-700 text-sm flex items-center gap-2">
-            <PhotoCameraIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
-            {image_count}
-          </div>
-          {video && (
-            <div className="text-gray-700 text-sm flex items-center gap-2">
-              <VideocamIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
-              {video && "video available"}
-            </div>
-          )}
-
-          <Chip
-            label={type}
-            size="small"
-            sx={{
-              fontWeight: "600",
-              borderRadius: "0.3rem",
-              color: "#fff",
-              bgcolor: "#ff8433",
+    <motion.div
+      className="hero-section"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={scrollVariants}
+    >
+      <div className="bg-[#FFF1F0] flex flex-col mb-3 rounded-sm hover:shadow-lg transition-shadow duration-300">
+        <div className="relative h-64">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            style={{
+              objectFit: "cover",
+              borderTopLeftRadius: "1rem",
+              borderTopRightRadius: "1rem",
             }}
           />
         </div>
-        <Divider />
-        <div className="flex items-center gap-2">
-          <FavouriteButton uuid={title} location={location} title={title} />
-          <Divider orientation="vertical" />
-          {/* <span className="text-xs text-gray-400 font-semibold">share : </span> */}
-          <FacebookShareButton
+        <div className="p-4 flex flex-col gap-2">
+          <Link href={`/properties/all-properties/${title}`}>
+            <h1 className="text-xl font-bold line-clamp-1 cursor-pointer">
+              {title}
+            </h1>
+          </Link>
+          <h1 className="text-xl font-bold text-[#008080] flex items-center line-clamp-1">
+            <svg
+              className="icon icon-tabler icon-tabler-currency-naira"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0h24v24H0z" fill="none" stroke="none" />
+              <path d="M7 18v-10.948a1.05 1.05 0 0 1 1.968 -.51l6.064 10.916a1.05 1.05 0 0 0 1.968 -.51v-10.948" />
+              <path d="M5 10h14" />
+              <path d="M5 14h14" />
+            </svg>
+            {price}
+          </h1>
+          <p className="text-gray-700 line-clamp-2">{description}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-gray-700 text-sm flex items-center">
+              <LocationOnIcon sx={{ color: "#4B4B4B" }} />
+              {location}
+            </p>
+            {number_of_bathrooms && number_of_bedrooms && (
+              <div className="flex items-center gap-2">
+                <p className="text-gray-700 text-sm flex items-center gap-2">
+                  <BathroomIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
+                  {number_of_bathrooms}
+                </p>
+                <p className="text-gray-700 text-sm flex items-center gap-2">
+                  <HotelIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
+                  {number_of_bedrooms}
+                </p>
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="text-gray-700 text-sm flex items-center gap-2">
+              <PhotoCameraIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
+              {image_count}
+            </div>
+            {video && (
+              <div className="text-gray-700 text-sm flex items-center gap-2">
+                <VideocamIcon sx={{ color: "#4B4B4B" }} fontSize="small" />
+                {video && "video available"}
+              </div>
+            )}
+
+            <Chip
+              label={type}
+              size="small"
+              sx={{
+                fontWeight: "600",
+                borderRadius: "0.3rem",
+                color: "#fff",
+                bgcolor: "#ff8433",
+              }}
+            />
+          </div>
+          <Divider />
+          <div className="flex items-center gap-2">
+            <FavouriteButton uuid={title} location={location} title={title} />
+            <Divider orientation="vertical" />
+            {/* <span className="text-xs text-gray-400 font-semibold">share : </span> */}
+            <FacebookShareButton
+              title={title}
+              description={description}
+              url={"https://hamstrongrealty.netlify.app/"}
+            />
+            {/* <TwitterShareButton
             title={title}
             description={description}
             url={"https://hamstrongrealty.netlify.app/"}
-          />
-          <TwitterShareButton
-            title={title}
-            description={description}
-            url={"https://hamstrongrealty.netlify.app/"}
-          />
-          <WhatsAppShareButton
-            title={title}
-            description={description}
-            url={"https://hamstrongrealty.netlify.app/"}
-          />
-          <CopyToClipboardButton uuid={title} />
+          /> */}
+            <WhatsAppShareButton
+              title={title}
+              description={description}
+              url={"https://hamstrongrealty.netlify.app/"}
+            />
+            <CopyToClipboardButton uuid={title} />
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

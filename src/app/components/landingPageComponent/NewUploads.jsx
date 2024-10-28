@@ -33,7 +33,11 @@ const NewUploads = () => {
         ))}
       </div>
       <div className="flex justify-center items-center">
-        <GetStartedButton text={"View More Properties"} param={"all-properties"} type={"all"} />
+        <GetStartedButton
+          text={"View More Properties"}
+          param={"all-properties"}
+          type={"all"}
+        />
       </div>
     </div>
   );

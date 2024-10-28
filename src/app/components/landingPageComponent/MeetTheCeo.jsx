@@ -48,18 +48,55 @@ const MeetTheCeo = () => {
                 </p>
                 <div className="flex items-center gap-3 mt-3">
                   <p className="text-sm">Connect with me on </p>
-                  <IconButton>
-                    <Facebook sx={{ color: "#ff8433" }} />
-                  </IconButton>
-                  <IconButton>
-                    <Instagram sx={{ color: "#ff8433" }} />
-                  </IconButton>
-                  <IconButton>
-                    <WhatsApp sx={{ color: "#ff8433" }} />
-                  </IconButton>
-                  <IconButton>
+                  <>
+                    {/* Facebook */}
+                    <a
+                      href="https://www.facebook.com/share/qZAySCgCAH2vEgEJ/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <IconButton>
+                        <Facebook
+                          sx={{
+                            color: "#ff8433",
+                          }}
+                        />
+                      </IconButton>
+                    </a>
+
+                    {/* Instagram */}
+                    <a
+                      href="https://www.instagram.com/hamstrong_realty_limited_/profilecard/?igsh=dmpsOHNyYXhvaGFu"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <IconButton>
+                        <Instagram
+                          sx={{
+                            color: "#ff8433",
+                          }}
+                        />
+                      </IconButton>
+                    </a>
+
+                    {/* WhatsApp */}
+                    <a
+                      href="https://wa.me/2347035648652?text=Hello,%20I'm%20been%20redirected%20from%20hamstrong%20realty%20and%20am%20interested%20in%20your%20services!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <IconButton>
+                        <WhatsApp
+                          sx={{
+                            color: "#ff8433",
+                          }}
+                        />
+                      </IconButton>
+                    </a>
+                  </>
+                  {/* <IconButton>
                     <XIcon sx={{ color: "#ff8433" }} />
-                  </IconButton>
+                  </IconButton> */}
                 </div>
               </div>
               <div className="mt-6">

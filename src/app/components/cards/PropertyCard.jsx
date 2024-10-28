@@ -155,11 +155,11 @@ const PropertyCard = ({ props }) => {
                   description={item.description}
                   url={"https://hamstrongrealty.netlify.app/"}
                 />
-                <TwitterShareButton
+                {/* <TwitterShareButton
                   title={item.title}
                   description={item.description}
                   url={"https://hamstrongrealty.netlify.app/"}
-                />
+                /> */}
                 <WhatsAppShareButton
                   title={item.title}
                   description={item.description}

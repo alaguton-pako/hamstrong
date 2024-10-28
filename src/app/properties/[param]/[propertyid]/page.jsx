@@ -70,11 +70,11 @@ const Page = () => {
                 description={"description"}
                 url={"https://hamstrongrealty.netlify.app/"}
               />
-              <TwitterShareButton
+              {/* <TwitterShareButton
                 title={"title"}
                 description={"description"}
                 url={"https://hamstrongrealty.netlify.app/"}
-              />
+              /> */}
               <WhatsAppShareButton
                 title={"title"}
                 description={"description"}
