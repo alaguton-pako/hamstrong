@@ -37,7 +37,7 @@ const Page = () => {
   const [open, setOpen] = useState(false);
   const href = {
     pathname: `/properties/${param}`,
-    query: { type: "buy" },
+    query: { type: "sale" },
   };
   return (
     <div>
