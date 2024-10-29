@@ -36,7 +36,7 @@ const NewUploads = () => {
         <GetStartedButton
           text={"View More Properties"}
           param={"all-properties"}
-          type={"all"}
+          type={"sale"}
         />
       </div>
     </div>

@@ -2,7 +2,7 @@
 import NavBar from "@/app/components/NavBar";
 import { useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DropDownComponent from "@/app/components/formComponents/DropDownComponent";
 import { Divider, Button } from "@mui/material";
 import SearchInput from "@/app/components/formComponents/SearchComponent";
@@ -11,18 +11,26 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PropertyCard from "@/app/components/cards/PropertyCard";
 import Footer from "@/app/components/Footer";
 import { propertyData } from "@/app/models/newArrivals";
+import { getDisplayText, getRefinedText } from "@/app/models/Helper";
+import { calculatePrices } from "@/app/models/Helper";
 
 const Page = () => {
   const params = useParams();
   const searchParams = useSearchParams();
   const param = params.param;
   const filter = searchParams.get("type");
+
   const initialCategoryValue = param.startsWith("shortlet")
     ? "shortlet"
     : param;
   const [selectedValue, setSelectedValue] = useState(
     filter === "buy" || filter === "all" ? "sales" : filter
   );
+
+  useEffect(() => {
+    setSelectedValue(filter === "sale" || filter === "all" ? "sales" : filter);
+  }, [filter]);
+
   const [selectedBedroomValue, setSelectedBedroomsValue] = useState("Bedrooms");
   const [selectedMinPriceValue, setSelectedMinPriceValue] =
     useState("Min Price");
@@ -72,62 +80,8 @@ const Page = () => {
     console.log("Searching for:", term);
   };
 
-  // Function to calculate prices based on `param` selection
-  const calculatePrices = (param) => {
-    console.log("Selected Category:", param);
-
-    // Filter `allProperties` based on `param`
-    const filteredProperties = propertyData.allProperties.filter((item) => {
-      if (param === "all-properties") return true;
-      if (param === "house") return item.category === "house";
-      if (param === "land") return item.category === "land";
-      if (param === "commercial-property")
-        return item.category === "commercial property";
-      if (param === "shortlet") return item.type === "shortlet";
-      return false;
-    });
-
-    // If no properties match the filter, return default values
-    if (filteredProperties.length === 0) {
-      return {
-        highestPrice: 0,
-        lowestPrice: 0,
-        averagePrice: 0,
-      };
-    }
-
-    // Extract prices, remove commas, convert to numbers, and filter out any non-numeric values
-    const prices = filteredProperties
-      .map((item) => parseFloat(item.price.replace(/,/g, ""))) // Remove commas before parsing
-      .filter((price) => !isNaN(price)); // Exclude invalid prices
-
-    // Calculate highest, lowest, and average price
-    const highestPrice = Math.max(...prices);
-    const lowestPrice = Math.min(...prices);
-    const averagePrice = Math.round(
-      prices.reduce((acc, price) => acc + price, 0) / prices.length
-    );
-
-    // Format prices with commas
-    const formatPrice = (price) => {
-      return new Intl.NumberFormat("en-NG", { style: "decimal" }).format(price);
-    };
-
-    return {
-      highestPrice: formatPrice(highestPrice),
-      lowestPrice: formatPrice(lowestPrice),
-      averagePrice: formatPrice(averagePrice),
-      totalCount: filteredProperties.length,
-    };
-  };
-
-  // Example usage
   const { highestPrice, lowestPrice, averagePrice, totalCount } =
-    calculatePrices(param);
-
-  console.log("Highest Price:", highestPrice);
-  console.log("Lowest Price:", lowestPrice);
-  console.log("Average Price:", averagePrice);
+    calculatePrices(param, filter);
 
   return (
     <div>
@@ -206,15 +160,7 @@ const Page = () => {
             </p>
           </div>
           <p className="text-2xl font-semibold text-[#3d4578] capitalize">
-            {param && param === "flat-apartment"
-              ? `Flats & Apartments available for ${
-                  filter === "buy" || filter === "all-properties"
-                    ? "Sale"
-                    : filter
-                }`
-              : param === "all-properties"
-              ? "All Properties available for Sale"
-              : `${param} for ${filter}`}
+            {getDisplayText(param, filter)}
           </p>
           {/*  */}
           {/*  */}
@@ -222,22 +168,14 @@ const Page = () => {
             <div className="col-span-8">
               <div className="flex flex-col gap-2">
                 <p className="text-[#404b82] text-[0.8rem]">
-                  The average price of {param} for {filter} is{" "}
-                  <span className="font-semibold text-[#1b245d] mx-1">
-                    {averagePrice}
-                  </span>
-                  The most expensive house costs{" "}
-                  <span className="font-semibold text-[#1b245d]">
-                    {highestPrice}
-                  </span>
-                  . while the cheapest costs{" "}
-                  <span className="font-semibold text-[#1b245d]">
-                    {lowestPrice}
-                  </span>
-                  . We have a total of <span>{totalCount}</span> {param} for
-                  sale across the different states in Nigeria. Refine your
-                  property search by price, number of beds, and type of
-                  property.
+                  {getRefinedText(
+                    param,
+                    filter,
+                    averagePrice,
+                    highestPrice,
+                    lowestPrice,
+                    totalCount
+                  )}
                 </p>
 
                 <PropertyCard props={param} />

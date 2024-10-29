@@ -52,7 +52,7 @@ const HeroSection = () => {
         <GetStartedButton
           text={"Explore Properties"}
           param={"all-properties"}
-          type={"all"}
+          type={"sale"}
         />
       </div>
     </div>

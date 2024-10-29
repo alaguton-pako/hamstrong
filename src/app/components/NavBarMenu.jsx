@@ -91,7 +91,7 @@ const NavBarMenu = () => {
                   key={index}
                   href={{
                     pathname: `/properties/${property.path}`,
-                    query: { type: "buy" },
+                    query: { type: "sale" },
                   }}
                 >
                   <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
@@ -103,7 +103,7 @@ const NavBarMenu = () => {
               <Link
                 href={{
                   pathname: "/properties/all-properties",
-                  query: { type: "buy" },
+                  query: { type: "sale" },
                 }}
               >
                 <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">

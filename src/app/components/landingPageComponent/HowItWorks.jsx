@@ -55,7 +55,7 @@ const HowItWorks = () => {
                 <GetStartedButton
                   text={"Explore"}
                   param={"all-properties"}
-                  type={"all"}
+                  type={"sale"}
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const HowItWorks = () => {
                 <GetStartedButton
                   text={"Get Started"}
                   param={"all-properties"}
-                  type={"all"}
+                  type={"sale"}
                 />
               </div>
             </div>
