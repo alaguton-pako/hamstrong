@@ -10,7 +10,6 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PropertyCard from "@/app/components/cards/PropertyCard";
 import Footer from "@/app/components/Footer";
-import { propertyData } from "@/app/models/newArrivals";
 import { getDisplayText, getRefinedText } from "@/app/models/Helper";
 import { calculatePrices } from "@/app/models/Helper";
 
@@ -88,56 +87,58 @@ const Page = () => {
       <NavBar />
       <Divider />
       <div className="mt-4">
-        <div className="p-4 flex items-center gap-2 shadow-xl">
-          <DropDownComponent
-            value={selectedValue}
-            onChange={(e) => setSelectedValue(e.target.value)}
-            options={type}
-          />
-          <SearchInput
-            placeholder="Search for properties..."
-            onSearch={handleSearch}
-          />
-          <DropDownComponent
-            value={selectedBedroomValue}
-            onChange={(e) => setSelectedBedroomsValue(e.target.value)}
-            options={bedroomOptions}
-          />
-          <DropDownComponent
-            value={selectedMinPriceValue}
-            onChange={(e) => setSelectedMinPriceValue(e.target.value)}
-            options={minPriceOptions}
-          />
-          <DropDownComponent
-            value={selectedMaxPriceValue}
-            onChange={(e) => setSelectedMaxPriceValue(e.target.value)}
-            options={maxPriceOptions}
-          />
-          <DropDownComponent
-            value={selectedCategoryValue}
-            onChange={(e) => setSelectedCategoryValue(e.target.value)}
-            options={categoryOptions}
-          />
+        <div className="overflow-x-auto">
+          <div className="p-4 flex items-center gap-2 shadow-xl">
+            <DropDownComponent
+              value={selectedValue}
+              onChange={(e) => setSelectedValue(e.target.value)}
+              options={type}
+            />
+            <SearchInput
+              placeholder="Search for properties..."
+              onSearch={handleSearch}
+            />
+            <DropDownComponent
+              value={selectedBedroomValue}
+              onChange={(e) => setSelectedBedroomsValue(e.target.value)}
+              options={bedroomOptions}
+            />
+            <DropDownComponent
+              value={selectedMinPriceValue}
+              onChange={(e) => setSelectedMinPriceValue(e.target.value)}
+              options={minPriceOptions}
+            />
+            <DropDownComponent
+              value={selectedMaxPriceValue}
+              onChange={(e) => setSelectedMaxPriceValue(e.target.value)}
+              options={maxPriceOptions}
+            />
+            <DropDownComponent
+              value={selectedCategoryValue}
+              onChange={(e) => setSelectedCategoryValue(e.target.value)}
+              options={categoryOptions}
+            />
 
-          <Button
-            variant="contained"
-            sx={{
-              textTransform: "initial",
-            }}
-          >
-            apply filter
-          </Button>
+            <Button
+              variant="contained"
+              sx={{
+                textTransform: "initial",
+              }}
+            >
+              apply filter
+            </Button>
 
-          <Button
-            variant="contained"
-            endIcon={<ErrorOutlineIcon color="info" />}
-            sx={{
-              textTransform: "initial",
-            }}
-            disabled
-          >
-            Remove filters
-          </Button>
+            <Button
+              variant="contained"
+              endIcon={<ErrorOutlineIcon color="info" />}
+              sx={{
+                textTransform: "initial",
+              }}
+              disabled
+            >
+              Remove filters
+            </Button>
+          </div>
         </div>
         <div className="flex flex-col gap-3 mt-10 max-w-[80%] mx-auto">
           <div className="flex items-center gap-2 text-gray-400">
@@ -165,7 +166,7 @@ const Page = () => {
           {/*  */}
           {/*  */}
           <div className="grid grid-cols-12 gap-3">
-            <div className="col-span-8">
+            <div className="col-span-12 md:col-span-8">
               <div className="flex flex-col gap-2">
                 <p className="text-[#404b82] text-[0.8rem]">
                   {getRefinedText(
@@ -181,7 +182,7 @@ const Page = () => {
                 <PropertyCard props={param} />
               </div>
             </div>
-            <div className="col-span-4">
+            <div className="hidden md:block col-span-4">
               <div className="border border-[#b8bde0] rounded-md p-2 flex flex-col gap-2">
                 <h1 className="text-[#3d4578] font-semibold">Explore States</h1>
                 <Divider />

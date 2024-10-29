@@ -4,22 +4,23 @@ import React from "react";
 
 const PropertyInfoCard = () => {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-2 p-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        {/* Left side (Price and Location) */}
+        <div className="flex flex-col md:flex-row md:items-center gap-2">
           {/* price */}
-          <div>
-            <h1 className="text-xl font-bold text-[#008080] flex items-center">
+          <div className="flex items-center">
+            <h1 className="text-lg md:text-xl font-bold text-[#008080] flex items-center">
               <svg
                 className="icon icon-tabler icon-tabler-currency-naira"
                 fill="none"
-                height="30"
+                height="24"
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                width="30"
+                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M0 0h24v24H0z" fill="none" stroke="none" />
@@ -30,7 +31,10 @@ const PropertyInfoCard = () => {
               200,000,000
             </h1>
           </div>
-          <div className="w-[0.1rem] h-10 bg-gray-400"></div>
+
+          <div className="hidden md:block w-[0.1rem] h-10 bg-gray-400"></div>
+
+          {/* location */}
           <div className="flex items-start gap-1">
             <LocationOnSharp
               fontSize="small"
@@ -42,8 +46,10 @@ const PropertyInfoCard = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-6">
-          <div className="w-[0.1rem] h-10 bg-gray-400"></div>
+        {/* Right side (Icons for rooms, bathrooms, etc.) */}
+        <div className="flex flex-wrap md:flex-nowrap items-center gap-4 mt-2 md:mt-0">
+          <div className="w-[0.1rem] h-10 bg-gray-400 hidden md:block"></div>
+
           {/* bed space */}
           <div className="flex items-center gap-2">
             <svg
@@ -97,7 +103,7 @@ const PropertyInfoCard = () => {
                 style={{ fill: "none", stroke: "#000", strokeWidth: "0.7px" }}
               />
             </svg>
-            <span className="flex items-center gap-2 text-sm">3 bedrooms</span>
+            <span className="text-sm">3 bedrooms</span>
           </div>
 
           {/* bathroom */}
@@ -142,7 +148,7 @@ const PropertyInfoCard = () => {
                 style={{ fill: "#bdc3c7", stroke: "#000", strokeWidth: "2px" }}
               />
             </svg>
-            <span className="flex items-center gap-2 text-sm">3 bathrooms</span>
+            <span className="text-sm">3 bathrooms</span>
           </div>
 
           {/* toilet */}
@@ -181,12 +187,14 @@ const PropertyInfoCard = () => {
                 style={{ fill: "none", stroke: "#000", strokeWidth: "16px" }}
               />
             </svg>
-            <span className="flex items-center gap-2 text-sm">3 toilets</span>
+            <span className="text-sm">3 toilets</span>
           </div>
         </div>
       </div>
+
       <Divider />
-      <div>
+
+      <div className="mt-2">
         <p className="text-[#404b82] text-sm leading-6">
           <span className="font-semibold"> Description : </span> <br /> This
           SEMI-FINISHED 4 BEDROOM TERRACE DUPLEX in nawlg estate schemet just

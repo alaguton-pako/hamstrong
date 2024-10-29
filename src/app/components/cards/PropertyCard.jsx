@@ -65,10 +65,10 @@ const PropertyCard = ({ props }) => {
         {currentItems.map((item, index) => (
           <div
             key={index}
-            className="bg-[#FFF1F0] flex gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
+            className="bg-[#FFF1F0] flex flex-col md:flex gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
           >
             {/* Image Container */}
-            <div className="relative w-[200px] h-[200px] flex-shrink-0">
+            <div className="relative w-full md:w-[200px] h-[200px] flex-shrink-0">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -79,7 +79,6 @@ const PropertyCard = ({ props }) => {
                 }}
               />
             </div>
-
             {/* Content Section */}
             <div className="p-4 flex flex-col gap-2">
               <Link href={`/properties/${props}/${item.title}`}>
@@ -111,7 +110,7 @@ const PropertyCard = ({ props }) => {
               <p className="text-gray-700 line-clamp-2">{item.description}</p>
 
               {/* Location and Other Info */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <p className="text-gray-700 text-sm flex items-center">
                   <LocationOnIcon sx={{ color: "#4B4B4B" }} />
                   {item.location}
@@ -168,7 +167,7 @@ const PropertyCard = ({ props }) => {
                   location={item.location}
                 />
                 <Divider orientation="vertical" />
-                <span className="text-xs text-gray-400 font-semibold">
+                <span className="hidden md:block text-xs text-gray-400 font-semibold">
                   share :{" "}
                 </span>
                 <FacebookShareButton

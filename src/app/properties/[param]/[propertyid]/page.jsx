@@ -21,7 +21,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import NextJsImage from "@/app/components/ImageViewer";
 import Image from "next/image";
-import { Divider } from "@mui/material";
+import { Divider, IconButton } from "@mui/material";
 import { Email, LocationOnSharp, PhoneAndroid } from "@mui/icons-material";
 import GetInTouchButton from "@/app/components/buttons/GetInTouchButton";
 import SecurityIcon from "@mui/icons-material/Security";
@@ -46,14 +46,18 @@ const Page = () => {
       <Divider />
       <div className="max-w-[80%] mx-auto">
         <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap gap-2 my-2">
             <div className="flex items-center gap-2 text-gray-400">
-              <KeyboardArrowLeftIcon />
+              <IconButton>
+                <Link href={href}>
+                  <KeyboardArrowLeftIcon />
+                </Link>
+              </IconButton>
               <Link href={href}>
                 <p className="hover:font-semibold">Back to search results</p>
               </Link>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="block md:flex items-center gap-2 flex-wrap">
               <div className="flex items-center">
                 <FavouriteButton
                   uuid={decodeURIComponent(propertyid)}
@@ -88,8 +92,8 @@ const Page = () => {
               {decodeURIComponent(propertyid)}
             </p>
           </div>
-          <div className="grid grid-cols-12 gap-3">
-            <div className="relative col-span-9 rounded-md overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+            <div className="relative col-span-12 md:col-span-9 rounded-md overflow-hidden">
               {/* Image */}
               <Image
                 src={image4}
@@ -118,7 +122,8 @@ const Page = () => {
                 render={{ slide: NextJsImage }}
               />
             </div>
-            <div className="col-span-3">
+
+            <div className="col-span-12 md:col-span-3">
               <div className="relative w-full h-0 pb-[56.25%] rounded-md">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-md"
@@ -160,9 +165,7 @@ const Page = () => {
                     <div className="flex items-start gap-1">
                       <LocationOnSharp
                         fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
+                        sx={{ color: "#3d4578" }}
                       />
                       <p className="text-sm text-[#3d4578]">
                         12 Bangui Street, Abuja.
@@ -171,19 +174,12 @@ const Page = () => {
                     <div className="flex items-start gap-1">
                       <PhoneAndroid
                         fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
+                        sx={{ color: "#3d4578" }}
                       />
                       <p className="text-sm text-[#3d4578]">08068699363.</p>
                     </div>
                     <div className="flex items-start gap-1">
-                      <Email
-                        fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
-                      />
+                      <Email fontSize="small" sx={{ color: "#3d4578" }} />
                       <p className="text-sm text-[#3d4578]">
                         info@hamstrongrealty.com
                       </p>
@@ -200,47 +196,31 @@ const Page = () => {
                 <div className="flex justify-start">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-start gap-1">
-                      <MosqueIcon
-                        fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
-                      />
+                      <MosqueIcon fontSize="small" sx={{ color: "#3d4578" }} />
                       <p className="text-sm text-[#3d4578]">Mosque Nearby.</p>
                     </div>
                     <div className="flex items-start gap-1">
-                      <ChurchIcon
-                        fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
-                      />
+                      <ChurchIcon fontSize="small" sx={{ color: "#3d4578" }} />
                       <p className="text-sm text-[#3d4578]">Church Nearby.</p>
                     </div>
                     <div className="flex items-start gap-1">
                       <SecurityIcon
                         fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
+                        sx={{ color: "#3d4578" }}
                       />
-                      <p className="text-sm text-[#3d4578]">security.</p>
+                      <p className="text-sm text-[#3d4578]">Security.</p>
                     </div>
                     <div className="flex items-start gap-1">
                       <EmergencyIcon
                         fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
+                        sx={{ color: "#3d4578" }}
                       />
                       <p className="text-sm text-[#3d4578]">Hospital Nearby.</p>
                     </div>
                     <div className="flex items-start gap-1">
                       <FitnessCenterIcon
                         fontSize="small"
-                        sx={{
-                          color: "#3d4578",
-                        }}
+                        sx={{ color: "#3d4578" }}
                       />
                       <p className="text-sm text-[#3d4578]">Gym Nearby.</p>
                     </div>
@@ -249,8 +229,9 @@ const Page = () => {
               </div>
             </div>
           </div>
+
           <div className="my-4 grid grid-cols-12">
-            <div className="col-span-9">
+            <div className="col-span-12 md:col-span-9">
               <PropertyInfoCard />
             </div>
           </div>

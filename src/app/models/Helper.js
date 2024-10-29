@@ -1,7 +1,6 @@
 import { propertyData } from "./newArrivals";
 
 export const getDisplayText = (param, filter) => {
-  
   // Define a mapping for filter conditions
   const filterMapping = {
     sale: "Sale",
@@ -45,10 +44,26 @@ export const getRefinedText = (
   lowestPrice,
   totalCount
 ) => {
-  let propertyType = param.replace(/-/g, " "); // Convert hyphens to spaces for readability
+  // If all values are zero, display a different message
+  if (
+    averagePrice === 0 &&
+    highestPrice === 0 &&
+    lowestPrice === 0 &&
+    totalCount === 0
+  ) {
+    return (
+      <>
+        Sorry, we don&apos;t have anything to show for this category at the
+        moment.
+      </>
+    );
+  }
+
+  // Format param and location for display
+  let propertyType = param.replace(/-/g, " ");
   let location = "";
 
-  // Handle cases for `shortlet` with specific locations or all locations
+  // Handle specific cases for shortlet locations
   if (param.startsWith("shortlet")) {
     switch (param) {
       case "shortlet-all":
@@ -64,16 +79,17 @@ export const getRefinedText = (
         location = "Ibadan";
         break;
       default:
-        location = ""; // If no location specified, leave blank
+        location = "";
     }
     propertyType = "Shortlet";
   } else if (param === "all-properties") {
     propertyType = "all properties";
   }
-  // Adjust for "buy" param to display "sales"
+
+  // Adjust "sale" text and other formatting
   const actionText = param === "sale" ? "sales" : filter ? `for ${filter}` : "";
 
-  // Return the formatted display text with bold formatting for numbers
+  // Return the formatted display text
   return (
     <>
       The average price of {propertyType} {location ? `in ${location}` : ""}{" "}
