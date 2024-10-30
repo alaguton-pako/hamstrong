@@ -178,78 +178,89 @@ const Page = () => {
                     totalCount
                   )}
                 </p>
-
-                <PropertyCard props={param} />
+                {averagePrice !== 0 &&
+                  highestPrice !== 0 &&
+                  lowestPrice !== 0 &&
+                  totalCount !== 0 && (
+                    <PropertyCard props={param} filter={filter} />
+                  )}
               </div>
             </div>
-            <div className="hidden md:block col-span-4">
-              <div className="border border-[#b8bde0] rounded-md p-2 flex flex-col gap-2">
-                <h1 className="text-[#3d4578] font-semibold">Explore States</h1>
-                <Divider />
-                <div class="flex flex-wrap gap-4">
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Lagos
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Kano
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Rivers
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Kaduna
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Oyo
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Enugu
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Abuja
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Anambra
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Ogun
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Edo
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Cross River
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Plateau
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Delta
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Ekiti
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Osun
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Ondo
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Borno
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Imo
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Bauchi
-                  </div>
-                  <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                    Katsina
+            {averagePrice !== 0 &&
+              highestPrice !== 0 &&
+              lowestPrice !== 0 &&
+              totalCount !== 0 && (
+                <div className="hidden md:block col-span-4">
+                  <div className="border border-[#b8bde0] rounded-md p-2 flex flex-col gap-2">
+                    <h1 className="text-[#3d4578] font-semibold">
+                      Explore States
+                    </h1>
+                    <Divider />
+                    <div class="flex flex-wrap gap-4">
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Lagos
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Kano
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Rivers
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Kaduna
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Oyo
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Enugu
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Abuja
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Anambra
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Ogun
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Edo
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Cross River
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Plateau
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Delta
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Ekiti
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Osun
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Ondo
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Borno
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Imo
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Bauchi
+                      </div>
+                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
+                        Katsina
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              )}
           </div>
         </div>
         <Footer />

@@ -39,10 +39,14 @@ const Footer = () => {
             <p>Hamstrong Realty Limited is registered under the Nigeria CAC</p>
           </div>
         </div>
+
+
+
+
         <div className="col-span-12 md:col-span-7">
           <div className="grid grid-cols-12">
             <div className="col-span-12 md:col-span-3">
-              <h1 className="mt-4 md:font-semibold mb-3">Quick Links</h1>
+              <h1 className="mt-4 md:font-semibold md:mt-0 mb-3">Quick Links</h1>
               <ul className="flex flex-col gap-2">
                 {menu.map((property, index) => (
                   <Link
@@ -158,6 +162,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+
+
+
+
+
         <div className="col-span-12">
           <p
             className="text-xs flex items-center justify-center mt-5

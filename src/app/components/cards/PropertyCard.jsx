@@ -17,7 +17,7 @@ import FacebookShareButton from "../buttons/FaceBookShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
-const PropertyCard = ({ props }) => {
+const PropertyCard = ({ props, filter }) => {
   const [selectedValue, setSelectedValue] = useState("select");
   const sortType = [
     { value: "select", label: "select..." },
@@ -26,26 +26,47 @@ const PropertyCard = ({ props }) => {
   ];
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+
+  // Calculate the filtered items based on the props and filter
+  const filteredItems = propertyData.allProperties.filter((item) => {
+    // Check for specific shortlet props and extract the state if applicable
+    const isShortlet = props.startsWith("shortlet");
+    const state = isShortlet ? props.split("-")[1] : null;
+    const matchesType =
+      props === "all-properties" ||
+      (props === "shortlet-all" && item.type === "shortlet") ||
+      (isShortlet && item.state === state) ||
+      (props ? item.category === props : true);
+    const matchesFilter = filter ? item.type === filter : true;
+    // Ensure that both checks are satisfied
+    return matchesType && matchesFilter;
+  });
+
   // Calculate the items to show on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = propertyData.allProperties.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  console.log(currentItems);
   // Handle page change
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
 
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  console.log(totalPages);
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-center my-3">
         <Pagination
-          count={Math.ceil(propertyData.allProperties.length / itemsPerPage)}
+          count={totalPages}
           page={currentPage}
           onChange={handlePageChange}
-          color="secondary"
+          color="standard"
+          siblingCount={0}
+          boundaryCount={2}
+          hideNextButton={totalPages <= 0}
+          hidePrevButton={totalPages <= 0}
         />
       </div>
       <div className="p-2 flex items-center justify-between">
@@ -65,7 +86,7 @@ const PropertyCard = ({ props }) => {
         {currentItems.map((item, index) => (
           <div
             key={index}
-            className="bg-[#FFF1F0] flex flex-col md:flex gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
+            className="bg-[#FFF1F0] flex flex-col sm:flex-row gap-2 rounded-sm mb-3 p-2 hover:shadow-lg transition-shadow duration-300"
           >
             {/* Image Container */}
             <div className="relative w-full md:w-[200px] h-[200px] flex-shrink-0">
@@ -193,10 +214,14 @@ const PropertyCard = ({ props }) => {
       </div>
       <div className="flex justify-center my-3">
         <Pagination
-          count={Math.ceil(propertyData.allProperties.length / itemsPerPage)}
+          count={totalPages}
           page={currentPage}
           onChange={handlePageChange}
-          color="secondary"
+          color="standard"
+          siblingCount={1}
+          boundaryCount={1}
+          hideNextButton={totalPages <= 0}
+          hidePrevButton={totalPages <= 0}
         />
       </div>
     </div>

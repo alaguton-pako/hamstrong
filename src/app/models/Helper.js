@@ -52,10 +52,10 @@ export const getRefinedText = (
     totalCount === 0
   ) {
     return (
-      <>
+      <p className="mb-40">
         Sorry, we don&apos;t have anything to show for this category at the
         moment.
-      </>
+      </p>
     );
   }
 
