@@ -18,42 +18,67 @@ import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
 const PropertyCard = ({ props, filter }) => {
-  const [selectedValue, setSelectedValue] = useState("select");
+  const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
-    { value: "select", label: "select..." },
     { value: "lowest", label: "Lowest price" },
     { value: "highest", label: "Highest price" },
   ];
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-
-  // Calculate the filtered items based on the props and filter
+  // Calculate the filtered items based on the props, filter, and selectedValue
   const filteredItems = propertyData.allProperties.filter((item) => {
     // Check for specific shortlet props and extract the state if applicable
     const isShortlet = props.startsWith("shortlet");
     const state = isShortlet ? props.split("-")[1] : null;
+
     const matchesType =
       props === "all-properties" ||
       (props === "shortlet-all" && item.type === "shortlet") ||
       (isShortlet && item.state === state) ||
       (props ? item.category === props : true);
-    const matchesFilter = filter ? item.type === filter : true;
-    // Ensure that both checks are satisfied
-    return matchesType && matchesFilter;
-  });
 
+    const matchesFilter = filter ? item.type === filter : true;
+
+    // Convert price strings to numbers for comparison
+    const priceNumber = parseInt(item.price.replace(/,/g, ""), 10);
+
+    // Check for price filtering based on selectedValue
+    let matchesPrice = true; // Default to true
+
+    if (selectedValue === "lowest") {
+      // You can adjust the lower and upper limits as needed
+      matchesPrice = priceNumber >= 0; // Assuming no negative prices
+    } else if (selectedValue === "highest") {
+      // Assuming a maximum price limit for filtering
+      matchesPrice = priceNumber <= Infinity; // Replace with an actual upper limit if needed
+    }
+    // Ensure that all checks are satisfied
+    return matchesType && matchesFilter && matchesPrice;
+  });
+  // Sort filteredItems based on selectedValue
+  if (selectedValue === "lowest") {
+    filteredItems.sort(
+      (a, b) =>
+        parseInt(a.price.replace(/,/g, ""), 10) -
+        parseInt(b.price.replace(/,/g, ""), 10)
+    );
+  } else if (selectedValue === "highest") {
+    filteredItems.sort(
+      (a, b) =>
+        parseInt(b.price.replace(/,/g, ""), 10) -
+        parseInt(a.price.replace(/,/g, ""), 10)
+    );
+  }
   // Calculate the items to show on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
-  console.log(currentItems);
   // Handle page change
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-  console.log(totalPages);
 
   return (
     <div className="flex flex-col gap-2">
