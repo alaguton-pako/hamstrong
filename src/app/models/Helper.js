@@ -123,7 +123,7 @@ export const calculatePrices = (param, filter = "all") => {
     }
     if (param === "commercial-property") {
       return (
-        item.category === "commercial property" &&
+        item.category === "commercial-property" &&
         (filter === "all" || item.type === filter)
       );
     }

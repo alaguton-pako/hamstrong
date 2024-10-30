@@ -80,6 +80,8 @@ const PropertyCard = ({ props, filter }) => {
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
+  console.log(filteredItems)
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-center my-3">
