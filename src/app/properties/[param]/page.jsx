@@ -18,7 +18,7 @@ const Page = () => {
   const searchParams = useSearchParams();
   const param = params.param;
   const filter = searchParams.get("type");
-
+  const [filterPayload, setFilterPayload] = useState({});
   const initialCategoryValue = param.startsWith("shortlet")
     ? "shortlet"
     : param;
@@ -31,6 +31,7 @@ const Page = () => {
   }, [filter]);
 
   const [selectedBedroomValue, setSelectedBedroomsValue] = useState("Bedrooms");
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedMinPriceValue, setSelectedMinPriceValue] =
     useState("Min Price");
   const [selectedMaxPriceValue, setSelectedMaxPriceValue] =
@@ -76,12 +77,21 @@ const Page = () => {
   ];
 
   const handleSearch = (term) => {
+    setSearchTerm(term);
     console.log("Searching for:", term);
   };
 
   const { highestPrice, lowestPrice, averagePrice, totalCount } =
     calculatePrices(param, filter);
 
+  const handleApplyFilter = () => {
+    const toFilterWith = {
+      number_of_bedrooms: selectedBedroomValue,
+      minPrice: selectedMinPriceValue,
+      maxPrice: selectedMaxPriceValue,
+    };
+    setFilterPayload(toFilterWith);
+  };
   return (
     <div>
       <NavBar />
@@ -124,6 +134,12 @@ const Page = () => {
               sx={{
                 textTransform: "initial",
               }}
+              onClick={handleApplyFilter}
+              disabled={
+                selectedBedroomValue === "Bedrooms" &&
+                selectedMinPriceValue === "Min Price" &&
+                selectedMaxPriceValue === "Max Price"
+              }
             >
               apply filter
             </Button>
@@ -163,8 +179,6 @@ const Page = () => {
           <p className="text-2xl font-semibold text-[#3d4578] capitalize">
             {getDisplayText(param, filter)}
           </p>
-          {/*  */}
-          {/*  */}
           <div className="grid grid-cols-12 gap-3">
             <div className="col-span-12 md:col-span-8">
               <div className="flex flex-col gap-2">
@@ -182,7 +196,11 @@ const Page = () => {
                   highestPrice !== 0 &&
                   lowestPrice !== 0 &&
                   totalCount !== 0 && (
-                    <PropertyCard props={param} filter={filter} />
+                    <PropertyCard
+                      props={param}
+                      filter={filter}
+                      filterPayload={filterPayload}
+                    />
                   )}
               </div>
             </div>

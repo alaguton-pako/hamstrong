@@ -1,4 +1,5 @@
 import { propertyData } from "./newArrivals";
+import NairaIcon from "../components/NairaIcon";
 
 export const getDisplayText = (param, filter) => {
   // Define a mapping for filter conditions
@@ -8,19 +9,16 @@ export const getDisplayText = (param, filter) => {
     rent: "Rent",
     shortlet: "Shortlet",
   };
-
   // Handle shortlet in specific cities
   if (param.startsWith("shortlet-") && param !== "shortlet-all") {
     const city = param.split("-")[1];
     const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
     return `Shortlet in ${capitalizedCity}`;
   }
-
   // Handle all categories for shortlet
   if (param === "shortlet-all") {
     return "Shortlet in All Categories";
   }
-
   // Define text based on other param and filter conditions
   if (param === "flat-apartment") {
     return `Flats & Apartments available for ${
@@ -63,8 +61,9 @@ export const getRefinedText = (
   let propertyType = param.replace(/-/g, " ");
   let location = "";
 
-  // Handle specific cases for shortlet locations
+  // Handle specific cases for shortlet locations and "all-properties"
   if (param.startsWith("shortlet")) {
+    propertyType = "shortlet";
     switch (param) {
       case "shortlet-all":
         location = "all locations";
@@ -81,26 +80,31 @@ export const getRefinedText = (
       default:
         location = "";
     }
-    propertyType = "Shortlet";
   } else if (param === "all-properties") {
-    propertyType = "all properties";
+    propertyType = "properties";
   }
 
   // Adjust "sale" text and other formatting
-  const actionText = param === "sale" ? "sales" : filter ? `for ${filter}` : "";
+  const actionText =
+    param === "sale"
+      ? "sales"
+      : filter && filter !== "shortlet"
+      ? `for ${filter}`
+      : "";
 
   // Return the formatted display text
   return (
-    <>
+    <div>
       The average price of {propertyType} {location ? `in ${location}` : ""}{" "}
-      {actionText ? actionText : ""} is <strong>{averagePrice}</strong>. The
-      most expensive {propertyType.toLowerCase()} costs{" "}
-      <strong>{highestPrice}</strong>, while the cheapest costs{" "}
+      {actionText ? actionText : ""} is <NairaIcon />
+      <strong>{averagePrice}</strong>. The most expensive {propertyType} costs{" "}
+      <NairaIcon />
+      <strong>{highestPrice}</strong>, while the cheapest costs <NairaIcon />
       <strong>{lowestPrice}</strong>. We have a total of{" "}
-      <strong>{totalCount}</strong> {propertyType.toLowerCase()}{" "}
+      <strong>{totalCount}</strong> {propertyType}{" "}
       {actionText ? actionText : ""} across different states in Nigeria. Refine
       your property search by price, number of beds, and type of property.
-    </>
+    </div>
   );
 };
 

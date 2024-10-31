@@ -48,11 +48,12 @@ const Page = () => {
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-center flex-wrap gap-2 my-2">
             <div className="flex items-center gap-2 text-gray-400">
-              <IconButton>
-                <Link href={href}>
+              <Link href={href}>
+                <IconButton>
                   <KeyboardArrowLeftIcon />
-                </Link>
-              </IconButton>
+                </IconButton>
+              </Link>
+
               <Link href={href}>
                 <p className="hover:font-semibold">Back to search results</p>
               </Link>

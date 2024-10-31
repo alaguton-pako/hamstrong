@@ -17,7 +17,8 @@ import FacebookShareButton from "../buttons/FaceBookShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
-const PropertyCard = ({ props, filter }) => {
+const PropertyCard = ({ props, filter, filterPayload }) => {
+  console.log(filterPayload);
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
     { value: "lowest", label: "Lowest price" },
@@ -79,8 +80,6 @@ const PropertyCard = ({ props, filter }) => {
   };
 
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-
-  console.log(filteredItems)
 
   return (
     <div className="flex flex-col gap-2">
