@@ -21,7 +21,7 @@ const SearchInput = ({
   
 
   return (
-    <form className="w-[28rem]" onSubmit={handleSubmit}>
+    <form className="w-[31rem]" onSubmit={handleSubmit}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

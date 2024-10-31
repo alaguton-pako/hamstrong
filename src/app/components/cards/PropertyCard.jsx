@@ -18,7 +18,6 @@ import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
 const PropertyCard = ({ props, filter, filterPayload }) => {
-  console.log(filterPayload);
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
     { value: "lowest", label: "Lowest price" },

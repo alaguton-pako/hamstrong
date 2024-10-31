@@ -92,6 +92,13 @@ const Page = () => {
     };
     setFilterPayload(toFilterWith);
   };
+
+  const handleClearFilter = () => {
+    setSelectedBedroomsValue("Bedrooms")
+    setSelectedMinPriceValue("Min Price")
+    setSelectedMaxPriceValue("Max Price")
+    setFilterPayload({});
+  };
   return (
     <div>
       <NavBar />
@@ -141,18 +148,29 @@ const Page = () => {
                 selectedMaxPriceValue === "Max Price"
               }
             >
-              apply filter
+              Apply filters
             </Button>
 
             <Button
               variant="contained"
-              endIcon={<ErrorOutlineIcon color="info" />}
+              // endIcon={
+              //   <ErrorOutlineIcon
+              //     sx={{
+              //       color: "red",
+              //     }}
+              //   />
+              // }
+              onClick={handleClearFilter}
               sx={{
                 textTransform: "initial",
               }}
-              disabled
+              disabled={
+                selectedBedroomValue === "Bedrooms" &&
+                selectedMinPriceValue === "Min Price" &&
+                selectedMaxPriceValue === "Max Price"
+              }
             >
-              Remove filters
+              Clear filters
             </Button>
           </div>
         </div>
