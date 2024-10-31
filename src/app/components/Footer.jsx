@@ -13,11 +13,10 @@ import { IconButton } from "@mui/material";
 import Link from "next/link";
 const Footer = () => {
   const menu = [
-    { name: "Lands", path: "land", type: "buy" },
-    { name: "Duplex", path: "house", type: "buy" },
-    { name: "Semi Detached", path: "house", type: "buy" },
-    { name: "Terrace Bungalow", path: "house", type: "buy" },
-    { name: "Terrace Duplex", path: "house", type: "buy" },
+    { name: "Lands", path: "land", type: "sale" },
+    { name: "Houses", path: "house", type: "sale" },
+    { name: "Shortlets", path: "house", type: "sale" },
+    { name: "Commercial property", path: "commercial-property", type: "sale" },
   ];
   return (
     <>
@@ -40,20 +39,19 @@ const Footer = () => {
           </div>
         </div>
 
-
-
-
         <div className="col-span-12 md:col-span-7">
           <div className="grid grid-cols-12">
             <div className="col-span-12 md:col-span-3">
-              <h1 className="mt-4 md:font-semibold md:mt-0 mb-3">Quick Links</h1>
+              <h1 className="mt-4 md:font-semibold md:mt-0 mb-3">
+                Quick Links
+              </h1>
               <ul className="flex flex-col gap-2">
                 {menu.map((property, index) => (
                   <Link
                     key={index}
                     href={{
                       pathname: `/properties/${property.path}`,
-                      query: { type: "buy" },
+                      query: { type: property.type },
                     }}
                   >
                     <li className="hover:text-[#ff8433] cursor-pointer">
@@ -162,11 +160,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-
-
-
-
 
         <div className="col-span-12">
           <p
