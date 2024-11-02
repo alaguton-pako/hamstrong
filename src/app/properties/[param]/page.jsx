@@ -78,7 +78,6 @@ const Page = () => {
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-    console.log("Searching for:", term);
   };
 
   const { highestPrice, lowestPrice, averagePrice, totalCount } =
@@ -94,11 +93,12 @@ const Page = () => {
   };
 
   const handleClearFilter = () => {
-    setSelectedBedroomsValue("Bedrooms")
-    setSelectedMinPriceValue("Min Price")
-    setSelectedMaxPriceValue("Max Price")
+    setSelectedBedroomsValue("Bedrooms");
+    setSelectedMinPriceValue("Min Price");
+    setSelectedMaxPriceValue("Max Price");
     setFilterPayload({});
   };
+
   return (
     <div>
       <NavBar />
@@ -218,6 +218,7 @@ const Page = () => {
                       props={param}
                       filter={filter}
                       filterPayload={filterPayload}
+                      searchTerm={searchTerm}
                     />
                   )}
               </div>

@@ -17,7 +17,7 @@ import FacebookShareButton from "../buttons/FaceBookShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
-const PropertyCard = ({ props, filter, filterPayload }) => {
+const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
     { value: "lowest", label: "Lowest price" },
@@ -43,17 +43,19 @@ const PropertyCard = ({ props, filter, filterPayload }) => {
     const priceNumber = parseInt(item.price.replace(/,/g, ""), 10);
 
     // Check for price filtering based on selectedValue
-    let matchesPrice = true; // Default to true
-
+    let matchesPrice = true;
     if (selectedValue === "lowest") {
-      // You can adjust the lower and upper limits as needed
       matchesPrice = priceNumber >= 0; // Assuming no negative prices
     } else if (selectedValue === "highest") {
-      // Assuming a maximum price limit for filtering
       matchesPrice = priceNumber <= Infinity; // Replace with an actual upper limit if needed
     }
-    // Ensure that all checks are satisfied
-    return matchesType && matchesFilter && matchesPrice;
+
+    // Search term filtering
+    const matchesSearch = searchTerm
+      ? item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      : true;
+
+    return matchesType && matchesFilter && matchesPrice && matchesSearch;
   });
   // Sort filteredItems based on selectedValue
   if (selectedValue === "lowest") {
@@ -73,6 +75,7 @@ const PropertyCard = ({ props, filter, filterPayload }) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+
   // Handle page change
   const handlePageChange = (event, value) => {
     setCurrentPage(value);

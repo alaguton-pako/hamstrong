@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SearchInput = ({
   placeholder = "Search by Area, or Keywords",
@@ -8,17 +7,17 @@ const SearchInput = ({
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    const newTerm = event.target.value;
+    setSearchTerm(newTerm);
+    onSearch(newTerm); // Trigger search immediately with each keystroke
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (onSearch) {
-      onSearch(searchTerm);
+      onSearch(searchTerm); // Ensure search term is submitted if Enter is pressed
     }
   };
-
-  
 
   return (
     <form className="w-[31rem]" onSubmit={handleSubmit}>
@@ -52,7 +51,7 @@ const SearchInput = ({
           className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
           placeholder={placeholder}
           value={searchTerm}
-          onChange={handleChange}
+          onChange={handleChange} // Triggers on each keystroke
           required
         />
       </div>
