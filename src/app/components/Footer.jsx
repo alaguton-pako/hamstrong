@@ -15,7 +15,6 @@ const Footer = () => {
   const menu = [
     { name: "Lands", path: "land", type: "sale" },
     { name: "Houses", path: "house", type: "sale" },
-    { name: "Shortlets", path: "house", type: "sale" },
     { name: "Commercial property", path: "commercial-property", type: "sale" },
   ];
   return (

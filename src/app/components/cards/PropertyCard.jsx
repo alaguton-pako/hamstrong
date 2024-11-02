@@ -27,6 +27,11 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   const itemsPerPage = 5;
   // Calculate the filtered items based on the props, filter, and selectedValue
   const filteredItems = propertyData.allProperties.filter((item) => {
+    // Check if we should only apply the search term filter
+    if (searchTerm) {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+
     // Check for specific shortlet props and extract the state if applicable
     const isShortlet = props.startsWith("shortlet");
     const state = isShortlet ? props.split("-")[1] : null;
@@ -50,13 +55,9 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
       matchesPrice = priceNumber <= Infinity; // Replace with an actual upper limit if needed
     }
 
-    // Search term filtering
-    const matchesSearch = searchTerm
-      ? item.title.toLowerCase().includes(searchTerm.toLowerCase())
-      : true;
-
-    return matchesType && matchesFilter && matchesPrice && matchesSearch;
+    return matchesType && matchesFilter && matchesPrice;
   });
+
   // Sort filteredItems based on selectedValue
   if (selectedValue === "lowest") {
     filteredItems.sort(
@@ -75,6 +76,7 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  console.log(currentItems);
 
   // Handle page change
   const handlePageChange = (event, value) => {
