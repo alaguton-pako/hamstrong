@@ -66,6 +66,9 @@ const Page = () => {
     { value: 500000, label: "500,000" },
     { value: 1000000, label: "1,000,000" },
     { value: 2000000, label: "2,000,000" },
+    { value: 20000000, label: "20,000,000" },
+    { value: 25000000, label: "25,000,000" },
+    { value: 95000000, label: "95,000,000" },
   ];
 
   const categoryOptions = [
@@ -104,74 +107,79 @@ const Page = () => {
       <NavBar />
       <Divider />
       <div className="mt-4">
-        <div className="overflow-x-auto">
-          <div className="p-4 flex items-center gap-2 shadow-xl">
-            <DropDownComponent
+        <div className="max-w-[80%]  mx-auto">
+          <div className="p-4 grid grid-cols-12 gap-2 shadow-lg">
+            {/* <DropDownComponent
               value={selectedValue}
               onChange={(e) => setSelectedValue(e.target.value)}
               options={type}
-            />
-            <SearchInput
-              placeholder="Search for properties..."
-              onSearch={handleSearch}
-            />
-            <DropDownComponent
-              value={selectedBedroomValue}
-              onChange={(e) => setSelectedBedroomsValue(e.target.value)}
-              options={bedroomOptions}
-            />
-            <DropDownComponent
-              value={selectedMinPriceValue}
-              onChange={(e) => setSelectedMinPriceValue(e.target.value)}
-              options={minPriceOptions}
-            />
-            <DropDownComponent
-              value={selectedMaxPriceValue}
-              onChange={(e) => setSelectedMaxPriceValue(e.target.value)}
-              options={maxPriceOptions}
-            />
-            <DropDownComponent
+            /> */}
+            <div className="col-span-5">
+              <SearchInput
+                placeholder="Search for properties..."
+                onSearch={handleSearch}
+              />
+            </div>
+            <div className="col-span-7">
+              <div className="flex items-center gap-2">
+                <DropDownComponent
+                  value={selectedBedroomValue}
+                  onChange={(e) => setSelectedBedroomsValue(e.target.value)}
+                  options={bedroomOptions}
+                />
+                <DropDownComponent
+                  value={selectedMinPriceValue}
+                  onChange={(e) => setSelectedMinPriceValue(e.target.value)}
+                  options={minPriceOptions}
+                />
+                <DropDownComponent
+                  value={selectedMaxPriceValue}
+                  onChange={(e) => setSelectedMaxPriceValue(e.target.value)}
+                  options={maxPriceOptions}
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    textTransform: "initial",
+                  }}
+                  onClick={handleApplyFilter}
+                  disabled={
+                    selectedBedroomValue === "Bedrooms" &&
+                    selectedMinPriceValue === "Min Price" &&
+                    selectedMaxPriceValue === "Max Price"
+                  }
+                >
+                  Apply filters
+                </Button>
+
+                <Button
+                  variant="contained"
+                  // endIcon={
+                  //   <ErrorOutlineIcon
+                  //     sx={{
+                  //       color: "red",
+                  //     }}
+                  //   />
+                  // }
+                  onClick={handleClearFilter}
+                  sx={{
+                    textTransform: "initial",
+                  }}
+                  disabled={
+                    selectedBedroomValue === "Bedrooms" &&
+                    selectedMinPriceValue === "Min Price" &&
+                    selectedMaxPriceValue === "Max Price"
+                  }
+                >
+                  Clear filters
+                </Button>
+              </div>
+            </div>
+            {/* <DropDownComponent
               value={selectedCategoryValue}
               onChange={(e) => setSelectedCategoryValue(e.target.value)}
               options={categoryOptions}
-            />
-
-            <Button
-              variant="contained"
-              sx={{
-                textTransform: "initial",
-              }}
-              onClick={handleApplyFilter}
-              disabled={
-                selectedBedroomValue === "Bedrooms" &&
-                selectedMinPriceValue === "Min Price" &&
-                selectedMaxPriceValue === "Max Price"
-              }
-            >
-              Apply filters
-            </Button>
-
-            <Button
-              variant="contained"
-              // endIcon={
-              //   <ErrorOutlineIcon
-              //     sx={{
-              //       color: "red",
-              //     }}
-              //   />
-              // }
-              onClick={handleClearFilter}
-              sx={{
-                textTransform: "initial",
-              }}
-              disabled={
-                selectedBedroomValue === "Bedrooms" &&
-                selectedMinPriceValue === "Min Price" &&
-                selectedMaxPriceValue === "Max Price"
-              }
-            >
-              Clear filters
-            </Button>
+            /> */}
           </div>
         </div>
         <div className="flex flex-col gap-3 mt-10 max-w-[80%] mx-auto">

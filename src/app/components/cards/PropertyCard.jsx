@@ -18,6 +18,7 @@ import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
 const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
+  console.log(filterPayload);
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
     { value: "lowest", label: "Lowest price" },
@@ -25,38 +26,50 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   ];
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  // Calculate the filtered items based on the props, filter, and selectedValue
   const filteredItems = propertyData.allProperties.filter((item) => {
-    // Check if we should only apply the search term filter
+    // If a search term is provided, filter by title first
     if (searchTerm) {
       return item.title.toLowerCase().includes(searchTerm.toLowerCase());
     }
-
-    // Check for specific shortlet props and extract the state if applicable
-    const isShortlet = props.startsWith("shortlet");
+  
+    // Determine if the 'props' filter is targeting 'shortlet' properties and extract the state if applicable
+    const isShortlet = props && props.startsWith("shortlet");
     const state = isShortlet ? props.split("-")[1] : null;
-
+  
+    // Check if item matches the specified type or category in props
     const matchesType =
       props === "all-properties" ||
       (props === "shortlet-all" && item.type === "shortlet") ||
       (isShortlet && item.state === state) ||
-      (props ? item.category === props : true);
-
+      (!props || item.category === props);
+  
+    // Check if item matches the specified filter type (if provided)
     const matchesFilter = filter ? item.type === filter : true;
-
-    // Convert price strings to numbers for comparison
+  
+    // Convert price string to number for comparison
     const priceNumber = parseInt(item.price.replace(/,/g, ""), 10);
-
-    // Check for price filtering based on selectedValue
+  
+    // Determine if item matches the selected price range or sorting preference
     let matchesPrice = true;
-    if (selectedValue === "lowest") {
-      matchesPrice = priceNumber >= 0; // Assuming no negative prices
-    } else if (selectedValue === "highest") {
-      matchesPrice = priceNumber <= Infinity; // Replace with an actual upper limit if needed
+    if (selectedValue) {
+      if (selectedValue === "lowest") {
+        matchesPrice = priceNumber >= 0;
+      } else if (selectedValue === "highest") {
+        matchesPrice = priceNumber <= Infinity;
+      }
     }
-
-    return matchesType && matchesFilter && matchesPrice;
+  
+    // Apply each property in filterPayload only if defined
+    const matchesFilterPayload =
+      (filterPayload.minPrice !== undefined ? priceNumber >= filterPayload.minPrice : true) &&
+      (filterPayload.maxPrice !== undefined ? priceNumber <= filterPayload.maxPrice : true) &&
+      (filterPayload.number_of_bedrooms !== undefined ? item.number_of_bedrooms === filterPayload.number_of_bedrooms : true);
+  
+    // Return items that meet all filter criteria
+    return matchesType && matchesFilter && matchesPrice && matchesFilterPayload;
   });
+  
+  
 
   // Sort filteredItems based on selectedValue
   if (selectedValue === "lowest") {
@@ -76,7 +89,6 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
-  console.log(currentItems);
 
   // Handle page change
   const handlePageChange = (event, value) => {
@@ -115,7 +127,7 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
       <div className="mt-4">
         {currentItems.length === 0 ? (
           <p className="text-center text-sm text-red-500">
-            sorry result not found{" "}
+            sorry there is no result to show for this query{" "}
           </p>
         ) : (
           currentItems.map((item, index) => (
