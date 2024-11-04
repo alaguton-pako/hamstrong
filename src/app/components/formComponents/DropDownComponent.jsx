@@ -13,11 +13,13 @@ export default function DropDownComponent({ value, onChange, options = [] }) {
           value={value}
           onChange={onChange}
           size="small"
+          fullWidth
         >
           {options.map((option, index) => (
             <MenuItem
               sx={{
                 fontSize: "0.8rem",
+                width: "100%",
               }}
               key={index}
               value={option.value}

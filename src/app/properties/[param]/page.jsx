@@ -135,21 +135,21 @@ const Page = () => {
       <NavBar />
       <Divider />
       <div className="mt-4">
-        <div className="max-w-[80%]  mx-auto">
-          <div className="p-4 grid grid-cols-12 gap-2 shadow-lg">
+        <div className="w-full md:max-w-[80%]  mx-auto">
+          <div className="p-4 grid grid-cols-1 gap-2 shadow-lg md:grid-cols-12">
             {/* <DropDownComponent
               value={selectedValue}
               onChange={(e) => setSelectedValue(e.target.value)}
               options={type}
             /> */}
-            <div className="col-span-5">
+            <div className="col-span-12 md:col-span-5 mb-2 md:mb-0">
               <SearchInput
                 placeholder="Search for properties..."
                 onSearch={handleSearch}
               />
             </div>
-            <div className="col-span-7">
-              <div className="flex items-center gap-2">
+            <div className="col-span-12 md:col-span-7">
+              <div className="flex flex-wrap items-center gap-2">
                 <DropDownComponent
                   value={selectedBedroomValue}
                   onChange={(e) => setSelectedBedroomsValue(e.target.value)}
@@ -165,42 +165,45 @@ const Page = () => {
                   onChange={(e) => setSelectedMaxPriceValue(e.target.value)}
                   options={maxPriceOptions}
                 />
-                <Button
-                  variant="contained"
-                  sx={{
-                    textTransform: "initial",
-                  }}
-                  onClick={handleApplyFilter}
-                  disabled={
-                    selectedBedroomValue === "Bedrooms" &&
-                    selectedMinPriceValue === "Min Price" &&
-                    selectedMaxPriceValue === "Max Price"
-                  }
-                >
-                  Apply filters
-                </Button>
-
-                <Button
-                  variant="contained"
-                  // endIcon={
-                  //   <ErrorOutlineIcon
-                  //     sx={{
-                  //       color: "red",
-                  //     }}
-                  //   />
-                  // }
-                  onClick={handleClearFilter}
-                  sx={{
-                    textTransform: "initial",
-                  }}
-                  disabled={
-                    selectedBedroomValue === "Bedrooms" &&
-                    selectedMinPriceValue === "Min Price" &&
-                    selectedMaxPriceValue === "Max Price"
-                  }
-                >
-                  Clear filters
-                </Button>
+                <div>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      textTransform: "initial",
+                    }}
+                    onClick={handleApplyFilter}
+                    disabled={
+                      selectedBedroomValue === "Bedrooms" &&
+                      selectedMinPriceValue === "Min Price" &&
+                      selectedMaxPriceValue === "Max Price"
+                    }
+                  >
+                    Apply filters
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    // endIcon={
+                    //   <ErrorOutlineIcon
+                    //     sx={{
+                    //       color: "red",
+                    //     }}
+                    //   />
+                    // }
+                    onClick={handleClearFilter}
+                    sx={{
+                      textTransform: "initial",
+                    }}
+                    disabled={
+                      selectedBedroomValue === "Bedrooms" &&
+                      selectedMinPriceValue === "Min Price" &&
+                      selectedMaxPriceValue === "Max Price"
+                    }
+                  >
+                    Clear filters
+                  </Button>
+                </div>
               </div>
             </div>
             {/* <DropDownComponent
@@ -234,7 +237,7 @@ const Page = () => {
             {getDisplayText(param, filter)}
           </p>
           <div className="grid grid-cols-12 gap-3">
-            <div className="col-span-12 md:col-span-8">
+            <div className="col-span-12 lg:col-span-8">
               <div className="flex flex-col gap-2">
                 <p className="text-[#404b82] text-[0.8rem]">
                   {getRefinedText(
@@ -264,7 +267,7 @@ const Page = () => {
               highestPrice !== 0 &&
               lowestPrice !== 0 &&
               totalCount !== 0 && (
-                <div className="hidden md:block col-span-4">
+                <div className="hidden lg:block col-span-4">
                   <div className="border border-[#b8bde0] rounded-md p-2 flex flex-col gap-2">
                     <div className="flex items-center gap-2 justify-between">
                       <h1 className="text-[#3d4578] font-semibold">
