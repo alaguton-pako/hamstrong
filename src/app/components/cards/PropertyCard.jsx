@@ -17,7 +17,13 @@ import FacebookShareButton from "../buttons/FaceBookShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
-const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
+const PropertyCard = ({
+  props,
+  filter,
+  filterPayload,
+  searchTerm,
+  filterByState,
+}) => {
   console.log(filterPayload);
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
@@ -26,29 +32,34 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
   ];
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+
   const filteredItems = propertyData.allProperties.filter((item) => {
     // If a search term is provided, filter by title first
     if (searchTerm) {
       return item.title.toLowerCase().includes(searchTerm.toLowerCase());
     }
-  
+
     // Determine if the 'props' filter is targeting 'shortlet' properties and extract the state if applicable
     const isShortlet = props && props.startsWith("shortlet");
     const state = isShortlet ? props.split("-")[1] : null;
-  
+
     // Check if item matches the specified type or category in props
     const matchesType =
       props === "all-properties" ||
       (props === "shortlet-all" && item.type === "shortlet") ||
       (isShortlet && item.state === state) ||
-      (!props || item.category === props);
-  
+      !props ||
+      item.category === props;
+
     // Check if item matches the specified filter type (if provided)
     const matchesFilter = filter ? item.type === filter : true;
-  
+
+    // Check if item matches the selected state filter if provided
+    const matchesState = filterByState ? item.state === filterByState : true;
+
     // Convert price string to number for comparison
     const priceNumber = parseInt(item.price.replace(/,/g, ""), 10);
-  
+
     // Determine if item matches the selected price range or sorting preference
     let matchesPrice = true;
     if (selectedValue) {
@@ -58,18 +69,28 @@ const PropertyCard = ({ props, filter, filterPayload, searchTerm }) => {
         matchesPrice = priceNumber <= Infinity;
       }
     }
-  
+
     // Apply each property in filterPayload only if defined
     const matchesFilterPayload =
-      (filterPayload.minPrice !== undefined ? priceNumber >= filterPayload.minPrice : true) &&
-      (filterPayload.maxPrice !== undefined ? priceNumber <= filterPayload.maxPrice : true) &&
-      (filterPayload.number_of_bedrooms !== undefined ? item.number_of_bedrooms === filterPayload.number_of_bedrooms : true);
-  
+      (filterPayload.minPrice !== undefined
+        ? priceNumber >= filterPayload.minPrice
+        : true) &&
+      (filterPayload.maxPrice !== undefined
+        ? priceNumber <= filterPayload.maxPrice
+        : true) &&
+      (filterPayload.number_of_bedrooms !== undefined
+        ? item.number_of_bedrooms === filterPayload.number_of_bedrooms
+        : true);
+
     // Return items that meet all filter criteria
-    return matchesType && matchesFilter && matchesPrice && matchesFilterPayload;
+    return (
+      matchesType &&
+      matchesFilter &&
+      matchesState &&
+      matchesPrice &&
+      matchesFilterPayload
+    );
   });
-  
-  
 
   // Sort filteredItems based on selectedValue
   if (selectedValue === "lowest") {

@@ -25,6 +25,34 @@ const Page = () => {
   const [selectedValue, setSelectedValue] = useState(
     filter === "buy" || filter === "all" ? "sales" : filter
   );
+  const [filterByState, setFilterByState] = useState("");
+  console.log(filterByState);
+  // Array of state names
+  const states = [
+    "lagos",
+    "kano",
+    "rivers",
+    "kaduna",
+    "oyo",
+    "enugu",
+    "abuja",
+    "anambra",
+    "ogun",
+    "edo",
+    "cross river",
+    "plateau",
+    "delta",
+    "ekiti",
+    "osun",
+    "ondo",
+    "borno",
+    "imo",
+    "bauchi",
+    "katsina",
+  ];
+
+  // Handler to set filter by state
+  const handleFilterByState = (state) => setFilterByState(state);
 
   useEffect(() => {
     setSelectedValue(filter === "sale" || filter === "all" ? "sales" : filter);
@@ -227,6 +255,7 @@ const Page = () => {
                       filter={filter}
                       filterPayload={filterPayload}
                       searchTerm={searchTerm}
+                      filterByState={filterByState}
                     />
                   )}
               </div>
@@ -237,71 +266,36 @@ const Page = () => {
               totalCount !== 0 && (
                 <div className="hidden md:block col-span-4">
                   <div className="border border-[#b8bde0] rounded-md p-2 flex flex-col gap-2">
-                    <h1 className="text-[#3d4578] font-semibold">
-                      Explore States
-                    </h1>
+                    <div className="flex items-center gap-2 justify-between">
+                      <h1 className="text-[#3d4578] font-semibold">
+                        Explore States
+                      </h1>
+                      {filterByState && (
+                        <Button
+                          variant="contained"
+                          sx={{
+                            fontSize: "0.6rem",
+                            textTransform: "initial",
+                          }}
+                          onClick={() => setFilterByState("")}
+                        >
+                          remove filter
+                        </Button>
+                      )}
+                    </div>
                     <Divider />
-                    <div class="flex flex-wrap gap-4">
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Lagos
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Kano
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Rivers
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Kaduna
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Oyo
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Enugu
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Abuja
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Anambra
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Ogun
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Edo
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Cross River
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Plateau
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Delta
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Ekiti
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Osun
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Ondo
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Borno
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Imo
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Bauchi
-                      </div>
-                      <div class="text-[#1a2258] cursor-pointer hover:font-semibold">
-                        Katsina
-                      </div>
+                    <div className="flex flex-wrap gap-4">
+                      {states.map((state) => (
+                        <div
+                          key={state}
+                          className={`text-[#1a2258] capitalize cursor-pointer hover:font-semibold ${
+                            filterByState === state ? "font-bold" : ""
+                          }`}
+                          onClick={() => handleFilterByState(state)}
+                        >
+                          {state}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
