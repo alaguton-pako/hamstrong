@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import image1 from "@/app/images/heroImages/heroImage1.jpg";
 import image2 from "@/app/images/heroImages/heroImage2.jpg";
 import image3 from "@/app/images/heroImages/heroImage3.jpg";
@@ -6,6 +7,7 @@ import image5 from "@/app/images/heroImages/heroImage5.jpg";
 
 const newArrivals = [
   {
+    uuid: "123e4567-e89b-12d3-a456-426614174001",
     image: image1,
     title: "Modern Family House",
     description:
@@ -22,6 +24,7 @@ const newArrivals = [
     video: true,
   },
   {
+    uuid: "123e4567-e89b-12d3-a456-426614174002",
     image: image4,
     title: "Prime Commercial Land",
     description:
@@ -38,6 +41,7 @@ const newArrivals = [
     video: true,
   },
   {
+    uuid: "123e4567-e89b-12d3-a456-426614174003",
     image: image5,
     title: "Cozy Retail Shop",
     description: "A cozy shop located in a busy shopping district.",
@@ -53,6 +57,7 @@ const newArrivals = [
     video: false,
   },
   {
+    uuid: "123e4567-e89b-12d3-a456-426614174004",
     image: image1,
     title: "Luxury Apartment",
     description:
@@ -73,6 +78,7 @@ const newArrivals = [
 export const propertyData = {
   newArrivals: [
     {
+      uuid: uuidv4(),
       image: image1,
       title: "Modern Family House",
       description:
@@ -89,6 +95,7 @@ export const propertyData = {
       video: true,
     },
     {
+      uuid: uuidv4(),
       image: image4,
       title: "Prime Commercial Land",
       description:
@@ -105,6 +112,7 @@ export const propertyData = {
       video: true,
     },
     {
+      uuid: uuidv4(),
       image: image5,
       title: "Cozy Retail Shop",
       description: "A cozy shop located in a busy shopping district.",
@@ -120,6 +128,7 @@ export const propertyData = {
       video: false,
     },
     {
+      uuid: uuidv4(),
       image: image1,
       title: "Luxury Apartment",
       description:
@@ -138,6 +147,7 @@ export const propertyData = {
   ],
   allProperties: [
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174005",
       image: image1,
       title: "Modern Family House",
       description:
@@ -165,6 +175,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174006",
       image: image2,
       title: "Prime Commercial Land",
       description:
@@ -189,6 +200,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174007",
       image: image3,
       title: "Downtown Office Space",
       description: "Modern office space in a high-traffic commercial area.",
@@ -215,6 +227,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174008",
       image: image4,
       title: "Luxury Apartment",
       description:
@@ -242,6 +255,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174009",
       image: image5,
       title: "Exclusive Beachfront Land",
       description: "Premium land for sale with direct access to the beach.",
@@ -265,6 +279,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174010",
       image: image1,
       title: "Classic Shortlet Apartment",
       description:
@@ -293,6 +308,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174011",
       image: image2,
       title: "Affordable Residential Plot",
       description: "A residential land plot in a developing area.",
@@ -316,6 +332,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174012",
       image: image3,
       title: "Luxury Penthouse",
       description:
@@ -343,6 +360,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174013",
       image: image4,
       title: "Prime Commercial Property",
       description:
@@ -370,6 +388,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174014",
       image: image5,
       title: "City Center Land",
       description:
@@ -394,6 +413,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174015",
       image: image1,
       title: "Serene Duplex",
       description:
@@ -421,6 +441,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174016",
       image: image2,
       title: "Affordable Family Home",
       description: "A cozy family home in a serene environment.",
@@ -447,6 +468,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174017",
       image: image3,
       title: "Commercial Warehouse",
       description: "Large warehouse with good access roads for logistics.",
@@ -470,6 +492,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174018",
       image: image4,
       title: "Luxury Mansion",
       description:
@@ -497,6 +520,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174019",
       image: image5,
       title: "Budget Commercial Shop",
       description: "A small but strategically located shop in a busy area.",
@@ -523,6 +547,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174020",
       image: image1,
       title: "Executive Duplex",
       description:
@@ -550,6 +575,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174021",
       image: image2,
       title: "Downtown Plot",
       description: "Perfect plot for residential or commercial development.",
@@ -572,6 +598,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174022",
       image: image3,
       title: "Urban Office Block",
       description: "Modern office space with all essential amenities.",
@@ -598,6 +625,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174023",
       image: image4,
       title: "Residential Plot with Title",
       description:
@@ -621,6 +649,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174024",
       image: image5,
       title: "Warehouse for Rent",
       description: "Spacious warehouse available for lease.",
@@ -644,6 +673,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174025",
       image: image1,
       title: "Farm Land for Sale",
       description: "Sprawling land suitable for agricultural purposes.",
@@ -666,6 +696,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174026",
       image: image2,
       title: "Seaside Apartment",
       description: "Fully furnished apartment with stunning sea views.",
@@ -693,6 +724,7 @@ export const propertyData = {
       },
     },
     {
+      uuid: "123e4567-e89b-12d3-a456-426614174027",
       image: image3,
       title: "Urban Office Block",
       description: "Modern office space with all essential amenities.",

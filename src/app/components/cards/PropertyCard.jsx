@@ -24,7 +24,6 @@ const PropertyCard = ({
   searchTerm,
   filterByState,
 }) => {
-  console.log(filterPayload);
   const [selectedValue, setSelectedValue] = useState("lowest");
   const sortType = [
     { value: "lowest", label: "Lowest price" },
@@ -170,7 +169,7 @@ const PropertyCard = ({
               </div>
               {/* Content Section */}
               <div className="p-4 flex flex-col gap-2">
-                <Link href={`/properties/${props}/${item.title}`}>
+                <Link href={`/properties/${props}/${item.uuid}`}>
                   <h1 className="text-xl font-bold hover:cursor-pointer line-clamp-1">
                     {item.title}
                   </h1>

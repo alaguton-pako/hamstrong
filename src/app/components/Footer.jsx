@@ -27,23 +27,29 @@ const Footer = () => {
             </div>
             <div>
               <div className="flex flex-col  gap-1">
-                <p className="hover:text-[#ff8433] ">Privacy & Policy</p>
-                <p className="hover:text-[#ff8433] ">Terms and Conditions</p>
-                <p className="hover:text-[#ff8433] ">Powered by Luxury Build</p>
+                <p className="hover:text-[#ff8433] text-xs lg:text-md">
+                  Privacy & Policy
+                </p>
+                <p className="hover:text-[#ff8433] text-xs lg:text-md">
+                  Terms and Conditions
+                </p>
+                <p className="hover:text-[#ff8433] text-xs lg:text-md">
+                  Powered by Luxury Build
+                </p>
               </div>
             </div>
           </div>
           <div className="mt-6">
-            <p>Hamstrong Realty Limited is registered under the Nigeria CAC</p>
+            <p className="w-full text-xs mb-3 lg:text-md lg:mb-0 md:w-[80%]">
+              Hamstrong Realty Limited is registered under the Nigeria CAC
+            </p>
           </div>
         </div>
 
         <div className="col-span-12 md:col-span-7">
-          <div className="grid grid-cols-12">
+          <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 md:col-span-3">
-              <h1 className="mt-4 md:font-semibold md:mt-0 mb-3">
-                Quick Links
-              </h1>
+              <h1 className="mb-1 font-semibold md:mb-3">Quick Links</h1>
               <ul className="flex flex-col gap-2">
                 {menu.map((property, index) => (
                   <Link
@@ -53,7 +59,7 @@ const Footer = () => {
                       query: { type: property.type },
                     }}
                   >
-                    <li className="hover:text-[#ff8433] cursor-pointer">
+                    <li className="hover:text-[#ff8433] cursor-pointer text-xs lg:text-md">
                       {property.name}
                     </li>
                   </Link>
@@ -64,32 +70,34 @@ const Footer = () => {
                     query: { type: "shortlet" },
                   }}
                 >
-                  <li className="hover:text-[#ff8433] cursor-pointer">
+                  <li className="hover:text-[#ff8433] cursor-pointer text-xs lg:text-md">
                     Shortlet
                   </li>
                 </Link>
               </ul>
             </div>
             <div className="col-span-12 md:col-span-7">
-              <h1 className="font-semibold mb-3">Contacts</h1>
+              <h1 className="mb-1 font-semibold md:mb-3">Contacts</h1>
               <div className="flex flex-col gap-2">
                 <div className="flex items-start gap-1">
-                  <LocationOnSharp />
-                  <p>VON road lugbe Abuja, Nigeria.</p>
+                  <LocationOnSharp fontSize="small" />
+                  <p className="text-xs lg:text-md">
+                    VON road lugbe Abuja, Nigeria.
+                  </p>
                 </div>
                 <div className="flex items-start gap-1">
-                  <PhoneAndroid />
-                  <p>07035648652</p>
+                  <PhoneAndroid fontSize="small" />
+                  <p className="text-xs lg:text-md">07035648652</p>
                 </div>
                 <div className="flex items-start gap-1">
-                  <Email />
-                  <p>info@hamstrongrealty.com</p>
+                  <Email fontSize="small" />
+                  <p className="text-xs lg:text-md">info@hamstrongrealty.com</p>
                 </div>
               </div>
             </div>
             <div className="col-span-12 md:col-span-2">
-              <h1 className="font-semibold mb-3">Social Links</h1>
-              <div className="flex items-center gap-2">
+              <h1 className="mb-1 font-semibold md:mb-3">Social Links</h1>
+              <div className="flex items-center flex-wrap gap-2">
                 <>
                   {/* Facebook */}
                   <a

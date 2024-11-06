@@ -5,7 +5,7 @@ import Select from "@mui/material/Select";
 
 export default function DropDownComponent({ value, onChange, options = [] }) {
   return (
-    <Box sx={{ width: "9rem" }}>
+    <div className="w-full md:w-[9rem]">
       <FormControl fullWidth>
         <Select
           labelId="demo-simple-select-label"
@@ -29,6 +29,6 @@ export default function DropDownComponent({ value, onChange, options = [] }) {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </div>
   );
 }

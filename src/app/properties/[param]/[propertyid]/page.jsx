@@ -6,12 +6,8 @@ import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import WhatsAppShareButton from "@/app/components/buttons/WhatAppShareButton";
-import TwitterShareButton from "@/app/components/buttons/TwitterShareButton";
 import FacebookShareButton from "@/app/components/buttons/FaceBookShareButton";
 import CopyToClipboardButton from "@/app/components/buttons/CopyToClipBoard";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import image1 from "@/app/images/heroImages/heroImage1.jpg";
 import image2 from "@/app/images/heroImages/heroImage2.jpg";
 import image3 from "@/app/images/heroImages/heroImage3.jpg";
@@ -31,9 +27,14 @@ import EmergencyIcon from "@mui/icons-material/Emergency";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import PropertyInfoCard from "@/app/components/cards/PropertyInfoCard";
 import FavouriteButton from "@/app/components/buttons/FavouriteButton";
+import { propertyData } from "@/app/models/newArrivals";
+import Badge from "@mui/material/Badge";
 
 const Page = () => {
   const { param, propertyid } = useParams();
+  const property = propertyData.allProperties.find(
+    (item) => item.uuid === propertyid
+  );
   const [open, setOpen] = useState(false);
   const href = {
     pathname: `/properties/${param}`,
@@ -61,8 +62,9 @@ const Page = () => {
             <div className="block md:flex items-center gap-2 flex-wrap">
               <div className="flex items-center">
                 <FavouriteButton
-                  uuid={decodeURIComponent(propertyid)}
-                  title={decodeURIComponent(propertyid)}
+                  uuid={propertyid}
+                  title={property.title}
+                  location={property.location}
                 />
                 <span>save to favourite</span>
               </div>
@@ -89,15 +91,13 @@ const Page = () => {
             </div>
           </div>
           <div>
-            <p className="font-semibold text-[#3d4578]">
-              {decodeURIComponent(propertyid)}
-            </p>
+            <p className="font-semibold text-[#3d4578]">{property.title}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-            <div className="relative col-span-12 md:col-span-9 rounded-md overflow-hidden">
+            <div className="relative col-span-12 lg:col-span-8 xl:col-span-9 rounded-md overflow-hidden">
               {/* Image */}
               <Image
-                src={image4}
+                src={property.image}
                 alt="Description of image"
                 height={500}
                 width={500}
@@ -124,16 +124,18 @@ const Page = () => {
               />
             </div>
 
-            <div className="col-span-12 md:col-span-3">
-              <div className="relative w-full h-0 pb-[56.25%] rounded-md">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-md"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Random YouTube Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+            <div className="col-span-12 lg:col-span-4 xl:col-span-3 ">
+              {property.video && (
+                <div className="relative w-full h-0 pb-[56.25%] rounded-md">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-md"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Random YouTube Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
 
               <div className="mt-2 border border-gray-300 rounded-md p-4">
                 <h1 className="w-full font-semibold mb-3 text-sm text-[#3d4578] text-center">
@@ -160,7 +162,7 @@ const Page = () => {
                           <path d="M5 10h14" />
                           <path d="M5 14h14" />
                         </svg>
-                        200,000,000
+                        {property.price}
                       </h1>
                     </div>
                     <div className="flex items-start gap-1">
@@ -169,7 +171,7 @@ const Page = () => {
                         sx={{ color: "#3d4578" }}
                       />
                       <p className="text-sm text-[#3d4578]">
-                        12 Bangui Street, Abuja.
+                        {property.location}
                       </p>
                     </div>
                     <div className="flex items-start gap-1">
@@ -177,7 +179,7 @@ const Page = () => {
                         fontSize="small"
                         sx={{ color: "#3d4578" }}
                       />
-                      <p className="text-sm text-[#3d4578]">08068699363.</p>
+                      <p className="text-sm text-[#3d4578]">07035648652.</p>
                     </div>
                     <div className="flex items-start gap-1">
                       <Email fontSize="small" sx={{ color: "#3d4578" }} />
@@ -185,7 +187,10 @@ const Page = () => {
                         info@hamstrongrealty.com
                       </p>
                     </div>
-                    <GetInTouchButton text={"Buy property"} />
+                    <GetInTouchButton
+                      text={"Buy property"}
+                      message={`Hi there am intrested in the ${property.title} property.`}
+                    />
                   </div>
                 </div>
               </div>
@@ -233,7 +238,7 @@ const Page = () => {
 
           <div className="my-4 grid grid-cols-12">
             <div className="col-span-12 md:col-span-9">
-              <PropertyInfoCard />
+              <PropertyInfoCard property={property} />
             </div>
           </div>
         </div>

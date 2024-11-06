@@ -79,7 +79,7 @@ export default function DrawerComponent() {
                         <span className="text-xs text-[#404b82] pr-1">
                           ({index + 1})
                         </span>{" "}
-                        <Link href={`/properties/all-properties/${item.title}`}>
+                        <Link href={`/properties/all-properties/${item.uuid}`}>
                           <span className="text-sm text-[#404b82]">
                             {item.title}
                           </span>
@@ -94,7 +94,7 @@ export default function DrawerComponent() {
                         </p>
                       </div>
                       <FavouriteButton
-                        uuid={item.title}
+                        uuid={item.uuid}
                         location={item.location}
                         title={item.title}
                       />

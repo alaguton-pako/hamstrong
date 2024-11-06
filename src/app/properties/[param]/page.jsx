@@ -26,7 +26,7 @@ const Page = () => {
     filter === "buy" || filter === "all" ? "sales" : filter
   );
   const [filterByState, setFilterByState] = useState("");
-  console.log(filterByState);
+
   // Array of state names
   const states = [
     "lagos",
@@ -149,7 +149,7 @@ const Page = () => {
               />
             </div>
             <div className="col-span-12 md:col-span-7">
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:gap-2">
                 <DropDownComponent
                   value={selectedBedroomValue}
                   onChange={(e) => setSelectedBedroomsValue(e.target.value)}
