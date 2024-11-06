@@ -47,8 +47,14 @@ export default function MobileNavBarItem() {
         </ListItemIcon>
         <ListItemText
           primary="Buy"
-          sx={{ color: open.buy ? "#ff9a5e" : "text.secondary" }}
+          sx={{
+            color: open.buy ? "#ff9a5e" : "text.secondary",
+          }}
+          primaryTypographyProps={{
+            fontSize: "0.9rem",
+          }}
         />
+
         {open.buy ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open.buy} timeout="auto" unmountOnExit>
@@ -64,7 +70,13 @@ export default function MobileNavBarItem() {
                     query: { type: "sale" },
                   }}
                 >
-                  <ListItemText primary={item} sx={{ color: "text.primary" }} />
+                  <ListItemText
+                    primary={item}
+                    sx={{ color: "text.primary" }}
+                    primaryTypographyProps={{
+                      fontSize: "0.8rem",
+                    }}
+                  />
                 </Link>
               </ListItemButton>
             )
@@ -82,6 +94,9 @@ export default function MobileNavBarItem() {
         <ListItemText
           primary="Rent"
           sx={{ color: open.rent ? "#ff9a5e" : "text.secondary" }}
+          primaryTypographyProps={{
+            fontSize: "0.9rem",
+          }}
         />
         {open.rent ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
@@ -98,7 +113,13 @@ export default function MobileNavBarItem() {
                     query: { type: "rent" },
                   }}
                 >
-                  <ListItemText primary={item} sx={{ color: "text.primary" }} />
+                  <ListItemText
+                    primary={item}
+                    sx={{ color: "text.primary" }}
+                    primaryTypographyProps={{
+                      fontSize: "0.8rem",
+                    }}
+                  />
                 </Link>
               </ListItemButton>
             )
@@ -116,6 +137,9 @@ export default function MobileNavBarItem() {
         <ListItemText
           primary="Shortlet"
           sx={{ color: open.shortlet ? "#ff9a5e" : "text.secondary" }}
+          primaryTypographyProps={{
+            fontSize: "0.9rem",
+          }}
         />
         {open.shortlet ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
@@ -139,6 +163,9 @@ export default function MobileNavBarItem() {
                 <ListItemText
                   primary={item}
                   sx={{ color: "text.primary", fontSize: "0.1rem" }}
+                  primaryTypographyProps={{
+                    fontSize: "0.8rem",
+                  }}
                 />
               </Link>
             </ListItemButton>
