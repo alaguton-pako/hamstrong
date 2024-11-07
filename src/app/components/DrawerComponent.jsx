@@ -55,7 +55,7 @@ export default function DrawerComponent() {
                   <GetStartedButton
                     text={"Explore"}
                     param={"all-properties"}
-                    type={"all"}
+                    type={"sale"}
                   />
                 </div>
               </div>
