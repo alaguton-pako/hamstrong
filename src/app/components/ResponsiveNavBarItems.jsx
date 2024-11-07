@@ -59,7 +59,7 @@ export default function MobileNavBarItem() {
       </ListItemButton>
       <Collapse in={open.buy} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {["House", "Land", "Commercial Property", "All Property"].map(
+          {["House", "Land", "Commercial Property", "All Properties"].map(
             (item) => (
               <ListItemButton key={item} sx={{ pl: 4 }}>
                 <Link
@@ -102,7 +102,7 @@ export default function MobileNavBarItem() {
       </ListItemButton>
       <Collapse in={open.rent} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {["House", "Land", "Commercial Property", "All Property"].map(
+          {["House", "Land", "Commercial Property", "All Properties"].map(
             (item) => (
               <ListItemButton key={item} sx={{ pl: 4 }}>
                 <Link
@@ -146,10 +146,10 @@ export default function MobileNavBarItem() {
       <Collapse in={open.shortlet} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {[
-            "Shortlet in Abuja",
-            "Shortlet in Lagos",
-            "Shortlet in Ibadan",
-            "All Property for Shortlet",
+            "Shortlet Abuja",
+            "Shortlet Lagos",
+            "Shortlet Ibadan",
+            "All Shortlet",
           ].map((item) => (
             <ListItemButton key={item} sx={{ pl: 4 }}>
               <Link
@@ -157,7 +157,8 @@ export default function MobileNavBarItem() {
                   pathname: `/properties/${item
                     .toLowerCase()
                     .replace(/\s+/g, "-")
-                    .replace("all-property-for-shortlet", "shortlet-all")}`,
+                    .replace("all-shortlet", "shortlet-all")}`,
+                  query: { type: "shortlet" },
                 }}
               >
                 <ListItemText

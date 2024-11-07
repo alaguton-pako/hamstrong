@@ -40,7 +40,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-6">
-            <p className="w-full text-xs mb-3 lg:text-md lg:mb-0 md:w-[80%]">
+            <p className="w-full text-xs mb-3 lg:text-md lg:mb-0 md:w-[8
+            0%]">
               Hamstrong Realty Limited is registered under the Nigeria CAC
             </p>
           </div>
