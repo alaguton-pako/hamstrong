@@ -125,19 +125,19 @@ const ShowCard = ({
             <FacebookShareButton
               title={title}
               description={description}
-              url={"https://hamstrongrealty.netlify.app/"}
+              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
             />
             <TwitterShareButton
               title={title}
               description={description}
-              url={"https://hamstrongrealty.netlify.app/"}
+              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
             />
             <WhatsAppShareButton
               title={title}
               description={description}
-              url={"https://hamstrongrealty.netlify.app/"}
+              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
             />
-            <CopyToClipboardButton uuid={title} />
+            <CopyToClipboardButton uuid={uuid} />
           </div>
         </div>
       </div>

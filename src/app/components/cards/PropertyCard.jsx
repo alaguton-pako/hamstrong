@@ -267,19 +267,19 @@ const PropertyCard = ({
                   <FacebookShareButton
                     title={item.title}
                     description={item.description}
-                    url={"https://hamstrongrealty.netlify.app/"}
+                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
                   />
                   <TwitterShareButton
-                  title={item.title}
-                  description={item.description}
-                  url={"https://hamstrongrealty.netlify.app/"}
-                />
+                    title={item.title}
+                    description={item.description}
+                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
+                  />
                   <WhatsAppShareButton
                     title={item.title}
                     description={item.description}
-                    url={"https://hamstrongrealty.netlify.app/"}
+                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
                   />
-                  <CopyToClipboardButton uuid={item.title} />
+                  <CopyToClipboardButton uuid={item.uuid} />
                 </div>
               </div>
             </div>

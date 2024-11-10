@@ -1,7 +1,35 @@
 import { LocationOnSharp } from "@mui/icons-material";
 import { Divider } from "@mui/material";
 import React from "react";
+import { propertyData } from "@/app/models/newArrivals";
 
+
+export async function generateMetadata({ params }) {
+  const { param, propertyid } = params;
+
+  const property = propertyData.allProperties.find(
+    (item) => item.uuid === propertyid
+  );
+
+  if (!property) {
+    return {
+      title: "Property Not Found",
+      description: "This property does not exist.",
+    };
+  }
+
+  return {
+    title: `${property.title} - ${param}`,
+    description: property.description,
+    openGraph: {
+      images: [
+        {
+          url: property.image,
+        },
+      ],
+    },
+  };
+}
 const PropertyInfoCard = ({ property }) => {
   return (
     <div className="flex flex-col gap-2 p-4">
@@ -165,7 +193,9 @@ const PropertyInfoCard = ({ property }) => {
                   }}
                 />
               </svg>
-              <span className="text-sm">{property.number_of_bathrooms} bathrooms</span>
+              <span className="text-sm">
+                {property.number_of_bathrooms} bathrooms
+              </span>
             </div>
           )}
 
@@ -206,7 +236,9 @@ const PropertyInfoCard = ({ property }) => {
                   style={{ fill: "none", stroke: "#000", strokeWidth: "16px" }}
                 />
               </svg>
-              <span className="text-sm">{property.number_of_toilets} toilets</span>
+              <span className="text-sm">
+                {property.number_of_toilets} toilets
+              </span>
             </div>
           )}
         </div>

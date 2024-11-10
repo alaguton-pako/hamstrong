@@ -25,13 +25,13 @@ import FavouriteButton from "@/app/components/buttons/FavouriteButton";
 import { propertyData } from "@/app/models/newArrivals";
 import Badge from "@mui/material/Badge";
 
+
+
 const Page = () => {
   const { param, propertyid } = useParams();
-  console.log();
   const property = propertyData.allProperties.find(
     (item) => item.uuid === propertyid
   );
-  console.log(property);
   const [open, setOpen] = useState(false);
   const href = {
     pathname: `/properties/${param}`,
