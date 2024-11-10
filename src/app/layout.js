@@ -6,9 +6,9 @@ import HomeLoader from "./components/HomeLoader.jsx";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Hamstrong Realty",
+  title: "Hamstrong Realty Limited",
   description:
-    "Your Number One Destination for All Your Home Essentials, Where Comfort and Quality Meet",
+    "Hamstrong Realty Limited is a leading real estate development company dedicated to delivering exceptional residential and commercial properties that exceed our clients expectations with a passion for innovative craftiness",
 };
 
 export default function RootLayout({ children }) {

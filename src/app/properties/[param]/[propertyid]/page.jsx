@@ -8,11 +8,6 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import WhatsAppShareButton from "@/app/components/buttons/WhatAppShareButton";
 import FacebookShareButton from "@/app/components/buttons/FaceBookShareButton";
 import CopyToClipboardButton from "@/app/components/buttons/CopyToClipBoard";
-import image1 from "@/app/images/heroImages/heroImage1.jpg";
-import image2 from "@/app/images/heroImages/heroImage2.jpg";
-import image3 from "@/app/images/heroImages/heroImage3.jpg";
-import image4 from "@/app/images/heroImages/heroImage4.jpg";
-import image5 from "@/app/images/heroImages/heroImage5.jpg";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import NextJsImage from "@/app/components/ImageViewer";
@@ -32,9 +27,11 @@ import Badge from "@mui/material/Badge";
 
 const Page = () => {
   const { param, propertyid } = useParams();
+  console.log();
   const property = propertyData.allProperties.find(
     (item) => item.uuid === propertyid
   );
+  console.log(property);
   const [open, setOpen] = useState(false);
   const href = {
     pathname: `/properties/${param}`,
@@ -96,12 +93,13 @@ const Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
             <div className="relative col-span-12 lg:col-span-8 xl:col-span-9 rounded-md overflow-hidden">
               {/* Image */}
+
               <Image
                 src={property.image}
                 alt="Description of image"
                 height={500}
                 width={500}
-                className="w-full h-full rounded-sm"
+                className="rounded-sm w-full h-full"
               />
 
               {/* Overlay */}
@@ -112,24 +110,26 @@ const Page = () => {
                 className="absolute bottom-2 right-2 bg-white text-black px-4 py-2 text-sm font-semibold rounded shadow-md hover:bg-gray-200"
                 onClick={() => setOpen(true)}
               >
-                View photo
+                View photos
               </button>
 
               {/* Lightbox for viewing all images */}
               <Lightbox
                 open={open}
                 close={() => setOpen(false)}
-                slides={[image1, image2, image3, image4, image5]}
+                slides={property.imagesArray}
                 render={{ slide: NextJsImage }}
               />
             </div>
 
             <div className="col-span-12 lg:col-span-4 xl:col-span-3 ">
-              {property.video && (
+              {property.videoLink && (
                 <div className="relative w-full h-0 pb-[56.25%] rounded-md">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-md"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    src={`https://www.youtube.com/embed/${
+                      property.videoLink.split("=")[1]
+                    }`}
                     title="Random YouTube Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -195,7 +195,7 @@ const Page = () => {
                 </div>
               </div>
 
-              <div className="mt-2 border border-gray-300 rounded-md p-4">
+              {/* <div className="mt-2 border border-gray-300 rounded-md p-4">
                 <h1 className="w-full font-semibold mb-3 text-sm text-[#3d4578] text-center">
                   Key Features
                 </h1>
@@ -232,7 +232,7 @@ const Page = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

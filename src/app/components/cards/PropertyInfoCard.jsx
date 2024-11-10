@@ -165,7 +165,7 @@ const PropertyInfoCard = ({ property }) => {
                   }}
                 />
               </svg>
-              <span className="text-sm">3 bathrooms</span>
+              <span className="text-sm">{property.number_of_bathrooms} bathrooms</span>
             </div>
           )}
 
@@ -206,7 +206,7 @@ const PropertyInfoCard = ({ property }) => {
                   style={{ fill: "none", stroke: "#000", strokeWidth: "16px" }}
                 />
               </svg>
-              <span className="text-sm">3 toilets</span>
+              <span className="text-sm">{property.number_of_toilets} toilets</span>
             </div>
           )}
         </div>

@@ -1,27 +1,48 @@
-import { v4 as uuidv4 } from "uuid";
 import image1 from "@/app/images/heroImages/heroImage1.jpg";
 import image2 from "@/app/images/heroImages/heroImage2.jpg";
 import image3 from "@/app/images/heroImages/heroImage3.jpg";
 import image4 from "@/app/images/heroImages/heroImage4.jpg";
 import image5 from "@/app/images/heroImages/heroImage5.jpg";
+import fivebedroomduplexcarcass from "@/app/images/propertyImages/5bedroomcarcass/image1.jpeg";
+import fivebedroomduplexcarcass1 from "@/app/images/propertyImages/5bedroomcarcass/image1.jpeg";
+import fivebedroomduplexcarcass2 from "@/app/images/propertyImages/5bedroomcarcass/image2.jpeg";
+import fivebedroomduplexcarcass3 from "@/app/images/propertyImages/5bedroomcarcass/image3.jpeg";
+import fivebedroomduplexcarcass4 from "@/app/images/propertyImages/5bedroomcarcass/image4.jpeg";
+import fivebedroomduplexcarcass5 from "@/app/images/propertyImages/5bedroomcarcass/image5.jpeg";
+import fivebedroomduplexcarcass6 from "@/app/images/propertyImages/5bedroomcarcass/image6.jpeg";
+import fivebedroomduplexcarcass7 from "@/app/images/propertyImages/5bedroomcarcass/image7.jpeg";
+import fivebedroomduplexcarcass8 from "@/app/images/propertyImages/5bedroomcarcass/image8.jpeg";
+import fivebedroomduplexcarcass9 from "@/app/images/propertyImages/5bedroomcarcass/image9.jpeg";
 
 const newArrivals = [
   {
     uuid: "123e4567-e89b-12d3-a456-426614174001",
-    image: image1,
-    title: "Modern Family House",
+    image: fivebedroomduplexcarcass,
+    title: "5 bedroom duplex carcass",
     description:
-      "A beautiful modern house in the heart of the city, perfect for families.",
-    price: "35,000,000",
-    date_uploaded: "2024-10-09",
-    category: "home",
-    type: "rent",
-    number_of_bedrooms: 4,
-    number_of_bathrooms: 3,
-    location: "Kaisei_Opti, Abuja",
+      "5 Bedroom fully detached duplex carcass located in an estate behind FIRS office opposite dunamis church airport road lugbe Abuja.",
+    price: "60,000,000",
+    category: "house",
+    type: "sale",
+    number_of_bedrooms: 5,
+    number_of_bathrooms: 5,
+    number_of_toilets: 6,
+    location: "Airport road Lugbe, Abuja",
     state: "abuja",
-    image_count: 4,
+    image_count: 9,
     video: true,
+    videoLink: "https://www.youtube.com/watch?v=hostbXQIWcU",
+    imagesArray: [
+      fivebedroomduplexcarcass1,
+      fivebedroomduplexcarcass2,
+      fivebedroomduplexcarcass3,
+      fivebedroomduplexcarcass4,
+      fivebedroomduplexcarcass5,
+      fivebedroomduplexcarcass6,
+      fivebedroomduplexcarcass7,
+      fivebedroomduplexcarcass8,
+      fivebedroomduplexcarcass9,
+    ],
   },
   {
     uuid: "123e4567-e89b-12d3-a456-426614174002",
@@ -78,24 +99,36 @@ const newArrivals = [
 export const propertyData = {
   newArrivals: [
     {
-      uuid: uuidv4(),
-      image: image1,
-      title: "Modern Family House",
+      uuid: "123e4567-e89b-12d3-a456-426614174001",
+      image: fivebedroomduplexcarcass,
+      title: "5 bedroom duplex carcass",
       description:
-        "A beautiful modern house in the heart of the city, perfect for families.",
-      price: "35,000,000",
-      date_uploaded: "2024-10-09",
-      category: "home",
-      type: "rent",
-      number_of_bedrooms: 4,
-      number_of_bathrooms: 3,
-      location: "Kaisei_Opti, Abuja",
+        "5 Bedroom fully detached duplex carcass located in an estate behind FIRS office opposite dunamis church airport road lugbe Abuja.",
+      price: "60,000,000",
+      category: "house",
+      type: "sale",
+      number_of_bedrooms: 5,
+      number_of_bathrooms: 5,
+      number_of_toilets: 6,
+      location: "Airport road Lugbe, Abuja",
       state: "abuja",
-      image_count: 4,
+      image_count: 9,
       video: true,
+      videoLink: "https://www.youtube.com/watch?v=hostbXQIWcU",
+      imagesArray: [
+        fivebedroomduplexcarcass1,
+        fivebedroomduplexcarcass2,
+        fivebedroomduplexcarcass3,
+        fivebedroomduplexcarcass4,
+        fivebedroomduplexcarcass5,
+        fivebedroomduplexcarcass6,
+        fivebedroomduplexcarcass7,
+        fivebedroomduplexcarcass8,
+        fivebedroomduplexcarcass9,
+      ],
     },
     {
-      uuid: uuidv4(),
+      uuid: "123e4567-e89b-12d3-a456-426614174002",
       image: image4,
       title: "Prime Commercial Land",
       description:
@@ -112,7 +145,7 @@ export const propertyData = {
       video: true,
     },
     {
-      uuid: uuidv4(),
+      uuid: "123e4567-e89b-12d3-a456-426614174003",
       image: image5,
       title: "Cozy Retail Shop",
       description: "A cozy shop located in a busy shopping district.",
@@ -128,7 +161,7 @@ export const propertyData = {
       video: false,
     },
     {
-      uuid: uuidv4(),
+      uuid: "123e4567-e89b-12d3-a456-426614174004",
       image: image1,
       title: "Luxury Apartment",
       description:

@@ -19,6 +19,7 @@ const NewUploads = () => {
         {propertyData.newArrivals.map((item, index) => (
           <ShowCard
             key={index}
+            uuid={item.uuid}
             image={item.image}
             title={item.title}
             description={item.description}

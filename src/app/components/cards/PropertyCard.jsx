@@ -13,7 +13,7 @@ import { Divider } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import WhatsAppShareButton from "../buttons/WhatAppShareButton";
 import FacebookShareButton from "../buttons/FaceBookShareButton";
-// import TwitterShareButton from "../buttons/TwitterShareButton";
+import TwitterShareButton from "../buttons/TwitterShareButton";
 import CopyToClipboardButton from "../buttons/CopyToClipBoard";
 import FavouriteButton from "../buttons/FavouriteButton";
 
@@ -269,11 +269,11 @@ const PropertyCard = ({
                     description={item.description}
                     url={"https://hamstrongrealty.netlify.app/"}
                   />
-                  {/* <TwitterShareButton
+                  <TwitterShareButton
                   title={item.title}
                   description={item.description}
                   url={"https://hamstrongrealty.netlify.app/"}
-                /> */}
+                />
                   <WhatsAppShareButton
                     title={item.title}
                     description={item.description}

@@ -26,6 +26,7 @@ const ShowCard = ({
   image_count,
   type,
   video,
+  uuid,
 }) => {
   return (
     <motion.div
@@ -49,7 +50,7 @@ const ShowCard = ({
           />
         </div>
         <div className="p-4 flex flex-col gap-2">
-          <Link href={`/properties/all-properties/${title}`}>
+          <Link href={`/properties/all-properties/${uuid}`}>
             <h1 className="text-xl font-bold line-clamp-1 cursor-pointer">
               {title}
             </h1>
@@ -126,11 +127,11 @@ const ShowCard = ({
               description={description}
               url={"https://hamstrongrealty.netlify.app/"}
             />
-            {/* <TwitterShareButton
-            title={title}
-            description={description}
-            url={"https://hamstrongrealty.netlify.app/"}
-          /> */}
+            <TwitterShareButton
+              title={title}
+              description={description}
+              url={"https://hamstrongrealty.netlify.app/"}
+            />
             <WhatsAppShareButton
               title={title}
               description={description}

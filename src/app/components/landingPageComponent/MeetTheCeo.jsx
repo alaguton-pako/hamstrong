@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import Image from "next/image";
-import ceoImage from "@/app/images/ceo.jpg";
+import ceoImage from "@/app/images/ceo.jpeg";
 import FaqComponent from "../FaqComponent";
 import { IconButton } from "@mui/material";
 import { Facebook, Instagram, WhatsApp } from "@mui/icons-material";
