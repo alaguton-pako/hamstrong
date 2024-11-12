@@ -4,15 +4,7 @@ import image3 from "@/app/images/heroImages/heroImage3.jpg";
 import image4 from "@/app/images/heroImages/heroImage4.jpg";
 import image5 from "@/app/images/heroImages/heroImage5.jpg";
 import fivebedroomduplexcarcass from "@/app/images/propertyImages/5bedroomcarcass/image1.jpeg";
-import fivebedroomduplexcarcass1 from "@/app/images/propertyImages/5bedroomcarcass/image1.jpeg";
-import fivebedroomduplexcarcass2 from "@/app/images/propertyImages/5bedroomcarcass/image2.jpeg";
-import fivebedroomduplexcarcass3 from "@/app/images/propertyImages/5bedroomcarcass/image3.jpeg";
-import fivebedroomduplexcarcass4 from "@/app/images/propertyImages/5bedroomcarcass/image4.jpeg";
-import fivebedroomduplexcarcass5 from "@/app/images/propertyImages/5bedroomcarcass/image5.jpeg";
-import fivebedroomduplexcarcass6 from "@/app/images/propertyImages/5bedroomcarcass/image6.jpeg";
-import fivebedroomduplexcarcass7 from "@/app/images/propertyImages/5bedroomcarcass/image7.jpeg";
-import fivebedroomduplexcarcass8 from "@/app/images/propertyImages/5bedroomcarcass/image8.jpeg";
-import fivebedroomduplexcarcass9 from "@/app/images/propertyImages/5bedroomcarcass/image9.jpeg";
+import { propertyImagesModel } from "./propertyImagesModel";
 
 const newArrivals = [
   {
@@ -32,17 +24,7 @@ const newArrivals = [
     image_count: 9,
     video: true,
     videoLink: "https://www.youtube.com/watch?v=hostbXQIWcU",
-    imagesArray: [
-      fivebedroomduplexcarcass1,
-      fivebedroomduplexcarcass2,
-      fivebedroomduplexcarcass3,
-      fivebedroomduplexcarcass4,
-      fivebedroomduplexcarcass5,
-      fivebedroomduplexcarcass6,
-      fivebedroomduplexcarcass7,
-      fivebedroomduplexcarcass8,
-      fivebedroomduplexcarcass9,
-    ],
+    imagesArray: propertyImagesModel.fiveBedroomImages,
   },
   {
     uuid: "123e4567-e89b-12d3-a456-426614174002",
@@ -115,17 +97,7 @@ export const propertyData = {
       image_count: 9,
       video: true,
       videoLink: "https://www.youtube.com/watch?v=hostbXQIWcU",
-      imagesArray: [
-        fivebedroomduplexcarcass1,
-        fivebedroomduplexcarcass2,
-        fivebedroomduplexcarcass3,
-        fivebedroomduplexcarcass4,
-        fivebedroomduplexcarcass5,
-        fivebedroomduplexcarcass6,
-        fivebedroomduplexcarcass7,
-        fivebedroomduplexcarcass8,
-        fivebedroomduplexcarcass9,
-      ],
+      imagesArray: propertyImagesModel.fiveBedroomImages,
     },
     {
       uuid: "123e4567-e89b-12d3-a456-426614174002",

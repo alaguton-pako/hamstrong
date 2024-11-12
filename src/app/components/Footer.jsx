@@ -8,9 +8,9 @@ import {
   PhoneAndroid,
   WhatsApp,
 } from "@mui/icons-material";
-import XIcon from "@mui/icons-material/X";
 import { IconButton } from "@mui/material";
 import Link from "next/link";
+
 const Footer = () => {
   const menu = [
     { name: "Lands", path: "land", type: "sale" },
@@ -28,20 +28,42 @@ const Footer = () => {
             <div>
               <div className="flex flex-col  gap-1">
                 <p className="hover:text-[#ff8433] text-xs lg:text-md">
-                  Privacy & Policy
+                  <a
+                    href="/hamstrongPrivacyPolicy.pdf"
+                    download="Hamstrong_Privacy_Policy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Privacy & Policy
+                  </a>
                 </p>
                 <p className="hover:text-[#ff8433] text-xs lg:text-md">
-                  Terms and Conditions
+                  <a
+                    href="/hamstrongTermsandConditions.pdf"
+                    download="Hamstrong_Terms_and_Conditions.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Terms and Conditions
+                  </a>
                 </p>
                 <p className="hover:text-[#ff8433] text-xs lg:text-md">
-                  Powered by Luxury Build
+                  <a
+                    href="https://adenigbaahmed.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Powered by Luxury Build
+                  </a>
                 </p>
               </div>
             </div>
           </div>
           <div className="mt-6">
-            <p className="w-full text-xs mb-3 lg:text-md lg:mb-0 md:w-[8
-            0%]">
+            <p
+              className="w-full text-xs mb-3 lg:text-md lg:mb-0 md:w-[8
+            0%]"
+            >
               Hamstrong Realty Limited is registered under the Nigeria CAC
             </p>
           </div>
@@ -92,7 +114,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-start gap-1">
                   <Email fontSize="small" />
-                  <p className="text-xs lg:text-md">info@hamstrongrealty.com</p>
+                  <p className="text-xs lg:text-md">hamstrongrealtyltd@gmail.com</p>
                 </div>
               </div>
             </div>

@@ -36,11 +36,11 @@ const MeetTheCeo = () => {
               </div>
               <div>
                 <p className="text-justify text-sm">
-                  Muhammed Sulaiman, the founder and CEO of Hamstrong Limited,
+                  Muhammed Suleiman, the founder and CEO of Hamstrong Realty Limited,
                   has built the business on the core values of trust,
                   transparency, and truthfulness. With a steadfast commitment to
                   delivering exceptional service and honest communication, he
-                  has established Hamstrong Limited as a reliable and
+                  has established Hamstrong Realty Limited as a reliable and
                   customer-focused real estate platform. Sulaiman vision is to
                   create lasting relationships with clients, ensuring they have
                   a seamless and trustworthy experience when searching for their

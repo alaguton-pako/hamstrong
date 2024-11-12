@@ -3,33 +3,6 @@ import { Divider } from "@mui/material";
 import React from "react";
 import { propertyData } from "@/app/models/newArrivals";
 
-
-export async function generateMetadata({ params }) {
-  const { param, propertyid } = params;
-
-  const property = propertyData.allProperties.find(
-    (item) => item.uuid === propertyid
-  );
-
-  if (!property) {
-    return {
-      title: "Property Not Found",
-      description: "This property does not exist.",
-    };
-  }
-
-  return {
-    title: `${property.title} - ${param}`,
-    description: property.description,
-    openGraph: {
-      images: [
-        {
-          url: property.image,
-        },
-      ],
-    },
-  };
-}
 const PropertyInfoCard = ({ property }) => {
   return (
     <div className="flex flex-col gap-2 p-4">
