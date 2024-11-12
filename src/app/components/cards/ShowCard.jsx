@@ -75,7 +75,7 @@ const ShowCard = ({
             </svg>
             {price}
           </h1>
-          <p className="text-gray-700 line-clamp-2">{description}</p>
+          <p className="text-gray-700 line-clamp-1">{description}</p>
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-gray-700 text-sm flex items-center">
               <LocationOnIcon sx={{ color: "#4B4B4B" }} />
