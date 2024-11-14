@@ -38,16 +38,18 @@ const ShowCard = ({
     >
       <div className="bg-[#FFF1F0] flex flex-col mb-3 rounded-sm hover:shadow-lg transition-shadow duration-300">
         <div className="relative h-64">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            style={{
-              objectFit: "cover",
-              borderTopLeftRadius: "1rem",
-              borderTopRightRadius: "1rem",
-            }}
-          />
+          <Link href={`/properties/all-properties/${uuid}`}>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              style={{
+                objectFit: "cover",
+                borderTopLeftRadius: "1rem",
+                borderTopRightRadius: "1rem",
+              }}
+            />
+          </Link>
         </div>
         <div className="p-4 flex flex-col gap-2">
           <Link href={`/properties/all-properties/${uuid}`}>

@@ -3,8 +3,19 @@ import image2 from "@/app/images/heroImages/heroImage2.jpg";
 import image3 from "@/app/images/heroImages/heroImage3.jpg";
 import image4 from "@/app/images/heroImages/heroImage4.jpg";
 import image5 from "@/app/images/heroImages/heroImage5.jpg";
-import fivebedroomduplexcarcass from "@/app/images/propertyImages/5bedroomcarcass/image1.jpeg";
-import fourbedroomduplexcarcass from "@/app/images/propertyImages/4bedroomcarcass/image1.jpeg";
+import fourbedroomduplexcarcass from "@/app/images/propertyImages/4bedroomcarcass/image5.jpeg";
+import fivebedroomduplexcarcass from "@/app/images/propertyImages/5bedroomcarcass/image9.jpeg";
+import onebedroomcarcass from "@/app/images/propertyImages/1bedroomcarcass/image4.jpeg";
+import oligarchstandard from "@/app/images/propertyImages/oligarchstandard5and6bedroom/image3.jpeg";
+import twobedroomapartmentcarcass from "@/app/images/propertyImages/2bedroomapartmentcarcass/image7.jpeg";
+import threebedroomsemidetachedduplex from "@/app/images/propertyImages/3bedroomsemidetachedduplex/image2.jpeg";
+import threebedroomterracedduplex from "@/app/images/propertyImages/3bedroomterraceduplex/image8.jpeg";
+import fivebedroompenthouse from "@/app/images/propertyImages/5bedroompenthouse/image1.jpeg";
+import fivebedroomterraceduplex from "@/app/images/propertyImages/5bedroomterraceduplex/image1.jpeg";
+import twobedroomapartmentgymelevator from "@/app/images/propertyImages/2bedroomapartmentwithgymandelevator/image7.jpeg";
+import fourbedroomcontemporaryduplex from "@/app/images/propertyImages/4bedroomcontemporaryduplex/image1.jpeg";
+import fourbedroomduplexalongvoiceofnigeria from "@/app/images/propertyImages/4bedroomduplexalongvoiceofnigeria/image5.jpeg";
+import fourbedroomterracedduplex from "@/app/images/propertyImages/4bedroomterraceduplex/image10.jpeg";
 import { propertyImagesModel } from "./propertyImagesModel";
 
 const newArrivals = [
@@ -33,7 +44,6 @@ const newArrivals = [
     title: "4 Bedroom Semi-detached duplex",
     description: "Newly built 4 Bedroom Semi-detached duplex",
     price: "150,000,000",
-    date_uploaded: "2024-10-08",
     category: "house",
     type: "sale",
     number_of_bedrooms: 4,
@@ -48,36 +58,39 @@ const newArrivals = [
   },
   {
     uuid: "123e4567-e89b-12d3-a456-426614174003",
-    image: image5,
-    title: "Cozy Retail Shop",
-    description: "A cozy shop located in a busy shopping district.",
-    price: "100,000,000",
-    date_uploaded: "2024-10-07",
-    category: "shop",
+    image: onebedroomcarcass,
+    title: "1 Bedroom advance carcass",
+    description:
+      "One bedroom advance carcass in a serene and secured estate at lifecamp abuja",
+    price: "13,500,000",
+    category: "house",
     type: "rent",
-    number_of_bedrooms: null,
-    number_of_bathrooms: null,
-    location: "Jabi, Abuja",
-    state: "abuja",
-    image_count: 4,
-    video: false,
+    number_of_bedrooms: 1,
+    number_of_bathrooms: 1,
+    number_of_toilets: 1,
+    location: "LifeCamp, Abuja",
+    state: "FCT",
+    image_count: 6,
+    videoLink: "",
+    imagesArray: propertyImagesModel.oneBedroomCarcassImages,
   },
   {
     uuid: "123e4567-e89b-12d3-a456-426614174004",
-    image: image1,
-    title: "Luxury Apartment",
+    image: oligarchstandard,
+    title: "Oligarch Standard 6 Bedroom Super Luxury Mansion ",
     description:
-      "A luxurious apartment with stunning views and modern amenities.",
-    price: "80,000,000",
-    date_uploaded: "2024-10-06",
-    category: "home",
+      "Oligarch Standard 5 AND 6 Bedroom Super Luxury Mansion With Cinema, Pool and Rooftop Terrace",
+    price: "650,000,000",
+    category: "house",
     type: "sale",
-    number_of_bedrooms: 3,
-    number_of_bathrooms: 2,
-    location: "Victoria Island, Lagos",
-    state: "lagos",
-    image_count: 5,
-    video: true,
+    number_of_bedrooms: 6,
+    number_of_bathrooms: 6,
+    number_of_toilets: 7,
+    location: "Osapa Lekki, Lagos",
+    state: "Lagos",
+    image_count: 10,
+    videoLink: "",
+    imagesArray: propertyImagesModel.oligarchStandard,
   },
 ];
 
@@ -108,7 +121,6 @@ export const propertyData = {
       title: "4 Bedroom Semi-detached duplex",
       description: "Newly built 4 Bedroom Semi-detached duplex",
       price: "150,000,000",
-      date_uploaded: "2024-10-08",
       category: "house",
       type: "sale",
       number_of_bedrooms: 4,
@@ -123,36 +135,39 @@ export const propertyData = {
     },
     {
       uuid: "123e4567-e89b-12d3-a456-426614174003",
-      image: image5,
-      title: "Cozy Retail Shop",
-      description: "A cozy shop located in a busy shopping district.",
-      price: "100,000,000",
-      date_uploaded: "2024-10-07",
-      category: "shop",
-      type: "rent",
-      number_of_bedrooms: null,
-      number_of_bathrooms: null,
-      location: "Jabi, Abuja",
-      state: "abuja",
-      image_count: 4,
-      video: false,
+      image: onebedroomcarcass,
+      title: "1 Bedroom advance carcass",
+      description:
+        "One bedroom advance carcass in a serene and secured estate at lifecamp abuja",
+      price: "13,500,000",
+      category: "house",
+      type: "sale",
+      number_of_bedrooms: 1,
+      number_of_bathrooms: 1,
+      number_of_toilets: 1,
+      location: "LifeCamp, Abuja",
+      state: "FCT",
+      image_count: 6,
+      videoLink: "",
+      imagesArray: propertyImagesModel.oneBedroomCarcassImages,
     },
     {
       uuid: "123e4567-e89b-12d3-a456-426614174004",
-      image: image1,
-      title: "Luxury Apartment",
+      image: oligarchstandard,
+      title: "Oligarch Standard 6 Bedroom Super Luxury Mansion ",
       description:
-        "A luxurious apartment with stunning views and modern amenities.",
-      price: "80,000,000",
-      date_uploaded: "2024-10-06",
-      category: "home",
+        "Oligarch Standard 5 AND 6 Bedroom Super Luxury Mansion With Cinema, Pool and Rooftop Terrace",
+      price: "650,000,000",
+      category: "house",
       type: "sale",
-      number_of_bedrooms: 3,
-      number_of_bathrooms: 2,
-      location: "Victoria Island, Lagos",
-      state: "lagos",
-      image_count: 5,
-      video: true,
+      number_of_bedrooms: 6,
+      number_of_bathrooms: 6,
+      number_of_toilets: 7,
+      location: "Osapa Lekki, Lagos",
+      state: "Lagos",
+      image_count: 10,
+      videoLink: "",
+      imagesArray: propertyImagesModel.oligarchStandard,
     },
   ],
   allProperties: [

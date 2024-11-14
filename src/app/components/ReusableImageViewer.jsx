@@ -7,20 +7,19 @@ import Image from "next/image";
 import { Email, LocationOnSharp, PhoneAndroid } from "@mui/icons-material";
 import GetInTouchButton from "./buttons/GetInTouchButton";
 
-
 const ReusableImageViewer = ({ property }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-        <div className="relative col-span-12 lg:col-span-8 xl:col-span-9 rounded-md overflow-hidden">
+        <div className="relative col-span-12 lg:col-span-8 xl:col-span-9 rounded-md overflow-hidden h-96">
           {/* Image */}
           <Image
             src={property.image}
             alt="Description of image"
             height={500}
             width={500}
-            className="rounded-sm w-full h-full"
+            className="rounded-sm w-full h-full object-cover"
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"></div>
@@ -39,6 +38,7 @@ const ReusableImageViewer = ({ property }) => {
             render={{ slide: NextJsImage }}
           />
         </div>
+
         <div className="col-span-12 lg:col-span-4 xl:col-span-3 ">
           {property.videoLink && (
             <div className="relative w-full h-0 pb-[56.25%] rounded-md">
