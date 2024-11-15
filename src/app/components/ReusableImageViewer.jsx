@@ -11,13 +11,13 @@ const ReusableImageViewer = ({ property }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
         <div className="relative col-span-12 lg:col-span-8 xl:col-span-9 rounded-md overflow-hidden h-96">
           {/* Image */}
           <Image
             src={property.image}
             alt="Description of image"
-            height={500}
+            height={400}
             width={500}
             className="rounded-sm w-full h-full object-cover"
           />
@@ -53,7 +53,6 @@ const ReusableImageViewer = ({ property }) => {
               ></iframe>
             </div>
           )}
-
           <div className="mt-2 border border-gray-300 rounded-md p-4">
             <h1 className="w-full font-semibold mb-3 text-sm text-[#3d4578] text-center">
               Property Info
@@ -104,45 +103,7 @@ const ReusableImageViewer = ({ property }) => {
               </div>
             </div>
           </div>
-
-          {/* <div className="mt-2 border border-gray-300 rounded-md p-4">
-                <h1 className="w-full font-semibold mb-3 text-sm text-[#3d4578] text-center">
-                  Key Features
-                </h1>
-                <div className="flex justify-start">
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-start gap-1">
-                      <MosqueIcon fontSize="small" sx={{ color: "#3d4578" }} />
-                      <p className="text-sm text-[#3d4578]">Mosque Nearby.</p>
-                    </div>
-                    <div className="flex items-start gap-1">
-                      <ChurchIcon fontSize="small" sx={{ color: "#3d4578" }} />
-                      <p className="text-sm text-[#3d4578]">Church Nearby.</p>
-                    </div>
-                    <div className="flex items-start gap-1">
-                      <SecurityIcon
-                        fontSize="small"
-                        sx={{ color: "#3d4578" }}
-                      />
-                      <p className="text-sm text-[#3d4578]">Security.</p>
-                    </div>
-                    <div className="flex items-start gap-1">
-                      <EmergencyIcon
-                        fontSize="small"
-                        sx={{ color: "#3d4578" }}
-                      />
-                      <p className="text-sm text-[#3d4578]">Hospital Nearby.</p>
-                    </div>
-                    <div className="flex items-start gap-1">
-                      <FitnessCenterIcon
-                        fontSize="small"
-                        sx={{ color: "#3d4578" }}
-                      />
-                      <p className="text-sm text-[#3d4578]">Gym Nearby.</p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+      
         </div>
       </div>
     </>

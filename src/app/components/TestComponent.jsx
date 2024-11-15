@@ -75,16 +75,21 @@ const TestComponent = () => {
               <CopyToClipboardButton uuid={propertyid} />
             </div>
           </div>
+
+
           <div>
             <p className="font-semibold text-[#3d4578]">{property.title}</p>
           </div>
 
           <ReusableImageViewer property={property} />
-          <div className="my-4 grid grid-cols-12">
+
+          <div className="my-2 grid grid-cols-12">
             <div className="col-span-12 md:col-span-9">
               <PropertyInfoCard property={property} />
             </div>
           </div>
+
+
         </div>
       </div>
     </>
