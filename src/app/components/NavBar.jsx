@@ -18,8 +18,8 @@ const NavBar = () => {
           <NavBarMenu />
         </div>
         <div className="mr-3 flex items-center">
-          <DrawerComponentTwo />
           <DrawerComponent />
+          <DrawerComponentTwo />
         </div>
       </div>
     </>
