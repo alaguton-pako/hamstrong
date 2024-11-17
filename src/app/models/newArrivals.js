@@ -59,7 +59,7 @@ const newArrivals = [
       "One bedroom advance carcass in a serene and secured estate at lifecamp abuja",
     price: "13,500,000",
     category: "house",
-    type: "rent",
+    type: "sale",
     number_of_bedrooms: 1,
     number_of_bathrooms: 1,
     number_of_toilets: 1,
