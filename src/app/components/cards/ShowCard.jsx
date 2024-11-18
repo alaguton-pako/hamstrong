@@ -124,7 +124,7 @@ const ShowCard = ({
             <FavouriteButton uuid={title} location={location} title={title} />
             <Divider orientation="vertical" />
             {/* <span className="text-xs text-gray-400 font-semibold">share : </span> */}
-            {/* <FacebookShareButton
+            <FacebookShareButton
               title={title}
               description={description}
               url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
@@ -133,7 +133,7 @@ const ShowCard = ({
               title={title}
               description={description}
               url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
-            /> */}
+            />
             <WhatsAppShareButton
               title={title}
               description={description}

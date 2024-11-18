@@ -157,15 +157,17 @@ const PropertyCard = ({
             >
               {/* Image Container */}
               <div className="relative w-full md:w-[200px] h-[200px] flex-shrink-0">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    borderRadius: "0.5rem", // Updated for roundness
-                  }}
-                />
+                <Link href={`/properties/${props}/${item.uuid}`}>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "0.5rem", // Updated for roundness
+                    }}
+                  />
+                </Link>
               </div>
               {/* Content Section */}
               <div className="p-4 flex flex-col gap-2">
