@@ -15,16 +15,11 @@ export async function generateMetadata({ params }) {
       description: "This property does not exist.",
     };
   }
-  // Check if `property.image` is a valid string; provide a fallback if not
-  const imageUrl =
-    typeof property.image === "string" && property.image
-      ? property.image
-      : "/opengraph-image.png";
   return {
     title: `${property.title} - ${param}`,
     description: property.description,
     openGraph: {
-      images: [{ url: imageUrl }],
+      images: [{ url: "/opengraph-image.png" }],
     },
   };
 }

@@ -12,12 +12,7 @@ import FavouriteButton from "@/app/components/buttons/FavouriteButton";
 import { Divider, IconButton } from "@mui/material";
 import { propertyData } from "@/app/models/newArrivals";
 import ReusableImageViewer from "./ReusableImageViewer";
-import SecurityIcon from "@mui/icons-material/Security";
-import MosqueIcon from "@mui/icons-material/Mosque";
-import ChurchIcon from "@mui/icons-material/Church";
-import EmergencyIcon from "@mui/icons-material/Emergency";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import Badge from "@mui/material/Badge";
+
 const TestComponent = () => {
   const { param, propertyid } = useParams();
   const property = propertyData.allProperties.find(

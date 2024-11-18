@@ -105,16 +105,18 @@ const Footer = () => {
                 <div className="flex items-start gap-1">
                   <LocationOnSharp fontSize="small" />
                   <p className="text-xs lg:text-md">
-                    VON road lugbe Abuja, Nigeria.
+                    Suite 1A cowries court VON road lugbe Abuja, Nigeria.
                   </p>
                 </div>
                 <div className="flex items-start gap-1">
                   <PhoneAndroid fontSize="small" />
                   <p className="text-xs lg:text-md">07035648652</p>
+                  <p className="text-xs lg:text-md">09073187331</p>
+                  <p className="text-xs lg:text-md">08068699363</p>
                 </div>
                 <div className="flex items-start gap-1">
                   <Email fontSize="small" />
-                  <p className="text-xs lg:text-md">hamstrongrealtyltd@gmail.com</p>
+                  <p className="text-xs lg:text-md">hamstrong0245@gmail.com</p>
                 </div>
               </div>
             </div>

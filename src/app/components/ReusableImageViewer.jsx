@@ -92,7 +92,7 @@ const ReusableImageViewer = ({ property }) => {
                 <div className="flex items-start gap-1">
                   <Email fontSize="small" sx={{ color: "#3d4578" }} />
                   <p className="text-sm text-[#3d4578]">
-                    hamstrongrealtyltd@gmail.com
+                    hamstrong0245@gmail.com
                   </p>
                 </div>
                 <GetInTouchButton
@@ -103,7 +103,6 @@ const ReusableImageViewer = ({ property }) => {
               </div>
             </div>
           </div>
-      
         </div>
       </div>
     </>
