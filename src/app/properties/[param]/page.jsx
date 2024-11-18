@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import DropDownComponent from "@/app/components/formComponents/DropDownComponent";
 import { Divider, Button } from "@mui/material";
 import SearchInput from "@/app/components/formComponents/SearchComponent";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PropertyCard from "@/app/components/cards/PropertyCard";
 import Footer from "@/app/components/Footer";

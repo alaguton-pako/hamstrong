@@ -12,14 +12,18 @@ export async function generateMetadata() {
     description:
       "Hamstrong Realty Limited is a leading real estate development company dedicated to delivering exceptional residential and commercial properties that exceed our clients' expectations with a passion for innovative craftiness.",
     openGraph: {
-      images: [{ url: "/opengraph-image.png" }],
+      images: [
+        { url: "https://hamstrongrealty.netlify.app/opengraph-image.png" },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${pageTitle}`,
       description:
         "Hamstrong Realty Limited is a leading real estate development company dedicated to delivering exceptional residential and commercial properties that exceed our clients' expectations with a passion for innovative craftiness.",
-      images: [{ url: "/opengraph-image.png" }],
+      images: [
+        { url: "https://hamstrongrealty.netlify.app/opengraph-image.png" },
+      ],
     },
   };
 }

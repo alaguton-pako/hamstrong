@@ -19,7 +19,9 @@ export async function generateMetadata({ params }) {
     title: `${property.title} - ${param}`,
     description: property.description,
     openGraph: {
-      images: [{ url: "/opengraph-image.png" }],
+      images: [
+        { url: "https://hamstrongrealty.netlify.app/opengraph-image.png" },
+      ],
     },
   };
 }
