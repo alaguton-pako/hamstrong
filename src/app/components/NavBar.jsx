@@ -10,7 +10,7 @@ const NavBar = () => {
       <div className="w-full bg-white p-2 flex items-center justify-between">
         <Link href={"/"}>
           <div className="flex items-center gap-2 cursor-pointer">
-            <Image src={logo} height={40} width={40} alt="logo" />
+            <Image src={logo} height={30} width={30} alt="logo" />
             <span className="text-sm md:text-md">Hamstrong Realty Limited</span>
           </div>
         </Link>

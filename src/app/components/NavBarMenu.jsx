@@ -2,14 +2,17 @@
 import { useState, useEffect } from "react";
 import { Divider } from "@mui/material";
 import Link from "next/link";
+import AddPostModal from "./AddPostModal";
 
 const NavBarMenu = () => {
   const [showBuyMenu, setShowBuyMenu] = useState(false);
   const [showRentMenu, setShowRentMenu] = useState(false);
   const [showShortletMenu, setShowShortletMenu] = useState(false);
+  const [showRequest, setShowRequest] = useState(false);
   const [isHoveringBuy, setIsHoveringBuy] = useState(false);
   const [isHoveringRent, setIsHoveringRent] = useState(false);
   const [isHoveringShortlet, setIsHoveringShortlet] = useState(false);
+  const [isHoveringRequest, setIsHoveringRequest] = useState(false);
 
   // Hover handlers for "Buy" menu
   const handleMouseEnterBuy = () => setIsHoveringBuy(true);
@@ -22,6 +25,10 @@ const NavBarMenu = () => {
   // Hover handlers for "Shortlet" menu
   const handleMouseEnterShortlet = () => setIsHoveringShortlet(true);
   const handleMouseLeaveShortlet = () => setIsHoveringShortlet(false);
+
+  // Hover handlers for "Shortlet" menu
+  const handleMouseEnterRequest = () => setIsHoveringRequest(true);
+  const handleMouseLeaveRequest = () => setIsHoveringRequest(false);
 
   // Effect to manage the "Buy" submenu visibility
   useEffect(() => {
@@ -55,6 +62,17 @@ const NavBarMenu = () => {
     }
     return () => clearTimeout(timer);
   }, [isHoveringShortlet]);
+
+  // Effect to manage the "Request" submenu visibility
+  useEffect(() => {
+    let timer;
+    if (isHoveringRequest) {
+      setShowRequest(true);
+    } else {
+      timer = setTimeout(() => setShowRequest(false), 150);
+    }
+    return () => clearTimeout(timer);
+  }, [isHoveringRequest]);
 
   const properties = [
     // { name: "Flats & Apartments for sale", path: "flat-apartment" },
@@ -211,6 +229,36 @@ const NavBarMenu = () => {
               >
                 <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
                   All property for Shortlet
+                </li>
+              </Link>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* View and Request For Property */}
+      <div
+        className="relative z-20"
+        onMouseEnter={handleMouseEnterRequest}
+        onMouseLeave={handleMouseLeaveRequest}
+      >
+        <ul className="cursor-pointer">
+          <li className="font-semibold p-0 bg-white text-black hover:hover:text-[#e99767]">
+            Request
+          </li>
+        </ul>
+        {showRequest && (
+          <div className="absolute top-full mt-2 w-[10rem]">
+            <ul className="p-2 bg-white border border-[#ffccaa] rounded-md">
+              <AddPostModal />
+              <Divider />
+              <Link
+                href={{
+                  pathname: `/requests`,
+                }}
+              >
+                <li className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200">
+                  View Requests
                 </li>
               </Link>
             </ul>
