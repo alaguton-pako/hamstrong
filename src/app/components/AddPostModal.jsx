@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AddPost from "./AddPost";
+import { ListItemButton, ListItemText } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -24,9 +25,20 @@ export default function AddPostModal() {
 
   return (
     <div>
+      <li className="block md:hidden">
+        <ListItemButton onClick={handleOpen} sx={{ pl: 4 }}>
+          <ListItemText
+            primary="Make Request"
+            sx={{ color: "text.primary", fontSize: "0.1rem" }}
+            primaryTypographyProps={{
+              fontSize: "0.8rem",
+            }}
+          />
+        </ListItemButton>
+      </li>
       <li
         onClick={handleOpen}
-        className="py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200"
+        className="hidden md:block py-2 px-4 hover:bg-[#ff9a5e] hover:text-white hover:rounded-md cursor-pointer transition duration-200"
       >
         Post a Request
       </li>

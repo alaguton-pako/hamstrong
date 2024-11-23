@@ -10,13 +10,16 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import AttachMoneyOutlined from "@mui/icons-material/AttachMoneyOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import RequestPageIcon from "@mui/icons-material/RequestPage";
 import Link from "next/link";
+import AddPostModal from "./AddPostModal";
 
 export default function MobileNavBarItem() {
   const [open, setOpen] = React.useState({
     buy: false,
     rent: false,
     shortlet: false,
+    request: false,
   });
 
   const handleClick = (category) => {
@@ -171,6 +174,40 @@ export default function MobileNavBarItem() {
               </Link>
             </ListItemButton>
           ))}
+        </List>
+      </Collapse>
+
+      {/* Request Section */}
+      <ListItemButton onClick={() => handleClick("request")}>
+        <ListItemIcon>
+          <RequestPageIcon
+            sx={{ color: open.request ? "#ff9a5e" : "text.secondary" }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary="Request"
+          sx={{ color: open.request ? "#ff9a5e" : "text.secondary" }}
+          primaryTypographyProps={{
+            fontSize: "0.9rem",
+          }}
+        />
+        {open.request ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={open.request} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+       
+            <AddPostModal />
+          <ListItemButton sx={{ pl: 4 }}>
+            <Link href={"/requests"}>
+              <ListItemText
+                primary="View Request"
+                sx={{ color: "text.primary", fontSize: "0.1rem" }}
+                primaryTypographyProps={{
+                  fontSize: "0.8rem",
+                }}
+              />
+            </Link>
+          </ListItemButton>
         </List>
       </Collapse>
     </List>

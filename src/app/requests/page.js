@@ -3,10 +3,9 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { getPosts } from "../models/getPosts";
 import { useState, useEffect } from "react";
-// import HomeLoader from "../components/HomeLoader";
-import Pagination from "@mui/material/Pagination";
 import NairaIcon from "../components/NairaIcon";
 import GetInTouchButton from "../components/buttons/GetInTouchButton";
+import { Divider } from "@mui/material";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -39,6 +38,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
+      <Divider/>
       <div className="w-[90%] mx-auto">
         <div className="flex flex-col gap-3 mt-11">
           <div className="flex items-center justify-between">
@@ -59,9 +59,14 @@ export default function Home() {
                   key={post.id}
                 >
                   <div className="flex flex-col gap-1 mb-2">
-                    <span className="font-semibold text-[#33af67]">Type</span>
+                    <span className="font-semibold text-[#33af67]">Property Type</span>
+                    <h2 className="">{post.type}</h2>
+                  </div>
+                  <div className="flex flex-col gap-1 mb-2">
+                    <span className="font-semibold text-[#33af67]">Category</span>
                     <h2 className="">{post.category}</h2>
                   </div>
+
                   <div className="flex flex-col gap-1 mb-2">
                     <span className="font-semibold text-[#33af67]">
                       Bedrooms
