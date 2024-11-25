@@ -2,7 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import HomeLoader from "./components/HomeLoader.jsx";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ToastContainer position="top-right" autoClose={3000} />
         <Suspense fallback={<HomeLoader />}>{children}</Suspense>
       </body>
     </html>

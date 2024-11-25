@@ -8,10 +8,14 @@ import GetInTouchButton from "../components/buttons/GetInTouchButton";
 import { Button, Divider } from "@mui/material";
 import { formatDate } from "../models/Helper";
 import { updatePost } from "../models/updatePost";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
@@ -23,13 +27,30 @@ export default function Home() {
   }, []);
 
   async function handleUpdate(id) {
-    const updatedData = {
-      isApproved: true,
-    };
+    setIsSubmitting(true); // Start submission process
+    setErrorMessage(""); // Clear previous errors
 
-    // Pass the id directly as a string, not wrapped in an object
-    const response = await updatePost(id, updatedData);
-    alert(response.message);
+    try {
+      const updatedData = {
+        isApproved: true,
+      };
+
+      const response = await updatePost(id, updatedData);
+
+      if (response.success) {
+        // Assuming `response.success` indicates success
+        toast.success(response.message); // Success toast
+      } else {
+        setErrorMessage(response.message || "Update failed"); // Handle API error messages
+        toast.error(response.message || "Update failed");
+      }
+    } catch (error) {
+      console.error("Update error:", error); // Log for debugging
+      setErrorMessage("An error occurred while updating. Please try again.");
+      toast.error("An error occurred while updating. Please try again.");
+    } finally {
+      setIsSubmitting(false); // Stop submission process after completion
+    }
   }
 
   const payLoad = posts.filter((post) => !post.isApproved);

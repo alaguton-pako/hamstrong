@@ -71,7 +71,6 @@ const TestComponent = () => {
             </div>
           </div>
 
-
           <div>
             <p className="font-semibold text-[#3d4578]">{property.title}</p>
           </div>
@@ -83,8 +82,6 @@ const TestComponent = () => {
               <PropertyInfoCard property={property} />
             </div>
           </div>
-
-
         </div>
       </div>
     </>
