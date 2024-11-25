@@ -2,8 +2,26 @@
 import { Button } from "@mui/material";
 import { WhatsApp } from "@mui/icons-material";
 
-const GetInTouchButton = ({ message, imageUrl, text }) => {
-  const phoneNumber = "2347035648652";
+const GetInTouchButton = ({
+  message,
+  imageUrl,
+  text,
+  phoneNumber: customPhoneNumber,
+}) => {
+  const defaultPhoneNumber = "2347035648652"; // Default number
+
+  // Function to ensure country code is present
+  const formatPhoneNumber = (number) => {
+    if (!number) return defaultPhoneNumber; // Fallback if no number is provided
+
+    // Check if the number starts with '234' (Nigeria's country code)
+    return number.startsWith("234") ? number : `234${number}`;
+  };
+
+  const phoneNumber = formatPhoneNumber(
+    customPhoneNumber || defaultPhoneNumber
+  ); // Ensure valid number
+
   const handleClick = () => {
     let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message

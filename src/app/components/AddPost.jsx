@@ -60,11 +60,9 @@ export default function AddPost({ setOpen }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // Reset error and success messages before starting the submission process
     setErrorMessage("");
     setSuccessMessage("");
-
     try {
       // Call the addPost function and await its result
       const response = await addPost(
@@ -161,13 +159,13 @@ export default function AddPost({ setOpen }) {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            onFocus={() => setTooltip("Information will not be made public.")}
+            onFocus={() => setTooltip("personal info will not be made public.")}
             onBlur={() => setTooltip("")}
             required
-            className="p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
           />
           {tooltip && (
-            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-sm">
+            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-xs">
               {tooltip}
             </div>
           )}
@@ -177,7 +175,6 @@ export default function AddPost({ setOpen }) {
         <select
           value={bedrooms}
           onChange={(e) => setBedrooms(e.target.value)}
-          required
           className="p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
         >
           <option value="" disabled>
@@ -207,13 +204,13 @@ export default function AddPost({ setOpen }) {
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            onFocus={() => setTooltip("Information will not be made public.")}
+            onFocus={() => setTooltip("personal info will not be made public.")}
             onBlur={() => setTooltip("")}
             required
-            className="p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
           />
           {tooltip && (
-            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-sm">
+            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-xs">
               {tooltip}
             </div>
           )}
@@ -257,13 +254,13 @@ export default function AddPost({ setOpen }) {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onFocus={() => setTooltip("Information will not be made public.")}
+            onFocus={() => setTooltip("personal info will not be made public.")}
             onBlur={() => setTooltip("")}
             required
-            className="p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#33af67]"
           />
           {tooltip && (
-            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-sm">
+            <div className="absolute top-full mt-1 bg-gray-100 border border-gray-300 p-2 rounded-md shadow-md text-xs">
               {tooltip}
             </div>
           )}

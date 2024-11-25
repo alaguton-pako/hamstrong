@@ -185,3 +185,10 @@ export const calculatePrices = (param, filter = "all") => {
     totalCount: filteredProperties.length,
   };
 };
+
+export function formatDate(timestamp) {
+  // Convert Firestore Timestamp to JavaScript Date
+  const date = new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000);
+  // Format the date as desired (e.g., YYYY-MM-DD or with time)
+  return date.toLocaleString(); // e.g., '12/10/2024, 2:30:00 PM'
+}
