@@ -93,6 +93,11 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-col gap-1 mb-2">
+                    <span className="font-semibold text-[#33af67]">Email</span>
+                    <h2 className="">{post.email}</h2>
+                  </div>
+
+                  <div className="flex flex-col gap-1 mb-2">
                     <span className="font-semibold text-[#33af67]">
                       Property Type
                     </span>

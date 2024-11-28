@@ -269,17 +269,17 @@ const PropertyCard = ({
                   <FacebookShareButton
                     title={item.title}
                     description={item.description}
-                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
+                    url={`https://hamstrongrealty.netlify.app/properties/all-properties/${item.uuid}`}
                   />
                   <TwitterShareButton
                     title={item.title}
                     description={item.description}
-                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
+                    url={`https://hamstrongrealty.netlify.app/properties/all-properties/${item.uuid}`}
                   />
                   <WhatsAppShareButton
                     title={item.title}
                     description={item.description}
-                    url={`https://hamstrongrealty.netlify.app/all-properties/${item.uuid}`}
+                    url={`https://hamstrongrealty.netlify.app/properties/all-properties/${item.uuid}`}
                   />
                   <CopyToClipboardButton uuid={item.uuid} />
                 </div>

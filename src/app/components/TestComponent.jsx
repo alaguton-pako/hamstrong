@@ -55,17 +55,17 @@ const TestComponent = () => {
               <FacebookShareButton
                 title={property.title}
                 description={property.description}
-                url={`https://hamstrongrealty.netlify.app/properties/all-properties${property.uuid}`}
+                url={`https://hamstrongrealty.netlify.app/properties/all-properties/${property.uuid}`}
               />
               <TwitterShareButton
                 title={property.title}
                 description={property.description}
-                url={`https://hamstrongrealty.netlify.app/properties/all-properties${property.uuid}`}
+                url={`https://hamstrongrealty.netlify.app/properties/all-properties/${property.uuid}`}
               />
               <WhatsAppShareButton
                 title={property.title}
                 description={property.description}
-                url={`https://hamstrongrealty.netlify.app/properties/all-properties${property.uuid}`}
+                url={`https://hamstrongrealty.netlify.app/properties/all-properties/${property.uuid}`}
               />
               <CopyToClipboardButton uuid={propertyid} />
             </div>

@@ -127,17 +127,17 @@ const ShowCard = ({
             <FacebookShareButton
               title={title}
               description={description}
-              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
+              url={`https://hamstrongrealty.netlify.app/properties/all-properties/${uuid}`}
             />
             <TwitterShareButton
               title={title}
               description={description}
-              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
+              url={`https://hamstrongrealty.netlify.app/properties/all-properties/${uuid}`}
             />
             <WhatsAppShareButton
               title={title}
               description={description}
-              url={`https://hamstrongrealty.netlify.app/all-properties/${uuid}`}
+              url={`https://hamstrongrealty.netlify.app/properties/all-properties/${uuid}`}
             />
             <CopyToClipboardButton uuid={uuid} />
           </div>
