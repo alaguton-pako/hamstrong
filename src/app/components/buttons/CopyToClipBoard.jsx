@@ -2,6 +2,7 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import LinkIcon from "@mui/icons-material/Link";
 import { Tooltip } from "@mui/material";
+import { toast } from "react-toastify";
 
 const CopyToClipboardButton = ({ uuid }) => {
   const baseUrl =
@@ -12,10 +13,11 @@ const CopyToClipboardButton = ({ uuid }) => {
     navigator.clipboard
       .writeText(propertyUrl)
       .then(() => {
-        alert("Link copied to clipboard!");
+        toast.info("Link copied to clipboard!");
       })
       .catch((err) => {
         console.error("Failed to copy: ", err);
+        toast.error("Failed to copy at the moment, please try again later");
       });
   };
 
